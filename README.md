@@ -159,7 +159,7 @@
 
 ### 前置要求
 
-- Python 3.8+
+- Python 3.8+ <3.13   # macos使用3.11成功
 - Node.js 16+
 - pip
 - npm 或 yarn
