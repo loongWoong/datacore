@@ -5,6 +5,8 @@ dbt_packages/
 .env
 .venv/
 venv/
+myenv/
+.myenv/
 __pycache__/
 *.pyc
 

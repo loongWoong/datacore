@@ -24271,3 +24271,2481 @@ https://docs.getdbt.com/docs/configure-your-profile
 [0m05:48:05.664907 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7627b091a4e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7627ade1b200>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7627ae007b00>]}
 [0m05:48:05.665235 [debug] [MainThread]: Flushing usage events
 [0m05:48:07.599476 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:05:33.425545 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016D59D8AA10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016D59D89290>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016D59D89790>]}
+
+
+============================== 11:05:33.525186 | df33a8d6-bd17-4549-a4b2-9e346471fc5c ==============================
+[0m11:05:33.525186 [info ] [MainThread]: Running with dbt=1.10.15
+[0m11:05:33.525186 [debug] [MainThread]: running dbt with arguments {'invocation_command': 'dbt run', 'target_path': 'None', 'no_print': 'None', 'log_format': 'default', 'printer_width': '80', 'warn_error': 'None', 'static_parser': 'True', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'indirect_selection': 'eager', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_path': 'C:\\Users\\leon\\Downloads\\datacore\\logs', 'version_check': 'True', 'use_experimental_parser': 'False', 'quiet': 'False', 'introspect': 'True', 'empty': 'False', 'log_cache_events': 'False', 'debug': 'False', 'profiles_dir': 'C:\\Users\\leon\\Downloads\\datacore', 'use_colors': 'True', 'cache_selected_only': 'False', 'write_json': 'True'}
+[0m11:05:35.612159 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'df33a8d6-bd17-4549-a4b2-9e346471fc5c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016D5993DD50>]}
+[0m11:05:35.662880 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'df33a8d6-bd17-4549-a4b2-9e346471fc5c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016D56A78C10>]}
+[0m11:05:35.693866 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m11:05:36.174601 [debug] [MainThread]: checksum: 14a228079bd6df63ba81633f9a3cf44ecfaa31056ac397c602753ec895dbf885, vars: {}, profile: , target: , version: 1.10.15
+[0m11:05:36.191561 [error] [MainThread]: Encountered an error:
+'gbk' codec can't decode byte 0x80 in position 780: illegal multibyte sequence
+[0m11:05:36.193124 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\leon\Downloads\datacore\myenv\Lib\site-packages\dbt\cli\requires.py", line 178, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\leon\Downloads\datacore\myenv\Lib\site-packages\dbt\cli\requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\leon\Downloads\datacore\myenv\Lib\site-packages\dbt\cli\requires.py", line 272, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\leon\Downloads\datacore\myenv\Lib\site-packages\dbt\cli\requires.py", line 303, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\leon\Downloads\datacore\myenv\Lib\site-packages\dbt\cli\requires.py", line 373, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\leon\Downloads\datacore\myenv\Lib\site-packages\dbt\cli\requires.py", line 350, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\leon\Downloads\datacore\myenv\Lib\site-packages\dbt\cli\requires.py", line 389, in wrapper
+    setup_manifest(ctx, write=write, write_perf_info=write_perf_info)
+  File "C:\Users\leon\Downloads\datacore\myenv\Lib\site-packages\dbt\cli\requires.py", line 416, in setup_manifest
+    ctx.obj["manifest"] = parse_manifest(
+                          ^^^^^^^^^^^^^^^
+  File "C:\Users\leon\Downloads\datacore\myenv\Lib\site-packages\dbt\parser\manifest.py", line 2123, in parse_manifest
+    manifest = ManifestLoader.get_full_manifest(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\leon\Downloads\datacore\myenv\Lib\site-packages\dbt\parser\manifest.py", line 313, in get_full_manifest
+    loader = cls(
+             ^^^^
+  File "C:\Users\leon\Downloads\datacore\myenv\Lib\site-packages\dbt\parser\manifest.py", line 264, in __init__
+    self.manifest.state_check = self.build_manifest_state_check()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\leon\Downloads\datacore\myenv\Lib\site-packages\dbt\parser\manifest.py", line 1062, in build_manifest_state_check
+    project_hashes[name] = FileHash.from_contents(fp.read())
+                                                  ^^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0x80 in position 780: illegal multibyte sequence
+
+[0m11:05:36.193124 [debug] [MainThread]: Command `dbt run` failed at 11:05:36.193124 after 2.87 seconds
+[0m11:05:36.193124 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016D59DE3050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016D5993DB10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016D59E4DDD0>]}
+[0m11:05:36.193124 [debug] [MainThread]: Flushing usage events
+[0m11:05:39.775036 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:09:09.412641 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266EE9D7910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266EE9D7CD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266EE9D5AD0>]}
+
+
+============================== 11:09:09.415740 | dff20ea5-64a6-496a-a859-20f3b22f410b ==============================
+[0m11:09:09.415740 [info ] [MainThread]: Running with dbt=1.10.15
+[0m11:09:09.416743 [debug] [MainThread]: running dbt with arguments {'invocation_command': 'dbt run', 'profiles_dir': 'C:\\Users\\leon\\Downloads\\datacore', 'target_path': 'None', 'log_format': 'default', 'printer_width': '80', 'warn_error': 'None', 'indirect_selection': 'eager', 'partial_parse': 'True', 'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'log_path': 'C:\\Users\\leon\\Downloads\\datacore\\logs', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'use_experimental_parser': 'False', 'version_check': 'True', 'quiet': 'False', 'introspect': 'True', 'empty': 'False', 'log_cache_events': 'False', 'debug': 'False', 'no_print': 'None', 'use_colors': 'True', 'cache_selected_only': 'False', 'write_json': 'True'}
+[0m11:09:09.637685 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266EFBB4B50>]}
+[0m11:09:09.690292 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266EB6C5650>]}
+[0m11:09:09.692292 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m11:09:10.010964 [debug] [MainThread]: checksum: 14a228079bd6df63ba81633f9a3cf44ecfaa31056ac397c602753ec895dbf885, vars: {}, profile: , target: , version: 1.10.15
+[0m11:09:10.011964 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m11:09:10.012964 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266EFE23B90>]}
+[0m11:09:12.280181 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266F05CEC50>]}
+[0m11:09:12.426049 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\leon\Downloads\datacore\target\manifest.json
+[0m11:09:12.432136 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\leon\Downloads\datacore\target\semantic_manifest.json
+[0m11:09:12.682197 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266EEB21C50>]}
+[0m11:09:12.683205 [info ] [MainThread]: Found 20 models, 15 data tests, 1 seed, 4 sources, 11 metrics, 476 macros, 1 semantic model
+[0m11:09:12.684242 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266ED61A450>]}
+[0m11:09:12.686451 [info ] [MainThread]: 
+[0m11:09:12.687476 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m11:09:12.687476 [info ] [MainThread]: 
+[0m11:09:12.688476 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m11:09:12.709946 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_datacore'
+[0m11:09:12.967412 [debug] [ThreadPool]: Using duckdb connection "list_datacore"
+[0m11:09:12.968411 [debug] [ThreadPool]: On list_datacore: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "list_datacore"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"datacore"'
+    
+  
+  
+[0m11:09:12.968411 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:09:13.273723 [debug] [ThreadPool]: SQL status: OK in 0.306 seconds
+[0m11:09:13.286503 [debug] [ThreadPool]: On list_datacore: Close
+[0m11:09:13.289504 [debug] [ThreadPool]: Using duckdb connection "list_datacore"
+[0m11:09:13.289504 [debug] [ThreadPool]: On list_datacore: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "list_datacore"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"datacore"'
+    
+  
+  
+[0m11:09:13.289504 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:09:13.290504 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m11:09:13.292505 [debug] [ThreadPool]: On list_datacore: Close
+[0m11:09:13.293505 [debug] [ThreadPool]: Using duckdb connection "list_datacore"
+[0m11:09:13.294504 [debug] [ThreadPool]: On list_datacore: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "list_datacore"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"datacore"'
+    
+  
+  
+[0m11:09:13.294504 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:09:13.295579 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m11:09:13.296581 [debug] [ThreadPool]: On list_datacore: Close
+[0m11:09:13.298633 [debug] [ThreadPool]: Using duckdb connection "list_datacore"
+[0m11:09:13.298633 [debug] [ThreadPool]: On list_datacore: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "list_datacore"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"datacore"'
+    
+  
+  
+[0m11:09:13.299632 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:09:13.300633 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m11:09:13.301140 [debug] [ThreadPool]: On list_datacore: Close
+[0m11:09:13.303145 [debug] [ThreadPool]: Using duckdb connection "list_datacore"
+[0m11:09:13.304145 [debug] [ThreadPool]: On list_datacore: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "list_datacore"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"datacore"'
+    
+  
+  
+[0m11:09:13.304145 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:09:13.305145 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m11:09:13.306323 [debug] [ThreadPool]: On list_datacore: Close
+[0m11:09:13.308326 [debug] [ThreadPool]: Using duckdb connection "list_datacore"
+[0m11:09:13.308326 [debug] [ThreadPool]: On list_datacore: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "list_datacore"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"datacore"'
+    
+  
+  
+[0m11:09:13.309326 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:09:13.310326 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m11:09:13.311324 [debug] [ThreadPool]: On list_datacore: Close
+[0m11:09:13.312242 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_datacore, now create_datacore_main_ads)
+[0m11:09:13.324110 [debug] [ThreadPool]: Creating schema "database: "datacore"
+schema: "main_ads"
+"
+[0m11:09:13.330249 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_ads"
+[0m11:09:13.330249 [debug] [ThreadPool]: On create_datacore_main_ads: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "create_datacore_main_ads"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='datacore'
+        and type='sqlite'
+    
+  
+[0m11:09:13.331250 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:09:13.332575 [debug] [ThreadPool]: SQL status: OK in 0.002 seconds
+[0m11:09:13.333614 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_ads"
+[0m11:09:13.334584 [debug] [ThreadPool]: On create_datacore_main_ads: BEGIN
+[0m11:09:13.334584 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m11:09:13.335784 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_ads"
+[0m11:09:13.335784 [debug] [ThreadPool]: On create_datacore_main_ads: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "create_datacore_main_ads"} */
+
+    
+    
+        create schema if not exists "datacore"."main_ads"
+    
+[0m11:09:13.336786 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m11:09:13.337786 [debug] [ThreadPool]: On create_datacore_main_ads: COMMIT
+[0m11:09:13.337786 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_ads"
+[0m11:09:13.337786 [debug] [ThreadPool]: On create_datacore_main_ads: COMMIT
+[0m11:09:13.639754 [debug] [ThreadPool]: SQL status: OK in 0.301 seconds
+[0m11:09:13.639754 [debug] [ThreadPool]: On create_datacore_main_ads: Close
+[0m11:09:13.640757 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_datacore_main_ads, now create_datacore_main_metadata)
+[0m11:09:13.640757 [debug] [ThreadPool]: Creating schema "database: "datacore"
+schema: "main_metadata"
+"
+[0m11:09:13.643755 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_metadata"
+[0m11:09:13.644755 [debug] [ThreadPool]: On create_datacore_main_metadata: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "create_datacore_main_metadata"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='datacore'
+        and type='sqlite'
+    
+  
+[0m11:09:13.644755 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:09:13.645854 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m11:09:13.646856 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_metadata"
+[0m11:09:13.647857 [debug] [ThreadPool]: On create_datacore_main_metadata: BEGIN
+[0m11:09:13.647857 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m11:09:13.648856 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_metadata"
+[0m11:09:13.648856 [debug] [ThreadPool]: On create_datacore_main_metadata: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "create_datacore_main_metadata"} */
+
+    
+    
+        create schema if not exists "datacore"."main_metadata"
+    
+[0m11:09:13.649856 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m11:09:13.649856 [debug] [ThreadPool]: On create_datacore_main_metadata: COMMIT
+[0m11:09:13.650860 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_metadata"
+[0m11:09:13.650860 [debug] [ThreadPool]: On create_datacore_main_metadata: COMMIT
+[0m11:09:13.672476 [debug] [ThreadPool]: SQL status: OK in 0.021 seconds
+[0m11:09:13.673474 [debug] [ThreadPool]: On create_datacore_main_metadata: Close
+[0m11:09:13.674472 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_datacore_main_metadata, now create_datacore_main_dwd)
+[0m11:09:13.674472 [debug] [ThreadPool]: Creating schema "database: "datacore"
+schema: "main_dwd"
+"
+[0m11:09:13.676595 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_dwd"
+[0m11:09:13.676595 [debug] [ThreadPool]: On create_datacore_main_dwd: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "create_datacore_main_dwd"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='datacore'
+        and type='sqlite'
+    
+  
+[0m11:09:13.677615 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:09:13.678616 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m11:09:13.679616 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_dwd"
+[0m11:09:13.679616 [debug] [ThreadPool]: On create_datacore_main_dwd: BEGIN
+[0m11:09:13.680615 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m11:09:13.680615 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_dwd"
+[0m11:09:13.681613 [debug] [ThreadPool]: On create_datacore_main_dwd: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "create_datacore_main_dwd"} */
+
+    
+    
+        create schema if not exists "datacore"."main_dwd"
+    
+[0m11:09:13.681613 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m11:09:13.682616 [debug] [ThreadPool]: On create_datacore_main_dwd: COMMIT
+[0m11:09:13.682616 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_dwd"
+[0m11:09:13.683614 [debug] [ThreadPool]: On create_datacore_main_dwd: COMMIT
+[0m11:09:13.706426 [debug] [ThreadPool]: SQL status: OK in 0.022 seconds
+[0m11:09:13.706426 [debug] [ThreadPool]: On create_datacore_main_dwd: Close
+[0m11:09:13.707428 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_datacore_main_dwd, now create_datacore_main_staging)
+[0m11:09:13.707428 [debug] [ThreadPool]: Creating schema "database: "datacore"
+schema: "main_staging"
+"
+[0m11:09:13.709427 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_staging"
+[0m11:09:13.710429 [debug] [ThreadPool]: On create_datacore_main_staging: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "create_datacore_main_staging"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='datacore'
+        and type='sqlite'
+    
+  
+[0m11:09:13.710429 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:09:13.711427 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m11:09:13.712427 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_staging"
+[0m11:09:13.713427 [debug] [ThreadPool]: On create_datacore_main_staging: BEGIN
+[0m11:09:13.713427 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m11:09:13.714428 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_staging"
+[0m11:09:13.714428 [debug] [ThreadPool]: On create_datacore_main_staging: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "create_datacore_main_staging"} */
+
+    
+    
+        create schema if not exists "datacore"."main_staging"
+    
+[0m11:09:13.715490 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m11:09:13.715490 [debug] [ThreadPool]: On create_datacore_main_staging: COMMIT
+[0m11:09:13.716566 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_staging"
+[0m11:09:13.716566 [debug] [ThreadPool]: On create_datacore_main_staging: COMMIT
+[0m11:09:13.740004 [debug] [ThreadPool]: SQL status: OK in 0.022 seconds
+[0m11:09:13.740509 [debug] [ThreadPool]: On create_datacore_main_staging: Close
+[0m11:09:13.740509 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_datacore_main_staging, now create_datacore_main_dws)
+[0m11:09:13.741515 [debug] [ThreadPool]: Creating schema "database: "datacore"
+schema: "main_dws"
+"
+[0m11:09:13.743515 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_dws"
+[0m11:09:13.743515 [debug] [ThreadPool]: On create_datacore_main_dws: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "create_datacore_main_dws"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='datacore'
+        and type='sqlite'
+    
+  
+[0m11:09:13.744514 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:09:13.745572 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m11:09:13.746574 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_dws"
+[0m11:09:13.746574 [debug] [ThreadPool]: On create_datacore_main_dws: BEGIN
+[0m11:09:13.747615 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m11:09:13.747615 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_dws"
+[0m11:09:13.747615 [debug] [ThreadPool]: On create_datacore_main_dws: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "create_datacore_main_dws"} */
+
+    
+    
+        create schema if not exists "datacore"."main_dws"
+    
+[0m11:09:13.748615 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m11:09:13.749614 [debug] [ThreadPool]: On create_datacore_main_dws: COMMIT
+[0m11:09:13.749614 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_dws"
+[0m11:09:13.750615 [debug] [ThreadPool]: On create_datacore_main_dws: COMMIT
+[0m11:09:13.772866 [debug] [ThreadPool]: SQL status: OK in 0.022 seconds
+[0m11:09:13.772866 [debug] [ThreadPool]: On create_datacore_main_dws: Close
+[0m11:09:13.773865 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_datacore_main_dws, now create_datacore_main_ods)
+[0m11:09:13.774865 [debug] [ThreadPool]: Creating schema "database: "datacore"
+schema: "main_ods"
+"
+[0m11:09:13.775976 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_ods"
+[0m11:09:13.776978 [debug] [ThreadPool]: On create_datacore_main_ods: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "create_datacore_main_ods"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='datacore'
+        and type='sqlite'
+    
+  
+[0m11:09:13.776978 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:09:13.777978 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m11:09:13.778979 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_ods"
+[0m11:09:13.779977 [debug] [ThreadPool]: On create_datacore_main_ods: BEGIN
+[0m11:09:13.779977 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m11:09:13.780978 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_ods"
+[0m11:09:13.780978 [debug] [ThreadPool]: On create_datacore_main_ods: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "create_datacore_main_ods"} */
+
+    
+    
+        create schema if not exists "datacore"."main_ods"
+    
+[0m11:09:13.781978 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m11:09:13.782977 [debug] [ThreadPool]: On create_datacore_main_ods: COMMIT
+[0m11:09:13.782977 [debug] [ThreadPool]: Using duckdb connection "create_datacore_main_ods"
+[0m11:09:13.782977 [debug] [ThreadPool]: On create_datacore_main_ods: COMMIT
+[0m11:09:13.805619 [debug] [ThreadPool]: SQL status: OK in 0.022 seconds
+[0m11:09:13.806619 [debug] [ThreadPool]: On create_datacore_main_ods: Close
+[0m11:09:13.808617 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_datacore_main_ads'
+[0m11:09:13.813649 [debug] [ThreadPool]: Using duckdb connection "list_datacore_main_ads"
+[0m11:09:13.813649 [debug] [ThreadPool]: On list_datacore_main_ads: BEGIN
+[0m11:09:13.814649 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:09:13.814649 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m11:09:13.815615 [debug] [ThreadPool]: Using duckdb connection "list_datacore_main_ads"
+[0m11:09:13.815615 [debug] [ThreadPool]: On list_datacore_main_ads: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "list_datacore_main_ads"} */
+select
+      'datacore' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_ads'
+    and lower(table_catalog) = 'datacore'
+  
+[0m11:09:13.968736 [debug] [ThreadPool]: SQL status: OK in 0.152 seconds
+[0m11:09:13.969782 [debug] [ThreadPool]: On list_datacore_main_ads: ROLLBACK
+[0m11:09:13.980041 [debug] [ThreadPool]: Failed to rollback 'list_datacore_main_ads'
+[0m11:09:13.981040 [debug] [ThreadPool]: On list_datacore_main_ads: Close
+[0m11:09:13.981040 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_datacore_main_ads, now list_datacore_main_metadata)
+[0m11:09:13.983042 [debug] [ThreadPool]: Using duckdb connection "list_datacore_main_metadata"
+[0m11:09:13.984042 [debug] [ThreadPool]: On list_datacore_main_metadata: BEGIN
+[0m11:09:13.984042 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:09:13.985113 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m11:09:13.985113 [debug] [ThreadPool]: Using duckdb connection "list_datacore_main_metadata"
+[0m11:09:13.985113 [debug] [ThreadPool]: On list_datacore_main_metadata: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "list_datacore_main_metadata"} */
+select
+      'datacore' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_metadata'
+    and lower(table_catalog) = 'datacore'
+  
+[0m11:09:13.989149 [debug] [ThreadPool]: SQL status: OK in 0.003 seconds
+[0m11:09:13.990151 [debug] [ThreadPool]: On list_datacore_main_metadata: ROLLBACK
+[0m11:09:13.991150 [debug] [ThreadPool]: Failed to rollback 'list_datacore_main_metadata'
+[0m11:09:13.991150 [debug] [ThreadPool]: On list_datacore_main_metadata: Close
+[0m11:09:13.992150 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_datacore_main_metadata, now list_datacore_main_dwd)
+[0m11:09:13.993151 [debug] [ThreadPool]: Using duckdb connection "list_datacore_main_dwd"
+[0m11:09:13.994153 [debug] [ThreadPool]: On list_datacore_main_dwd: BEGIN
+[0m11:09:13.994153 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:09:13.995213 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m11:09:13.995213 [debug] [ThreadPool]: Using duckdb connection "list_datacore_main_dwd"
+[0m11:09:13.996274 [debug] [ThreadPool]: On list_datacore_main_dwd: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "list_datacore_main_dwd"} */
+select
+      'datacore' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_dwd'
+    and lower(table_catalog) = 'datacore'
+  
+[0m11:09:13.999275 [debug] [ThreadPool]: SQL status: OK in 0.003 seconds
+[0m11:09:14.000277 [debug] [ThreadPool]: On list_datacore_main_dwd: ROLLBACK
+[0m11:09:14.000277 [debug] [ThreadPool]: Failed to rollback 'list_datacore_main_dwd'
+[0m11:09:14.000277 [debug] [ThreadPool]: On list_datacore_main_dwd: Close
+[0m11:09:14.001784 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_datacore_main_dwd, now list_datacore_main_staging)
+[0m11:09:14.003791 [debug] [ThreadPool]: Using duckdb connection "list_datacore_main_staging"
+[0m11:09:14.004794 [debug] [ThreadPool]: On list_datacore_main_staging: BEGIN
+[0m11:09:14.004794 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:09:14.005902 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m11:09:14.005902 [debug] [ThreadPool]: Using duckdb connection "list_datacore_main_staging"
+[0m11:09:14.005902 [debug] [ThreadPool]: On list_datacore_main_staging: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "list_datacore_main_staging"} */
+select
+      'datacore' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_staging'
+    and lower(table_catalog) = 'datacore'
+  
+[0m11:09:14.009905 [debug] [ThreadPool]: SQL status: OK in 0.003 seconds
+[0m11:09:14.010904 [debug] [ThreadPool]: On list_datacore_main_staging: ROLLBACK
+[0m11:09:14.010904 [debug] [ThreadPool]: Failed to rollback 'list_datacore_main_staging'
+[0m11:09:14.011903 [debug] [ThreadPool]: On list_datacore_main_staging: Close
+[0m11:09:14.011903 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_datacore_main_staging, now list_datacore_main_dws)
+[0m11:09:14.013903 [debug] [ThreadPool]: Using duckdb connection "list_datacore_main_dws"
+[0m11:09:14.013903 [debug] [ThreadPool]: On list_datacore_main_dws: BEGIN
+[0m11:09:14.014903 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:09:14.014903 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m11:09:14.015999 [debug] [ThreadPool]: Using duckdb connection "list_datacore_main_dws"
+[0m11:09:14.015999 [debug] [ThreadPool]: On list_datacore_main_dws: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "list_datacore_main_dws"} */
+select
+      'datacore' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_dws'
+    and lower(table_catalog) = 'datacore'
+  
+[0m11:09:14.019001 [debug] [ThreadPool]: SQL status: OK in 0.003 seconds
+[0m11:09:14.021001 [debug] [ThreadPool]: On list_datacore_main_dws: ROLLBACK
+[0m11:09:14.021001 [debug] [ThreadPool]: Failed to rollback 'list_datacore_main_dws'
+[0m11:09:14.021999 [debug] [ThreadPool]: On list_datacore_main_dws: Close
+[0m11:09:14.021999 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_datacore_main_dws, now list_datacore_main_ods)
+[0m11:09:14.024000 [debug] [ThreadPool]: Using duckdb connection "list_datacore_main_ods"
+[0m11:09:14.024000 [debug] [ThreadPool]: On list_datacore_main_ods: BEGIN
+[0m11:09:14.025061 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:09:14.025061 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m11:09:14.026063 [debug] [ThreadPool]: Using duckdb connection "list_datacore_main_ods"
+[0m11:09:14.026063 [debug] [ThreadPool]: On list_datacore_main_ods: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "list_datacore_main_ods"} */
+select
+      'datacore' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_ods'
+    and lower(table_catalog) = 'datacore'
+  
+[0m11:09:14.029104 [debug] [ThreadPool]: SQL status: OK in 0.003 seconds
+[0m11:09:14.032104 [debug] [ThreadPool]: On list_datacore_main_ods: ROLLBACK
+[0m11:09:14.032104 [debug] [ThreadPool]: Failed to rollback 'list_datacore_main_ods'
+[0m11:09:14.033104 [debug] [ThreadPool]: On list_datacore_main_ods: Close
+[0m11:09:14.033104 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_datacore_main_ods, now list_datacore_main)
+[0m11:09:14.035192 [debug] [ThreadPool]: Using duckdb connection "list_datacore_main"
+[0m11:09:14.035192 [debug] [ThreadPool]: On list_datacore_main: BEGIN
+[0m11:09:14.036300 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:09:14.036300 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m11:09:14.037326 [debug] [ThreadPool]: Using duckdb connection "list_datacore_main"
+[0m11:09:14.037326 [debug] [ThreadPool]: On list_datacore_main: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "connection_name": "list_datacore_main"} */
+select
+      'datacore' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'datacore'
+  
+[0m11:09:14.041330 [debug] [ThreadPool]: SQL status: OK in 0.003 seconds
+[0m11:09:14.042326 [debug] [ThreadPool]: On list_datacore_main: ROLLBACK
+[0m11:09:14.043326 [debug] [ThreadPool]: Failed to rollback 'list_datacore_main'
+[0m11:09:14.043326 [debug] [ThreadPool]: On list_datacore_main: Close
+[0m11:09:14.044325 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266F029D350>]}
+[0m11:09:14.045325 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:09:14.045393 [debug] [MainThread]: On master: BEGIN
+[0m11:09:14.045393 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:09:14.046395 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m11:09:14.046395 [debug] [MainThread]: On master: COMMIT
+[0m11:09:14.047436 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:09:14.047436 [debug] [MainThread]: On master: COMMIT
+[0m11:09:14.048435 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m11:09:14.048435 [debug] [MainThread]: On master: Close
+[0m11:09:14.104307 [debug] [Thread-1 (]: Began running node model.datacore.meta_column_info
+[0m11:09:14.105301 [info ] [Thread-1 (]: 1 of 20 START sql table model main_metadata.meta_column_info ................... [RUN]
+[0m11:09:14.106301 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.datacore.meta_column_info'
+[0m11:09:14.106301 [debug] [Thread-1 (]: Began compiling node model.datacore.meta_column_info
+[0m11:09:14.115356 [debug] [Thread-1 (]: Writing injected SQL for node "model.datacore.meta_column_info"
+[0m11:09:14.117410 [debug] [Thread-1 (]: Began executing node model.datacore.meta_column_info
+[0m11:09:14.142608 [debug] [Thread-1 (]: Writing runtime sql for node "model.datacore.meta_column_info"
+[0m11:09:14.144610 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_column_info"
+[0m11:09:14.145699 [debug] [Thread-1 (]: On model.datacore.meta_column_info: BEGIN
+[0m11:09:14.145699 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m11:09:14.146703 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:14.146703 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_column_info"
+[0m11:09:14.147701 [debug] [Thread-1 (]: On model.datacore.meta_column_info: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.meta_column_info"} */
+
+  
+    
+    
+
+    create  table
+      "datacore"."main_metadata"."meta_column_info__dbt_tmp"
+  
+    as (
+      -- 元数据管理：字段信息表（自动化生成）
+-- 功能：从 dbt graph 自动提取所有数据表字段的元数据信息
+-- 字段中文名从 schema.yml 的 columns meta 字段获取
+
+
+
+SELECT 'main_ads' AS schema_name, 'ads_quality_monitoring_dashboard' AS table_name, 'transaction_date' AS column_name, '交易日期' AS column_name_cn, '交易日期' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_ads' AS schema_name, 'ads_quality_monitoring_dashboard' AS table_name, 'normal_rate' AS column_name, '正常交易率' AS column_name_cn, '正常交易率' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_ads' AS schema_name, 'ads_quality_monitoring_dashboard' AS table_name, 'data_quality_rate' AS column_name, '数据质量率' AS column_name_cn, '数据质量率' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_ads' AS schema_name, 'ads_quality_monitoring_dashboard' AS table_name, 'alert_status' AS column_name, '告警状态' AS column_name_cn, '告警状态：正常/告警' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_ads' AS schema_name, 'ads_toll_revenue_report' AS table_name, 'transaction_date' AS column_name, '交易日期' AS column_name_cn, '交易日期' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_ads' AS schema_name, 'ads_toll_revenue_report' AS table_name, 'city' AS column_name, '城市' AS column_name_cn, '城市' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_ads' AS schema_name, 'ads_toll_revenue_report' AS table_name, 'daily_revenue' AS column_name, '日收入' AS column_name_cn, '日收入（元）' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_ads' AS schema_name, 'ads_toll_revenue_report' AS table_name, 'daily_transactions' AS column_name, '日交易笔数' AS column_name_cn, '日交易笔数' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_ads' AS schema_name, 'ads_toll_revenue_report' AS table_name, 'normal_rate' AS column_name, '正常交易率' AS column_name_cn, '正常交易率' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_ads' AS schema_name, 'ads_traffic_trend_analysis' AS table_name, 'transaction_date' AS column_name, '交易日期' AS column_name_cn, '交易日期' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_ads' AS schema_name, 'ads_traffic_trend_analysis' AS table_name, 'daily_vehicles' AS column_name, '日车流量' AS column_name_cn, '日车流量' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_ads' AS schema_name, 'ads_traffic_trend_analysis' AS table_name, 'etc_usage_rate' AS column_name, 'ETC使用率' AS column_name_cn, 'ETC使用率' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dwd' AS schema_name, 'dwd_toll_transaction_detail' AS table_name, 'transaction_id' AS column_name, '交易ID' AS column_name_cn, '交易ID' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dwd' AS schema_name, 'dwd_toll_transaction_detail' AS table_name, 'station_id' AS column_name, '收费站ID' AS column_name_cn, '收费站ID' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dwd' AS schema_name, 'dwd_toll_transaction_detail' AS table_name, 'station_name' AS column_name, '收费站名称' AS column_name_cn, '收费站名称' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dwd' AS schema_name, 'dwd_toll_transaction_detail' AS table_name, 'city' AS column_name, '所属城市' AS column_name_cn, '所属城市' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dwd' AS schema_name, 'dwd_toll_transaction_detail' AS table_name, 'vehicle_plate' AS column_name, '车牌号' AS column_name_cn, '车牌号' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dwd' AS schema_name, 'dwd_toll_transaction_detail' AS table_name, 'vehicle_type_name' AS column_name, '车型名称' AS column_name_cn, '车型名称' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dwd' AS schema_name, 'dwd_toll_transaction_detail' AS table_name, 'toll_amount' AS column_name, '应收金额' AS column_name_cn, '应收金额（元）' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dwd' AS schema_name, 'dwd_toll_transaction_detail' AS table_name, 'actual_amount' AS column_name, '实收金额' AS column_name_cn, '实收金额（元）' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dwd' AS schema_name, 'dwd_toll_transaction_detail' AS table_name, 'transaction_date' AS column_name, '交易日期' AS column_name_cn, '交易日期' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dwd' AS schema_name, 'dwd_toll_transaction_detail' AS table_name, 'time_period' AS column_name, '时段分类' AS column_name_cn, '时段分类：早高峰/晚高峰/平峰/夜间' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dwd' AS schema_name, 'dwd_toll_transaction_detail' AS table_name, 'day_type' AS column_name, '日期类型' AS column_name_cn, '日期类型：工作日/周末' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dws' AS schema_name, 'dws_station_performance_daily' AS table_name, 'transaction_date' AS column_name, '交易日期' AS column_name_cn, '交易日期' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dws' AS schema_name, 'dws_station_performance_daily' AS table_name, 'station_id' AS column_name, '收费站ID' AS column_name_cn, '收费站ID' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dws' AS schema_name, 'dws_station_performance_daily' AS table_name, 'total_revenue' AS column_name, '日收入' AS column_name_cn, '日收入（元）' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dws' AS schema_name, 'dws_station_performance_daily' AS table_name, 'normal_rate' AS column_name, '正常交易率' AS column_name_cn, '正常交易率' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dws' AS schema_name, 'dws_station_performance_daily' AS table_name, 'data_quality_rate' AS column_name, '数据质量率' AS column_name_cn, '数据质量率' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dws' AS schema_name, 'dws_station_performance_daily' AS table_name, 'etc_rate' AS column_name, 'ETC使用率' AS column_name_cn, 'ETC使用率' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dws' AS schema_name, 'dws_toll_revenue_daily' AS table_name, 'transaction_date' AS column_name, '交易日期' AS column_name_cn, '交易日期' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dws' AS schema_name, 'dws_toll_revenue_daily' AS table_name, 'station_id' AS column_name, '收费站ID' AS column_name_cn, '收费站ID' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dws' AS schema_name, 'dws_toll_revenue_daily' AS table_name, 'total_actual_amount' AS column_name, '日实收金额' AS column_name_cn, '日实收金额汇总（元）' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dws' AS schema_name, 'dws_toll_revenue_daily' AS table_name, 'transaction_count' AS column_name, '交易笔数' AS column_name_cn, '交易笔数' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dws' AS schema_name, 'dws_toll_revenue_daily' AS table_name, 'vehicle_count' AS column_name, '车辆数' AS column_name_cn, '车辆数' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dws' AS schema_name, 'dws_toll_revenue_daily' AS table_name, 'normal_rate' AS column_name, '正常交易率' AS column_name_cn, '正常交易率' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dws' AS schema_name, 'dws_traffic_flow_daily' AS table_name, 'transaction_date' AS column_name, '交易日期' AS column_name_cn, '交易日期' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dws' AS schema_name, 'dws_traffic_flow_daily' AS table_name, 'station_id' AS column_name, '收费站ID' AS column_name_cn, '收费站ID' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dws' AS schema_name, 'dws_traffic_flow_daily' AS table_name, 'total_vehicles' AS column_name, '总车流量' AS column_name_cn, '总车流量' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dws' AS schema_name, 'dws_traffic_flow_daily' AS table_name, 'unique_vehicles' AS column_name, '唯一车辆数' AS column_name_cn, '唯一车辆数' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dws' AS schema_name, 'dws_traffic_flow_daily' AS table_name, 'time_period' AS column_name, '时段分类' AS column_name_cn, '时段分类' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_asset_catalog' AS table_name, 'schema_name' AS column_name, '模式名称' AS column_name_cn, '模式名称' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_asset_catalog' AS table_name, 'table_name' AS column_name, '表名' AS column_name_cn, '表名' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_asset_catalog' AS table_name, 'asset_level' AS column_name, '资产等级：核心资产/应用资产/基础资产' AS column_name_cn, '资产等级：核心资产/应用资产/基础资产' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_asset_catalog' AS table_name, 'usage_frequency' AS column_name, '使用频率：高频/中频/低频' AS column_name_cn, '使用频率：高频/中频/低频' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_asset_catalog' AS table_name, 'data_freshness' AS column_name, '数据新鲜度：新鲜/较新/陈旧' AS column_name_cn, '数据新鲜度：新鲜/较新/陈旧' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_dictionary' AS table_name, 'dict_type' AS column_name, '字典类型' AS column_name_cn, '字典类型' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_dictionary' AS table_name, 'dict_code' AS column_name, '字典编码' AS column_name_cn, '字典编码' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_dictionary' AS table_name, 'dict_name' AS column_name, '字典名称' AS column_name_cn, '字典名称' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_dictionary' AS table_name, 'dict_desc' AS column_name, '字典描述' AS column_name_cn, '字典描述' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_dictionary' AS table_name, 'dict_value' AS column_name, '字典值' AS column_name_cn, '字典值' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_dictionary' AS table_name, 'dict_source' AS column_name, '字典来源' AS column_name_cn, '字典来源' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_lineage' AS table_name, 'source_table' AS column_name, '源表' AS column_name_cn, '源表' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_lineage' AS table_name, 'target_table' AS column_name, '目标表' AS column_name_cn, '目标表' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_lineage' AS table_name, 'transformation_type' AS column_name, '转换类型：清洗/关联/转换/汇总/聚合' AS column_name_cn, '转换类型：清洗/关联/转换/汇总/聚合' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_lineage' AS table_name, 'transformation_desc' AS column_name, '转换描述' AS column_name_cn, '转换描述' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_quality_metrics' AS table_name, 'metric_date' AS column_name, '指标日期' AS column_name_cn, '指标日期' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_quality_metrics' AS table_name, 'table_name' AS column_name, '表名' AS column_name_cn, '表名' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_quality_metrics' AS table_name, 'overall_quality_score' AS column_name, '综合质量得分' AS column_name_cn, '综合质量得分（0-100）' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_quality_metrics' AS table_name, 'completeness_rate' AS column_name, '完整性率' AS column_name_cn, '完整性率' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_quality_metrics' AS table_name, 'accuracy_rate' AS column_name, '准确率' AS column_name_cn, '准确率' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_quality_metrics' AS table_name, 'consistency_rate' AS column_name, '一致率' AS column_name_cn, '一致率' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_table_info' AS table_name, 'schema_name' AS column_name, '模式名称' AS column_name_cn, '模式名称' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_table_info' AS table_name, 'table_name' AS column_name, '表名' AS column_name_cn, '表名' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_table_info' AS table_name, 'table_name_cn' AS column_name, '中文表名' AS column_name_cn, '中文表名' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_table_info' AS table_name, 'table_description' AS column_name, '表描述' AS column_name_cn, '表描述' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_table_info' AS table_name, 'business_domain' AS column_name, '业务域' AS column_name_cn, '业务域' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_table_info' AS table_name, 'data_source' AS column_name, '数据源' AS column_name_cn, '数据源' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_table_info' AS table_name, 'update_frequency' AS column_name, '更新频率' AS column_name_cn, '更新频率' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_table_info' AS table_name, 'owner' AS column_name, '负责人' AS column_name_cn, '负责人/部门' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_table_info' AS table_name, 'data_layer' AS column_name, '数据分层' AS column_name_cn, '数据分层' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'mf_time_spine' AS table_name, 'date_day' AS column_name, '日期' AS column_name_cn, '日期（日粒度）' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'mf_time_spine' AS table_name, 'date_week' AS column_name, '日期' AS column_name_cn, '日期（周粒度）' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'mf_time_spine' AS table_name, 'date_month' AS column_name, '日期' AS column_name_cn, '日期（月粒度）' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'mf_time_spine' AS table_name, 'date_quarter' AS column_name, '日期' AS column_name_cn, '日期（季度粒度）' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'mf_time_spine' AS table_name, 'date_year' AS column_name, '日期' AS column_name_cn, '日期（年粒度）' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_payment_method_dict' AS table_name, 'payment_method_code' AS column_name, '支付方式编码' AS column_name_cn, '支付方式编码，主键' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_payment_method_dict' AS table_name, 'payment_method_name' AS column_name, '支付方式名称' AS column_name_cn, '支付方式名称' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_toll_station' AS table_name, 'station_id' AS column_name, '收费站ID' AS column_name_cn, '收费站ID，主键' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_toll_station' AS table_name, 'station_name' AS column_name, '收费站名称' AS column_name_cn, '收费站名称' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_toll_station' AS table_name, 'city' AS column_name, '所属城市' AS column_name_cn, '所属城市' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_toll_station' AS table_name, 'highway_code' AS column_name, '高速公路编码' AS column_name_cn, '高速公路编码' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_toll_transaction' AS table_name, 'transaction_id' AS column_name, '交易ID' AS column_name_cn, '交易ID，唯一标识一笔交易' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_toll_transaction' AS table_name, 'station_id' AS column_name, '收费站ID' AS column_name_cn, '收费站ID' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_toll_transaction' AS table_name, 'vehicle_plate' AS column_name, '车牌号' AS column_name_cn, '车牌号（已清洗）' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_toll_transaction' AS table_name, 'vehicle_type_code' AS column_name, '车型编码' AS column_name_cn, '车型编码' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_toll_transaction' AS table_name, 'entry_time' AS column_name, '入口时间' AS column_name_cn, '入口时间' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_toll_transaction' AS table_name, 'exit_time' AS column_name, '出口时间' AS column_name_cn, '出口时间（已清洗）' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_toll_transaction' AS table_name, 'travel_minutes' AS column_name, '通行时长' AS column_name_cn, '通行时长（分钟）' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_toll_transaction' AS table_name, 'toll_amount' AS column_name, '应收金额' AS column_name_cn, '应收金额（元）' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_toll_transaction' AS table_name, 'actual_amount' AS column_name, '实收金额' AS column_name_cn, '实收金额（元，已清洗）' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_toll_transaction' AS table_name, 'data_quality_flag' AS column_name, '数据质量标记' AS column_name_cn, '数据质量标记：正常/数据缺失/收费站缺失/车牌缺失/时间异常/金额异常' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_vehicle_type_dict' AS table_name, 'vehicle_type_code' AS column_name, '车型编码' AS column_name_cn, '车型编码，主键' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_vehicle_type_dict' AS table_name, 'vehicle_type_name' AS column_name, '车型名称' AS column_name_cn, '车型名称' AS column_description, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_vehicle_type_dict' AS table_name, 'toll_rate_multiplier' AS column_name, '收费费率系数' AS column_name_cn, '收费费率系数' AS column_description, CURRENT_TIMESTAMP AS create_time
+    );
+  
+  
+[0m11:09:14.223440 [debug] [Thread-1 (]: SQL status: OK in 0.074 seconds
+[0m11:09:14.229579 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_column_info"
+[0m11:09:14.229579 [debug] [Thread-1 (]: On model.datacore.meta_column_info: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.meta_column_info"} */
+alter table "datacore"."main_metadata"."meta_column_info__dbt_tmp" rename to "meta_column_info"
+[0m11:09:14.230980 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:14.241073 [debug] [Thread-1 (]: On model.datacore.meta_column_info: COMMIT
+[0m11:09:14.242074 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_column_info"
+[0m11:09:14.242074 [debug] [Thread-1 (]: On model.datacore.meta_column_info: COMMIT
+[0m11:09:14.277162 [debug] [Thread-1 (]: SQL status: OK in 0.035 seconds
+[0m11:09:14.282210 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_column_info"
+[0m11:09:14.283208 [debug] [Thread-1 (]: On model.datacore.meta_column_info: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.meta_column_info"} */
+
+      drop table if exists "datacore"."main_metadata"."meta_column_info__dbt_backup" cascade
+    
+[0m11:09:14.284174 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:14.286331 [debug] [Thread-1 (]: On model.datacore.meta_column_info: Close
+[0m11:09:14.288334 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266F0893310>]}
+[0m11:09:14.288334 [info ] [Thread-1 (]: 1 of 20 OK created sql table model main_metadata.meta_column_info .............. [[32mOK[0m in 0.18s]
+[0m11:09:14.289333 [debug] [Thread-1 (]: Finished running node model.datacore.meta_column_info
+[0m11:09:14.290335 [debug] [Thread-1 (]: Began running node model.datacore.meta_data_lineage
+[0m11:09:14.290335 [info ] [Thread-1 (]: 2 of 20 START sql table model main_metadata.meta_data_lineage .................. [RUN]
+[0m11:09:14.291246 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.datacore.meta_column_info, now model.datacore.meta_data_lineage)
+[0m11:09:14.291246 [debug] [Thread-1 (]: Began compiling node model.datacore.meta_data_lineage
+[0m11:09:14.295252 [debug] [Thread-1 (]: Writing injected SQL for node "model.datacore.meta_data_lineage"
+[0m11:09:14.296388 [debug] [Thread-1 (]: Began executing node model.datacore.meta_data_lineage
+[0m11:09:14.298428 [debug] [Thread-1 (]: Writing runtime sql for node "model.datacore.meta_data_lineage"
+[0m11:09:14.299425 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_data_lineage"
+[0m11:09:14.300391 [debug] [Thread-1 (]: On model.datacore.meta_data_lineage: BEGIN
+[0m11:09:14.300391 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:09:14.301896 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:14.301896 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_data_lineage"
+[0m11:09:14.302903 [debug] [Thread-1 (]: On model.datacore.meta_data_lineage: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.meta_data_lineage"} */
+
+  
+    
+    
+
+    create  table
+      "datacore"."main_metadata"."meta_data_lineage__dbt_tmp"
+  
+    as (
+      -- 元数据管理：数据溯源关系表（自动化生成）
+-- 功能：从 dbt graph 自动提取数据表之间的溯源关系
+-- 自动识别 ref() 和 source() 依赖关系
+
+
+
+SELECT 'main_dwd.dwd_toll_transaction_detail' AS source_table, 'main_ads.ads_quality_monitoring_dashboard' AS target_table, '转换' AS transformation_type, '数据转换' AS transformation_desc
+UNION ALL
+SELECT 'main_dws.dws_toll_revenue_daily' AS source_table, 'main_ads.ads_toll_revenue_report' AS target_table, '转换' AS transformation_type, '数据转换' AS transformation_desc
+UNION ALL
+SELECT 'main_dws.dws_traffic_flow_daily' AS source_table, 'main_ads.ads_traffic_trend_analysis' AS target_table, '转换' AS transformation_type, '数据转换' AS transformation_desc
+UNION ALL
+SELECT 'main_ods.ods_toll_transaction' AS source_table, 'main_dwd.dwd_toll_transaction_detail' AS target_table, '转换' AS transformation_type, '数据转换' AS transformation_desc
+UNION ALL
+SELECT 'main_dwd.dwd_toll_transaction_detail' AS source_table, 'main_dws.dws_station_performance_daily' AS target_table, '转换' AS transformation_type, '数据转换' AS transformation_desc
+UNION ALL
+SELECT 'main_dwd.dwd_toll_transaction_detail' AS source_table, 'main_dws.dws_toll_revenue_daily' AS target_table, '转换' AS transformation_type, '数据转换' AS transformation_desc
+UNION ALL
+SELECT 'main_dwd.dwd_toll_transaction_detail' AS source_table, 'main_dws.dws_traffic_flow_daily' AS target_table, '转换' AS transformation_type, '数据转换' AS transformation_desc
+UNION ALL
+SELECT 'main_dwd.dwd_toll_transaction_detail' AS source_table, 'main_metadata.meta_data_asset_catalog' AS target_table, '转换' AS transformation_type, '数据转换' AS transformation_desc
+UNION ALL
+SELECT 'main_dws.dws_toll_revenue_daily' AS source_table, 'main_metadata.meta_data_asset_catalog' AS target_table, '转换' AS transformation_type, '数据转换' AS transformation_desc
+UNION ALL
+SELECT 'main_dws.dws_traffic_flow_daily' AS source_table, 'main_metadata.meta_data_asset_catalog' AS target_table, '转换' AS transformation_type, '数据转换' AS transformation_desc
+UNION ALL
+SELECT 'main_ads.ads_toll_revenue_report' AS source_table, 'main_metadata.meta_data_asset_catalog' AS target_table, '转换' AS transformation_type, '数据转换' AS transformation_desc
+UNION ALL
+SELECT 'main_metadata.meta_table_info' AS source_table, 'main_metadata.meta_data_asset_catalog' AS target_table, '转换' AS transformation_type, '数据转换' AS transformation_desc
+UNION ALL
+SELECT 'main_staging.stg_vehicle_type_dict' AS source_table, 'main_metadata.meta_data_dictionary' AS target_table, '转换' AS transformation_type, '数据转换' AS transformation_desc
+UNION ALL
+SELECT 'main_staging.stg_payment_method_dict' AS source_table, 'main_metadata.meta_data_dictionary' AS target_table, '转换' AS transformation_type, '数据转换' AS transformation_desc
+UNION ALL
+SELECT 'main_dwd.dwd_toll_transaction_detail' AS source_table, 'main_metadata.meta_data_quality_metrics' AS target_table, '转换' AS transformation_type, '数据转换' AS transformation_desc
+UNION ALL
+SELECT 'main_staging.stg_toll_station' AS source_table, 'main_ods.ods_toll_station' AS target_table, '转换' AS transformation_type, '数据转换' AS transformation_desc
+UNION ALL
+SELECT 'main_staging.stg_toll_transaction' AS source_table, 'main_ods.ods_toll_transaction' AS target_table, '转换' AS transformation_type, '数据转换' AS transformation_desc
+UNION ALL
+SELECT 'main_staging.stg_toll_station' AS source_table, 'main_ods.ods_toll_transaction' AS target_table, '转换' AS transformation_type, '数据转换' AS transformation_desc
+UNION ALL
+SELECT 'main_staging.stg_vehicle_type_dict' AS source_table, 'main_ods.ods_toll_transaction' AS target_table, '转换' AS transformation_type, '数据转换' AS transformation_desc
+UNION ALL
+SELECT 'main_staging.stg_payment_method_dict' AS source_table, 'main_ods.ods_toll_transaction' AS target_table, '转换' AS transformation_type, '数据转换' AS transformation_desc
+UNION ALL
+SELECT '.' AS source_table, 'main_staging.stg_payment_method_dict' AS target_table, '清洗' AS transformation_type, '数据清洗和标准化' AS transformation_desc
+UNION ALL
+SELECT '.' AS source_table, 'main_staging.stg_toll_station' AS target_table, '清洗' AS transformation_type, '数据清洗和标准化' AS transformation_desc
+UNION ALL
+SELECT '.' AS source_table, 'main_staging.stg_toll_transaction' AS target_table, '清洗' AS transformation_type, '数据清洗和标准化' AS transformation_desc
+UNION ALL
+SELECT '.' AS source_table, 'main_staging.stg_vehicle_type_dict' AS target_table, '清洗' AS transformation_type, '数据清洗和标准化' AS transformation_desc
+    );
+  
+  
+[0m11:09:14.306902 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m11:09:14.308901 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_data_lineage"
+[0m11:09:14.309901 [debug] [Thread-1 (]: On model.datacore.meta_data_lineage: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.meta_data_lineage"} */
+alter table "datacore"."main_metadata"."meta_data_lineage__dbt_tmp" rename to "meta_data_lineage"
+[0m11:09:14.309901 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:14.311901 [debug] [Thread-1 (]: On model.datacore.meta_data_lineage: COMMIT
+[0m11:09:14.311901 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_data_lineage"
+[0m11:09:14.311901 [debug] [Thread-1 (]: On model.datacore.meta_data_lineage: COMMIT
+[0m11:09:14.334939 [debug] [Thread-1 (]: SQL status: OK in 0.022 seconds
+[0m11:09:14.339103 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_data_lineage"
+[0m11:09:14.339103 [debug] [Thread-1 (]: On model.datacore.meta_data_lineage: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.meta_data_lineage"} */
+
+      drop table if exists "datacore"."main_metadata"."meta_data_lineage__dbt_backup" cascade
+    
+[0m11:09:14.340107 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:14.341106 [debug] [Thread-1 (]: On model.datacore.meta_data_lineage: Close
+[0m11:09:14.342109 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266F09AD4D0>]}
+[0m11:09:14.342109 [info ] [Thread-1 (]: 2 of 20 OK created sql table model main_metadata.meta_data_lineage ............. [[32mOK[0m in 0.05s]
+[0m11:09:14.343106 [debug] [Thread-1 (]: Finished running node model.datacore.meta_data_lineage
+[0m11:09:14.344113 [debug] [Thread-1 (]: Began running node model.datacore.meta_table_info
+[0m11:09:14.344113 [info ] [Thread-1 (]: 3 of 20 START sql table model main_metadata.meta_table_info .................... [RUN]
+[0m11:09:14.345127 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.datacore.meta_data_lineage, now model.datacore.meta_table_info)
+[0m11:09:14.345127 [debug] [Thread-1 (]: Began compiling node model.datacore.meta_table_info
+[0m11:09:14.349254 [debug] [Thread-1 (]: Writing injected SQL for node "model.datacore.meta_table_info"
+[0m11:09:14.350254 [debug] [Thread-1 (]: Began executing node model.datacore.meta_table_info
+[0m11:09:14.353253 [debug] [Thread-1 (]: Writing runtime sql for node "model.datacore.meta_table_info"
+[0m11:09:14.355254 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_table_info"
+[0m11:09:14.355316 [debug] [Thread-1 (]: On model.datacore.meta_table_info: BEGIN
+[0m11:09:14.355316 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:09:14.356318 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:14.357361 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_table_info"
+[0m11:09:14.357361 [debug] [Thread-1 (]: On model.datacore.meta_table_info: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.meta_table_info"} */
+
+  
+    
+    
+
+    create  table
+      "datacore"."main_metadata"."meta_table_info__dbt_tmp"
+  
+    as (
+      -- 元数据管理：表信息表（自动化生成）
+-- 功能：从 dbt graph 自动提取所有数据表的元数据信息
+-- 业务信息从 schema.yml 的 meta 字段获取，如果没有则使用默认值
+
+
+
+SELECT 'main_ads' AS schema_name, 'ads_quality_monitoring_dashboard' AS table_name, '数据质量监控看板' AS table_name_cn, '数据质量监控看板，数据质量监控和告警' AS table_description, '数据管理' AS business_domain, '数据中台' AS data_source, '实时' AS update_frequency, '数据管理部' AS owner, 'main_ads' AS data_layer, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_ads' AS schema_name, 'ads_toll_revenue_report' AS table_name, '收费收入报表' AS table_name_cn, '收费收入报表，面向业务应用的收入报表' AS table_description, '收费业务' AS business_domain, '收费系统' AS data_source, '日' AS update_frequency, '收费中心' AS owner, 'main_ads' AS data_layer, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_ads' AS schema_name, 'ads_traffic_trend_analysis' AS table_name, '车流趋势分析表' AS table_name_cn, '车流趋势分析，车流趋势和模式分析' AS table_description, '收费业务' AS business_domain, '收费系统' AS data_source, '日' AS update_frequency, '收费中心' AS owner, 'main_ads' AS data_layer, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dwd' AS schema_name, 'dwd_toll_transaction_detail' AS table_name, '收费交易明细表' AS table_name_cn, '收费交易明细数据层，包含完整的业务明细数据和业务分类字段' AS table_description, '收费业务' AS business_domain, '收费系统' AS data_source, '实时' AS update_frequency, '收费中心' AS owner, 'main_dwd' AS data_layer, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dws' AS schema_name, 'dws_station_performance_daily' AS table_name, '收费站日绩效汇总表' AS table_name_cn, '收费站日绩效汇总，收费站维度的综合绩效指标' AS table_description, '收费业务' AS business_domain, '收费系统' AS data_source, '日' AS update_frequency, '收费中心' AS owner, 'main_dws' AS data_layer, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dws' AS schema_name, 'dws_toll_revenue_daily' AS table_name, '日收费收入汇总表' AS table_name_cn, '日收费收入汇总，按日期、收费站、车型、支付方式等维度汇总' AS table_description, '收费业务' AS business_domain, '收费系统' AS data_source, '日' AS update_frequency, '收费中心' AS owner, 'main_dws' AS data_layer, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_dws' AS schema_name, 'dws_traffic_flow_daily' AS table_name, '日车流量汇总表' AS table_name_cn, '日车流量汇总，按日期、收费站、时段等维度汇总车流量' AS table_description, '收费业务' AS business_domain, '收费系统' AS data_source, '日' AS update_frequency, '收费中心' AS owner, 'main_dws' AS data_layer, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_column_info' AS table_name, 'meta_column_info' AS table_name_cn, '' AS table_description, '未分类' AS business_domain, '数据中台' AS data_source, '按需' AS update_frequency, '数据团队' AS owner, 'main_metadata' AS data_layer, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_asset_catalog' AS table_name, '数据资产目录' AS table_name_cn, '数据资产目录，数据资产清单和价值评估' AS table_description, '数据管理' AS business_domain, '数据中台' AS data_source, '按需' AS update_frequency, '数据团队' AS owner, 'main_metadata' AS data_layer, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_dictionary' AS table_name, '数据字典表' AS table_name_cn, '数据字典表，统一管理业务数据字典' AS table_description, '数据管理' AS business_domain, '数据中台' AS data_source, '按需' AS update_frequency, '数据团队' AS owner, 'main_metadata' AS data_layer, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_lineage' AS table_name, '数据溯源关系表' AS table_name_cn, '数据溯源关系表，记录数据表之间的溯源关系' AS table_description, '数据管理' AS business_domain, '数据中台' AS data_source, '按需' AS update_frequency, '数据团队' AS owner, 'main_metadata' AS data_layer, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_data_quality_metrics' AS table_name, '数据质量指标表' AS table_name_cn, '数据质量指标表，记录数据质量指标和趋势' AS table_description, '数据管理' AS business_domain, '数据中台' AS data_source, '按需' AS update_frequency, '数据团队' AS owner, 'main_metadata' AS data_layer, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'meta_table_info' AS table_name, '表信息元数据表' AS table_name_cn, '表信息元数据表，记录所有数据表的元数据信息' AS table_description, '数据管理' AS business_domain, '数据中台' AS data_source, '按需' AS update_frequency, '数据团队' AS owner, 'main_metadata' AS data_layer, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_metadata' AS schema_name, 'mf_time_spine' AS table_name, 'MetricFlow 时间脊柱表' AS table_name_cn, 'MetricFlow 时间脊柱表，用于语义层时间维度填充' AS table_description, '数据管理' AS business_domain, 'MetricFlow' AS data_source, '按需' AS update_frequency, '数据团队' AS owner, 'main_metadata' AS data_layer, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_ods' AS schema_name, 'ods_toll_station' AS table_name, '收费站操作数据表' AS table_name_cn, '收费站操作数据存储' AS table_description, '路网管理' AS business_domain, '路网管理系统' AS data_source, '按需' AS update_frequency, '路网管理部' AS owner, 'main_ods' AS data_layer, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_ods' AS schema_name, 'ods_toll_transaction' AS table_name, '收费交易操作数据表' AS table_name_cn, '收费交易操作数据存储，保持业务原始逻辑，关联字典表，增加业务字段' AS table_description, '收费业务' AS business_domain, '收费系统' AS data_source, '实时' AS update_frequency, '收费中心' AS owner, 'main_ods' AS data_layer, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_payment_method_dict' AS table_name, '支付方式字典清洗表' AS table_name_cn, '支付方式字典数据清洗层' AS table_description, '基础数据' AS business_domain, '支付系统' AS data_source, '按需' AS update_frequency, '支付中心' AS owner, 'main_staging' AS data_layer, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_toll_station' AS table_name, '收费站清洗表' AS table_name_cn, '收费站数据清洗层' AS table_description, '路网管理' AS business_domain, '路网管理系统' AS data_source, '按需' AS update_frequency, '路网管理部' AS owner, 'main_staging' AS data_layer, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_toll_transaction' AS table_name, '收费交易清洗表' AS table_name_cn, '收费交易数据清洗层，进行数据清洗、标准化和异常值处理' AS table_description, '收费业务' AS business_domain, '收费系统' AS data_source, '实时' AS update_frequency, '收费中心' AS owner, 'main_staging' AS data_layer, CURRENT_TIMESTAMP AS create_time
+UNION ALL
+SELECT 'main_staging' AS schema_name, 'stg_vehicle_type_dict' AS table_name, '车型字典清洗表' AS table_name_cn, '车型字典数据清洗层' AS table_description, '基础数据' AS business_domain, '收费政策' AS data_source, '按政策调整' AS update_frequency, '政策法规部' AS owner, 'main_staging' AS data_layer, CURRENT_TIMESTAMP AS create_time
+    );
+  
+  
+[0m11:09:14.363360 [debug] [Thread-1 (]: SQL status: OK in 0.005 seconds
+[0m11:09:14.366420 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_table_info"
+[0m11:09:14.366420 [debug] [Thread-1 (]: On model.datacore.meta_table_info: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.meta_table_info"} */
+alter table "datacore"."main_metadata"."meta_table_info__dbt_tmp" rename to "meta_table_info"
+[0m11:09:14.367461 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:14.368461 [debug] [Thread-1 (]: On model.datacore.meta_table_info: COMMIT
+[0m11:09:14.369462 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_table_info"
+[0m11:09:14.369462 [debug] [Thread-1 (]: On model.datacore.meta_table_info: COMMIT
+[0m11:09:14.388789 [debug] [Thread-1 (]: SQL status: OK in 0.019 seconds
+[0m11:09:14.390789 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_table_info"
+[0m11:09:14.391790 [debug] [Thread-1 (]: On model.datacore.meta_table_info: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.meta_table_info"} */
+
+      drop table if exists "datacore"."main_metadata"."meta_table_info__dbt_backup" cascade
+    
+[0m11:09:14.392790 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:14.393790 [debug] [Thread-1 (]: On model.datacore.meta_table_info: Close
+[0m11:09:14.393790 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266F09AD450>]}
+[0m11:09:14.394790 [info ] [Thread-1 (]: 3 of 20 OK created sql table model main_metadata.meta_table_info ............... [[32mOK[0m in 0.05s]
+[0m11:09:14.395887 [debug] [Thread-1 (]: Finished running node model.datacore.meta_table_info
+[0m11:09:14.395887 [debug] [Thread-1 (]: Began running node model.datacore.mf_time_spine
+[0m11:09:14.396889 [info ] [Thread-1 (]: 4 of 20 START sql table model main_metadata.mf_time_spine ...................... [RUN]
+[0m11:09:14.397397 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.datacore.meta_table_info, now model.datacore.mf_time_spine)
+[0m11:09:14.397397 [debug] [Thread-1 (]: Began compiling node model.datacore.mf_time_spine
+[0m11:09:14.400403 [debug] [Thread-1 (]: Writing injected SQL for node "model.datacore.mf_time_spine"
+[0m11:09:14.400403 [debug] [Thread-1 (]: Began executing node model.datacore.mf_time_spine
+[0m11:09:14.403916 [debug] [Thread-1 (]: Writing runtime sql for node "model.datacore.mf_time_spine"
+[0m11:09:14.404915 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.mf_time_spine"
+[0m11:09:14.406111 [debug] [Thread-1 (]: On model.datacore.mf_time_spine: BEGIN
+[0m11:09:14.406111 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:09:14.407118 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:14.408118 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.mf_time_spine"
+[0m11:09:14.408118 [debug] [Thread-1 (]: On model.datacore.mf_time_spine: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.mf_time_spine"} */
+
+  
+    
+    
+
+    create  table
+      "datacore"."main_metadata"."mf_time_spine__dbt_tmp"
+  
+    as (
+      
+
+-- MetricFlow Time Spine 模型
+-- 生成从 2020-01-01 到 2030-12-31 的每日时间序列
+-- 用于 MetricFlow 语义层的时间维度填充
+
+SELECT
+  date_day::DATE AS date_day,
+  DATE_TRUNC('week', date_day)::DATE AS date_week,
+  DATE_TRUNC('month', date_day)::DATE AS date_month,
+  DATE_TRUNC('quarter', date_day)::DATE AS date_quarter,
+  DATE_TRUNC('year', date_day)::DATE AS date_year
+FROM (
+  SELECT 
+    DATE '2020-01-01' + INTERVAL (generate_series) DAY AS date_day
+  FROM generate_series(0, 4017)  -- 约 11 年的天数 (2020-01-01 到 2030-12-31)
+)
+    );
+  
+  
+[0m11:09:14.443019 [debug] [Thread-1 (]: SQL status: OK in 0.034 seconds
+[0m11:09:14.446069 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.mf_time_spine"
+[0m11:09:14.446069 [debug] [Thread-1 (]: On model.datacore.mf_time_spine: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.mf_time_spine"} */
+alter table "datacore"."main_metadata"."mf_time_spine__dbt_tmp" rename to "mf_time_spine"
+[0m11:09:14.447107 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:14.448106 [debug] [Thread-1 (]: On model.datacore.mf_time_spine: COMMIT
+[0m11:09:14.448106 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.mf_time_spine"
+[0m11:09:14.449106 [debug] [Thread-1 (]: On model.datacore.mf_time_spine: COMMIT
+[0m11:09:14.493454 [debug] [Thread-1 (]: SQL status: OK in 0.044 seconds
+[0m11:09:14.495519 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.mf_time_spine"
+[0m11:09:14.496521 [debug] [Thread-1 (]: On model.datacore.mf_time_spine: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.mf_time_spine"} */
+
+      drop table if exists "datacore"."main_metadata"."mf_time_spine__dbt_backup" cascade
+    
+[0m11:09:14.496521 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:14.498567 [debug] [Thread-1 (]: On model.datacore.mf_time_spine: Close
+[0m11:09:14.498567 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266F0973DD0>]}
+[0m11:09:14.499568 [info ] [Thread-1 (]: 4 of 20 OK created sql table model main_metadata.mf_time_spine ................. [[32mOK[0m in 0.10s]
+[0m11:09:14.500568 [debug] [Thread-1 (]: Finished running node model.datacore.mf_time_spine
+[0m11:09:14.500568 [debug] [Thread-1 (]: Began running node model.datacore.stg_payment_method_dict
+[0m11:09:14.500568 [info ] [Thread-1 (]: 5 of 20 START sql view model main_staging.stg_payment_method_dict .............. [RUN]
+[0m11:09:14.502076 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.datacore.mf_time_spine, now model.datacore.stg_payment_method_dict)
+[0m11:09:14.502076 [debug] [Thread-1 (]: Began compiling node model.datacore.stg_payment_method_dict
+[0m11:09:14.505082 [debug] [Thread-1 (]: Writing injected SQL for node "model.datacore.stg_payment_method_dict"
+[0m11:09:14.506189 [debug] [Thread-1 (]: Began executing node model.datacore.stg_payment_method_dict
+[0m11:09:14.522412 [debug] [Thread-1 (]: Writing runtime sql for node "model.datacore.stg_payment_method_dict"
+[0m11:09:14.523412 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.stg_payment_method_dict"
+[0m11:09:14.523412 [debug] [Thread-1 (]: On model.datacore.stg_payment_method_dict: BEGIN
+[0m11:09:14.524412 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:09:14.525476 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:14.525476 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.stg_payment_method_dict"
+[0m11:09:14.525476 [debug] [Thread-1 (]: On model.datacore.stg_payment_method_dict: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.stg_payment_method_dict"} */
+
+  
+  create view "datacore"."main_staging"."stg_payment_method_dict__dbt_tmp" as (
+    -- 支付方式字典数据清洗层
+
+
+
+SELECT 
+    payment_method_code,
+    TRIM(payment_method_name) AS payment_method_name,
+    TRIM(payment_method_desc) AS payment_method_desc,
+    CURRENT_TIMESTAMP AS etl_time
+FROM "datacore"."raw"."payment_method_dict"
+  );
+
+[0m11:09:14.526560 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:14.529581 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.stg_payment_method_dict"
+[0m11:09:14.529581 [debug] [Thread-1 (]: On model.datacore.stg_payment_method_dict: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.stg_payment_method_dict"} */
+alter view "datacore"."main_staging"."stg_payment_method_dict__dbt_tmp" rename to "stg_payment_method_dict"
+[0m11:09:14.531039 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:14.532048 [debug] [Thread-1 (]: On model.datacore.stg_payment_method_dict: COMMIT
+[0m11:09:14.532048 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.stg_payment_method_dict"
+[0m11:09:14.533047 [debug] [Thread-1 (]: On model.datacore.stg_payment_method_dict: COMMIT
+[0m11:09:14.727555 [debug] [Thread-1 (]: SQL status: OK in 0.194 seconds
+[0m11:09:14.729554 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.stg_payment_method_dict"
+[0m11:09:14.729554 [debug] [Thread-1 (]: On model.datacore.stg_payment_method_dict: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.stg_payment_method_dict"} */
+
+      drop view if exists "datacore"."main_staging"."stg_payment_method_dict__dbt_backup" cascade
+    
+[0m11:09:14.730554 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:14.731554 [debug] [Thread-1 (]: On model.datacore.stg_payment_method_dict: Close
+[0m11:09:14.732555 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266F08AF290>]}
+[0m11:09:14.733554 [info ] [Thread-1 (]: 5 of 20 OK created sql view model main_staging.stg_payment_method_dict ......... [[32mOK[0m in 0.23s]
+[0m11:09:14.733554 [debug] [Thread-1 (]: Finished running node model.datacore.stg_payment_method_dict
+[0m11:09:14.734562 [debug] [Thread-1 (]: Began running node model.datacore.stg_toll_station
+[0m11:09:14.735636 [info ] [Thread-1 (]: 6 of 20 START sql view model main_staging.stg_toll_station ..................... [RUN]
+[0m11:09:14.735761 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.datacore.stg_payment_method_dict, now model.datacore.stg_toll_station)
+[0m11:09:14.736762 [debug] [Thread-1 (]: Began compiling node model.datacore.stg_toll_station
+[0m11:09:14.739763 [debug] [Thread-1 (]: Writing injected SQL for node "model.datacore.stg_toll_station"
+[0m11:09:14.740763 [debug] [Thread-1 (]: Began executing node model.datacore.stg_toll_station
+[0m11:09:14.742761 [debug] [Thread-1 (]: Writing runtime sql for node "model.datacore.stg_toll_station"
+[0m11:09:14.743762 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.stg_toll_station"
+[0m11:09:14.744762 [debug] [Thread-1 (]: On model.datacore.stg_toll_station: BEGIN
+[0m11:09:14.744762 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:09:14.745856 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:14.745856 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.stg_toll_station"
+[0m11:09:14.746859 [debug] [Thread-1 (]: On model.datacore.stg_toll_station: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.stg_toll_station"} */
+
+  
+  create view "datacore"."main_staging"."stg_toll_station__dbt_tmp" as (
+    -- 收费站数据清洗层
+
+
+
+SELECT 
+    station_id,
+    TRIM(station_name) AS station_name,
+    TRIM(city) AS city,
+    TRIM(highway_code) AS highway_code,
+    TRIM(station_type) AS station_type,
+    open_date,
+    CURRENT_TIMESTAMP AS etl_time
+FROM "datacore"."raw"."toll_station"
+  );
+
+[0m11:09:14.747858 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:14.749863 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.stg_toll_station"
+[0m11:09:14.750861 [debug] [Thread-1 (]: On model.datacore.stg_toll_station: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.stg_toll_station"} */
+alter view "datacore"."main_staging"."stg_toll_station__dbt_tmp" rename to "stg_toll_station"
+[0m11:09:14.751862 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:14.753862 [debug] [Thread-1 (]: On model.datacore.stg_toll_station: COMMIT
+[0m11:09:14.753862 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.stg_toll_station"
+[0m11:09:14.754859 [debug] [Thread-1 (]: On model.datacore.stg_toll_station: COMMIT
+[0m11:09:14.780133 [debug] [Thread-1 (]: SQL status: OK in 0.024 seconds
+[0m11:09:14.782135 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.stg_toll_station"
+[0m11:09:14.783134 [debug] [Thread-1 (]: On model.datacore.stg_toll_station: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.stg_toll_station"} */
+
+      drop view if exists "datacore"."main_staging"."stg_toll_station__dbt_backup" cascade
+    
+[0m11:09:14.783134 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:14.785214 [debug] [Thread-1 (]: On model.datacore.stg_toll_station: Close
+[0m11:09:14.785214 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266F08AF290>]}
+[0m11:09:14.786279 [info ] [Thread-1 (]: 6 of 20 OK created sql view model main_staging.stg_toll_station ................ [[32mOK[0m in 0.05s]
+[0m11:09:14.787283 [debug] [Thread-1 (]: Finished running node model.datacore.stg_toll_station
+[0m11:09:14.787283 [debug] [Thread-1 (]: Began running node model.datacore.stg_toll_transaction
+[0m11:09:14.788329 [info ] [Thread-1 (]: 7 of 20 START sql view model main_staging.stg_toll_transaction ................. [RUN]
+[0m11:09:14.788329 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.datacore.stg_toll_station, now model.datacore.stg_toll_transaction)
+[0m11:09:14.789335 [debug] [Thread-1 (]: Began compiling node model.datacore.stg_toll_transaction
+[0m11:09:14.792334 [debug] [Thread-1 (]: Writing injected SQL for node "model.datacore.stg_toll_transaction"
+[0m11:09:14.793631 [debug] [Thread-1 (]: Began executing node model.datacore.stg_toll_transaction
+[0m11:09:14.795840 [debug] [Thread-1 (]: Writing runtime sql for node "model.datacore.stg_toll_transaction"
+[0m11:09:14.797499 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.stg_toll_transaction"
+[0m11:09:14.797499 [debug] [Thread-1 (]: On model.datacore.stg_toll_transaction: BEGIN
+[0m11:09:14.798507 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:09:14.799506 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:14.799506 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.stg_toll_transaction"
+[0m11:09:14.800506 [debug] [Thread-1 (]: On model.datacore.stg_toll_transaction: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.stg_toll_transaction"} */
+
+  
+  create view "datacore"."main_staging"."stg_toll_transaction__dbt_tmp" as (
+    -- 收费交易数据清洗层
+-- 功能：数据清洗、标准化、异常值处理
+
+
+
+WITH raw_data AS (
+    SELECT 
+        transaction_id,
+        station_id,
+        lane_id,
+        vehicle_plate,
+        vehicle_type_code,
+        entry_station_id,
+        entry_time,
+        exit_time,
+        payment_method_code,
+        toll_amount,
+        actual_amount,
+        discount_amount,
+        transaction_status,
+        create_time,
+        update_time
+    FROM "datacore"."raw"."toll_transaction"
+),
+
+cleaned_data AS (
+    SELECT 
+        -- 主键
+        transaction_id,
+        
+        -- 收费站信息（清洗）
+        COALESCE(station_id, 'UNKNOWN') AS station_id,
+        COALESCE(lane_id, 'UNKNOWN') AS lane_id,
+        COALESCE(entry_station_id, 'UNKNOWN') AS entry_station_id,
+        
+        -- 车辆信息（清洗）
+        UPPER(TRIM(COALESCE(vehicle_plate, ''))) AS vehicle_plate,
+        COALESCE(vehicle_type_code, 'V01') AS vehicle_type_code,
+        
+        -- 时间信息（清洗和验证）
+        entry_time,
+        exit_time,
+        CASE 
+            WHEN exit_time < entry_time THEN entry_time + INTERVAL 1 HOUR
+            ELSE exit_time
+        END AS exit_time_cleaned,
+        
+        -- 计算通行时长（分钟）
+        CAST(EXTRACT(EPOCH FROM (exit_time - entry_time)) AS INTEGER) / 60 AS travel_minutes,
+        
+        -- 支付信息
+        COALESCE(payment_method_code, 'P02') AS payment_method_code,
+        
+        -- 金额信息（清洗和验证）
+        COALESCE(toll_amount, 0) AS toll_amount,
+        COALESCE(actual_amount, 0) AS actual_amount,
+        COALESCE(discount_amount, 0) AS discount_amount,
+        
+        -- 金额合理性检查
+        CASE 
+            WHEN actual_amount < 0 THEN 0
+            WHEN actual_amount > toll_amount THEN toll_amount
+            ELSE actual_amount
+        END AS actual_amount_cleaned,
+        
+        -- 交易状态
+        COALESCE(transaction_status, '正常') AS transaction_status,
+        
+        -- 数据质量标记
+        CASE 
+            WHEN transaction_id IS NULL THEN '数据缺失'
+            WHEN station_id = 'UNKNOWN' THEN '收费站缺失'
+            WHEN vehicle_plate = '' THEN '车牌缺失'
+            WHEN exit_time < entry_time THEN '时间异常'
+            WHEN actual_amount < 0 OR actual_amount > toll_amount THEN '金额异常'
+            ELSE '正常'
+        END AS data_quality_flag,
+        
+        -- 元数据
+        create_time,
+        COALESCE(update_time, create_time) AS update_time,
+        CURRENT_TIMESTAMP AS etl_time
+        
+    FROM raw_data
+)
+
+SELECT 
+    transaction_id,
+    station_id,
+    lane_id,
+    vehicle_plate,
+    vehicle_type_code,
+    entry_station_id,
+    entry_time,
+    exit_time_cleaned AS exit_time,
+    travel_minutes,
+    payment_method_code,
+    toll_amount,
+    actual_amount_cleaned AS actual_amount,
+    discount_amount,
+    transaction_status,
+    data_quality_flag,
+    create_time,
+    update_time,
+    etl_time
+FROM cleaned_data
+  );
+
+[0m11:09:14.803016 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m11:09:14.806129 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.stg_toll_transaction"
+[0m11:09:14.806129 [debug] [Thread-1 (]: On model.datacore.stg_toll_transaction: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.stg_toll_transaction"} */
+alter view "datacore"."main_staging"."stg_toll_transaction__dbt_tmp" rename to "stg_toll_transaction"
+[0m11:09:14.807132 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:14.810131 [debug] [Thread-1 (]: On model.datacore.stg_toll_transaction: COMMIT
+[0m11:09:14.810131 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.stg_toll_transaction"
+[0m11:09:14.811131 [debug] [Thread-1 (]: On model.datacore.stg_toll_transaction: COMMIT
+[0m11:09:14.838276 [debug] [Thread-1 (]: SQL status: OK in 0.027 seconds
+[0m11:09:14.841258 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.stg_toll_transaction"
+[0m11:09:14.841258 [debug] [Thread-1 (]: On model.datacore.stg_toll_transaction: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.stg_toll_transaction"} */
+
+      drop view if exists "datacore"."main_staging"."stg_toll_transaction__dbt_backup" cascade
+    
+[0m11:09:14.842258 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:14.843260 [debug] [Thread-1 (]: On model.datacore.stg_toll_transaction: Close
+[0m11:09:14.844260 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266F09E3D10>]}
+[0m11:09:14.845260 [info ] [Thread-1 (]: 7 of 20 OK created sql view model main_staging.stg_toll_transaction ............ [[32mOK[0m in 0.06s]
+[0m11:09:14.845260 [debug] [Thread-1 (]: Finished running node model.datacore.stg_toll_transaction
+[0m11:09:14.846356 [debug] [Thread-1 (]: Began running node model.datacore.stg_vehicle_type_dict
+[0m11:09:14.846356 [info ] [Thread-1 (]: 8 of 20 START sql view model main_staging.stg_vehicle_type_dict ................ [RUN]
+[0m11:09:14.847358 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.datacore.stg_toll_transaction, now model.datacore.stg_vehicle_type_dict)
+[0m11:09:14.847358 [debug] [Thread-1 (]: Began compiling node model.datacore.stg_vehicle_type_dict
+[0m11:09:14.850357 [debug] [Thread-1 (]: Writing injected SQL for node "model.datacore.stg_vehicle_type_dict"
+[0m11:09:14.851360 [debug] [Thread-1 (]: Began executing node model.datacore.stg_vehicle_type_dict
+[0m11:09:14.854357 [debug] [Thread-1 (]: Writing runtime sql for node "model.datacore.stg_vehicle_type_dict"
+[0m11:09:14.855357 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.stg_vehicle_type_dict"
+[0m11:09:14.856358 [debug] [Thread-1 (]: On model.datacore.stg_vehicle_type_dict: BEGIN
+[0m11:09:14.856358 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:09:14.857400 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:14.857400 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.stg_vehicle_type_dict"
+[0m11:09:14.858400 [debug] [Thread-1 (]: On model.datacore.stg_vehicle_type_dict: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.stg_vehicle_type_dict"} */
+
+  
+  create view "datacore"."main_staging"."stg_vehicle_type_dict__dbt_tmp" as (
+    -- 车型字典数据清洗层
+
+
+
+SELECT 
+    vehicle_type_code,
+    TRIM(vehicle_type_name) AS vehicle_type_name,
+    TRIM(vehicle_type_desc) AS vehicle_type_desc,
+    toll_rate_multiplier,
+    CURRENT_TIMESTAMP AS etl_time
+FROM "datacore"."raw"."vehicle_type_dict"
+  );
+
+[0m11:09:14.859400 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:14.861399 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.stg_vehicle_type_dict"
+[0m11:09:14.862399 [debug] [Thread-1 (]: On model.datacore.stg_vehicle_type_dict: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.stg_vehicle_type_dict"} */
+alter view "datacore"."main_staging"."stg_vehicle_type_dict__dbt_tmp" rename to "stg_vehicle_type_dict"
+[0m11:09:14.863401 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:14.864399 [debug] [Thread-1 (]: On model.datacore.stg_vehicle_type_dict: COMMIT
+[0m11:09:14.864399 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.stg_vehicle_type_dict"
+[0m11:09:14.865456 [debug] [Thread-1 (]: On model.datacore.stg_vehicle_type_dict: COMMIT
+[0m11:09:14.879638 [debug] [Thread-1 (]: SQL status: OK in 0.014 seconds
+[0m11:09:14.881638 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.stg_vehicle_type_dict"
+[0m11:09:14.882638 [debug] [Thread-1 (]: On model.datacore.stg_vehicle_type_dict: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.stg_vehicle_type_dict"} */
+
+      drop view if exists "datacore"."main_staging"."stg_vehicle_type_dict__dbt_backup" cascade
+    
+[0m11:09:14.883638 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:14.884644 [debug] [Thread-1 (]: On model.datacore.stg_vehicle_type_dict: Close
+[0m11:09:14.885641 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266F09E41D0>]}
+[0m11:09:14.885738 [info ] [Thread-1 (]: 8 of 20 OK created sql view model main_staging.stg_vehicle_type_dict ........... [[32mOK[0m in 0.04s]
+[0m11:09:14.886739 [debug] [Thread-1 (]: Finished running node model.datacore.stg_vehicle_type_dict
+[0m11:09:14.886739 [debug] [Thread-1 (]: Began running node model.datacore.ods_toll_station
+[0m11:09:14.887745 [info ] [Thread-1 (]: 9 of 20 START sql table model main_ods.ods_toll_station ........................ [RUN]
+[0m11:09:14.888744 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.datacore.stg_vehicle_type_dict, now model.datacore.ods_toll_station)
+[0m11:09:14.888744 [debug] [Thread-1 (]: Began compiling node model.datacore.ods_toll_station
+[0m11:09:14.891744 [debug] [Thread-1 (]: Writing injected SQL for node "model.datacore.ods_toll_station"
+[0m11:09:14.892745 [debug] [Thread-1 (]: Began executing node model.datacore.ods_toll_station
+[0m11:09:14.895849 [debug] [Thread-1 (]: Writing runtime sql for node "model.datacore.ods_toll_station"
+[0m11:09:14.896851 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ods_toll_station"
+[0m11:09:14.896851 [debug] [Thread-1 (]: On model.datacore.ods_toll_station: BEGIN
+[0m11:09:14.897850 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:09:14.898850 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:14.898850 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ods_toll_station"
+[0m11:09:14.899850 [debug] [Thread-1 (]: On model.datacore.ods_toll_station: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.ods_toll_station"} */
+
+  
+    
+    
+
+    create  table
+      "datacore"."main_ods"."ods_toll_station__dbt_tmp"
+  
+    as (
+      -- ODS层：收费站操作数据存储
+
+
+
+SELECT 
+    station_id,
+    station_name,
+    city,
+    highway_code,
+    station_type,
+    open_date,
+    -- 业务字段
+    CASE 
+        WHEN station_type = '主线收费站' THEN 1
+        ELSE 0
+    END AS is_main_station,
+    CURRENT_DATE - open_date AS days_since_open,
+    etl_time
+FROM "datacore"."main_staging"."stg_toll_station"
+    );
+  
+  
+[0m11:09:14.906635 [debug] [Thread-1 (]: SQL status: OK in 0.007 seconds
+[0m11:09:14.909641 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ods_toll_station"
+[0m11:09:14.909641 [debug] [Thread-1 (]: On model.datacore.ods_toll_station: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.ods_toll_station"} */
+alter table "datacore"."main_ods"."ods_toll_station__dbt_tmp" rename to "ods_toll_station"
+[0m11:09:14.910640 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:14.911642 [debug] [Thread-1 (]: On model.datacore.ods_toll_station: COMMIT
+[0m11:09:14.912641 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ods_toll_station"
+[0m11:09:14.912641 [debug] [Thread-1 (]: On model.datacore.ods_toll_station: COMMIT
+[0m11:09:14.936011 [debug] [Thread-1 (]: SQL status: OK in 0.023 seconds
+[0m11:09:14.939013 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ods_toll_station"
+[0m11:09:14.939013 [debug] [Thread-1 (]: On model.datacore.ods_toll_station: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.ods_toll_station"} */
+
+      drop table if exists "datacore"."main_ods"."ods_toll_station__dbt_backup" cascade
+    
+[0m11:09:14.940013 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:14.941013 [debug] [Thread-1 (]: On model.datacore.ods_toll_station: Close
+[0m11:09:14.942012 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266F084BBD0>]}
+[0m11:09:14.943012 [info ] [Thread-1 (]: 9 of 20 OK created sql table model main_ods.ods_toll_station ................... [[32mOK[0m in 0.05s]
+[0m11:09:14.943012 [debug] [Thread-1 (]: Finished running node model.datacore.ods_toll_station
+[0m11:09:14.944014 [debug] [Thread-1 (]: Began running node model.datacore.meta_data_dictionary
+[0m11:09:14.944014 [info ] [Thread-1 (]: 10 of 20 START sql table model main_metadata.meta_data_dictionary .............. [RUN]
+[0m11:09:14.945083 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.datacore.ods_toll_station, now model.datacore.meta_data_dictionary)
+[0m11:09:14.945083 [debug] [Thread-1 (]: Began compiling node model.datacore.meta_data_dictionary
+[0m11:09:14.948570 [debug] [Thread-1 (]: Writing injected SQL for node "model.datacore.meta_data_dictionary"
+[0m11:09:14.949617 [debug] [Thread-1 (]: Began executing node model.datacore.meta_data_dictionary
+[0m11:09:14.954576 [debug] [Thread-1 (]: Writing runtime sql for node "model.datacore.meta_data_dictionary"
+[0m11:09:14.955576 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_data_dictionary"
+[0m11:09:14.956653 [debug] [Thread-1 (]: On model.datacore.meta_data_dictionary: BEGIN
+[0m11:09:14.956653 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:09:14.957674 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:14.957674 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_data_dictionary"
+[0m11:09:14.958674 [debug] [Thread-1 (]: On model.datacore.meta_data_dictionary: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.meta_data_dictionary"} */
+
+  
+    
+    
+
+    create  table
+      "datacore"."main_metadata"."meta_data_dictionary__dbt_tmp"
+  
+    as (
+      -- 元数据管理：数据字典表
+-- 功能：统一管理业务数据字典
+
+
+
+-- 车型字典
+SELECT 
+    'vehicle_type' AS dict_type,
+    vehicle_type_code AS dict_code,
+    vehicle_type_name AS dict_name,
+    vehicle_type_desc AS dict_desc,
+    toll_rate_multiplier AS dict_value,
+    '收费政策' AS dict_source,
+    CURRENT_TIMESTAMP AS create_time
+FROM "datacore"."main_staging"."stg_vehicle_type_dict"
+UNION ALL
+-- 支付方式字典
+SELECT 
+    'payment_method' AS dict_type,
+    payment_method_code AS dict_code,
+    payment_method_name AS dict_name,
+    payment_method_desc AS dict_desc,
+    NULL AS dict_value,
+    '支付系统' AS dict_source,
+    CURRENT_TIMESTAMP AS create_time
+FROM "datacore"."main_staging"."stg_payment_method_dict"
+UNION ALL
+-- 交易状态字典
+SELECT 
+    'transaction_status' AS dict_type,
+    status_code AS dict_code,
+    status_name AS dict_name,
+    status_desc AS dict_desc,
+    NULL AS dict_value,
+    '业务规则' AS dict_source,
+    CURRENT_TIMESTAMP AS create_time
+FROM (
+    SELECT '正常' AS status_code, '正常' AS status_name, '正常交易' AS status_desc
+    UNION ALL SELECT '异常', '异常', '异常交易'
+    UNION ALL SELECT '逃费', '逃费', '逃费交易'
+    UNION ALL SELECT '设备故障', '设备故障', '设备故障导致'
+    UNION ALL SELECT '数据缺失', '数据缺失', '数据缺失'
+) AS status_dict
+UNION ALL
+-- 数据质量标记字典
+SELECT 
+    'data_quality_flag' AS dict_type,
+    flag_code AS dict_code,
+    flag_name AS dict_name,
+    flag_desc AS dict_desc,
+    NULL AS dict_value,
+    '数据质量规则' AS dict_source,
+    CURRENT_TIMESTAMP AS create_time
+FROM (
+    SELECT '正常' AS flag_code, '正常' AS flag_name, '数据质量正常' AS flag_desc
+    UNION ALL SELECT '数据缺失', '数据缺失', '关键字段缺失'
+    UNION ALL SELECT '收费站缺失', '收费站缺失', '收费站信息缺失'
+    UNION ALL SELECT '车牌缺失', '车牌缺失', '车牌号缺失'
+    UNION ALL SELECT '时间异常', '时间异常', '时间逻辑异常'
+    UNION ALL SELECT '金额异常', '金额异常', '金额逻辑异常'
+) AS quality_dict
+    );
+  
+  
+[0m11:09:14.962677 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m11:09:14.964675 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_data_dictionary"
+[0m11:09:14.966020 [debug] [Thread-1 (]: On model.datacore.meta_data_dictionary: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.meta_data_dictionary"} */
+alter table "datacore"."main_metadata"."meta_data_dictionary__dbt_tmp" rename to "meta_data_dictionary"
+[0m11:09:14.966020 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:14.968057 [debug] [Thread-1 (]: On model.datacore.meta_data_dictionary: COMMIT
+[0m11:09:14.968057 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_data_dictionary"
+[0m11:09:14.969024 [debug] [Thread-1 (]: On model.datacore.meta_data_dictionary: COMMIT
+[0m11:09:14.988384 [debug] [Thread-1 (]: SQL status: OK in 0.019 seconds
+[0m11:09:14.991396 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_data_dictionary"
+[0m11:09:14.991396 [debug] [Thread-1 (]: On model.datacore.meta_data_dictionary: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.meta_data_dictionary"} */
+
+      drop table if exists "datacore"."main_metadata"."meta_data_dictionary__dbt_backup" cascade
+    
+[0m11:09:14.992397 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:14.993396 [debug] [Thread-1 (]: On model.datacore.meta_data_dictionary: Close
+[0m11:09:14.994396 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266F09F3550>]}
+[0m11:09:14.994396 [info ] [Thread-1 (]: 10 of 20 OK created sql table model main_metadata.meta_data_dictionary ......... [[32mOK[0m in 0.05s]
+[0m11:09:14.995399 [debug] [Thread-1 (]: Finished running node model.datacore.meta_data_dictionary
+[0m11:09:14.995399 [debug] [Thread-1 (]: Began running node model.datacore.ods_toll_transaction
+[0m11:09:14.996564 [info ] [Thread-1 (]: 11 of 20 START sql table model main_ods.ods_toll_transaction ................... [RUN]
+[0m11:09:14.996564 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.datacore.meta_data_dictionary, now model.datacore.ods_toll_transaction)
+[0m11:09:14.997565 [debug] [Thread-1 (]: Began compiling node model.datacore.ods_toll_transaction
+[0m11:09:15.000570 [debug] [Thread-1 (]: Writing injected SQL for node "model.datacore.ods_toll_transaction"
+[0m11:09:15.003092 [debug] [Thread-1 (]: Began executing node model.datacore.ods_toll_transaction
+[0m11:09:15.005091 [debug] [Thread-1 (]: Writing runtime sql for node "model.datacore.ods_toll_transaction"
+[0m11:09:15.006541 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ods_toll_transaction"
+[0m11:09:15.007546 [debug] [Thread-1 (]: On model.datacore.ods_toll_transaction: BEGIN
+[0m11:09:15.007546 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:09:15.008552 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:15.008552 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ods_toll_transaction"
+[0m11:09:15.009552 [debug] [Thread-1 (]: On model.datacore.ods_toll_transaction: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.ods_toll_transaction"} */
+
+  
+    
+    
+
+    create  table
+      "datacore"."main_ods"."ods_toll_transaction__dbt_tmp"
+  
+    as (
+      -- ODS层：收费交易操作数据存储
+-- 功能：保持业务原始逻辑，关联字典表，增加业务字段
+
+
+
+SELECT 
+    t.transaction_id,
+    t.station_id,
+    s.station_name,
+    s.city,
+    s.highway_code,
+    s.station_type,
+    t.lane_id,
+    t.vehicle_plate,
+    t.vehicle_type_code,
+    vt.vehicle_type_name,
+    vt.vehicle_type_desc,
+    t.entry_station_id,
+    es.station_name AS entry_station_name,
+    t.entry_time,
+    t.exit_time,
+    t.travel_minutes,
+    t.payment_method_code,
+    pm.payment_method_name,
+    pm.payment_method_desc,
+    t.toll_amount,
+    t.actual_amount,
+    t.discount_amount,
+    t.transaction_status,
+    t.data_quality_flag,
+    -- 业务字段
+    DATE(t.exit_time) AS transaction_date,
+    EXTRACT(HOUR FROM t.exit_time) AS transaction_hour,
+    EXTRACT(DOW FROM t.exit_time) AS day_of_week,
+    CASE 
+        WHEN t.transaction_status = '正常' THEN 1 
+        ELSE 0 
+    END AS is_normal_transaction,
+    t.create_time,
+    t.update_time,
+    t.etl_time
+FROM "datacore"."main_staging"."stg_toll_transaction" t
+LEFT JOIN "datacore"."main_staging"."stg_toll_station" s ON t.station_id = s.station_id
+LEFT JOIN "datacore"."main_staging"."stg_toll_station" es ON t.entry_station_id = es.station_id
+LEFT JOIN "datacore"."main_staging"."stg_vehicle_type_dict" vt ON t.vehicle_type_code = vt.vehicle_type_code
+LEFT JOIN "datacore"."main_staging"."stg_payment_method_dict" pm ON t.payment_method_code = pm.payment_method_code
+    );
+  
+  
+[0m11:09:15.251920 [debug] [Thread-1 (]: SQL status: OK in 0.242 seconds
+[0m11:09:15.254921 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ods_toll_transaction"
+[0m11:09:15.254921 [debug] [Thread-1 (]: On model.datacore.ods_toll_transaction: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.ods_toll_transaction"} */
+alter table "datacore"."main_ods"."ods_toll_transaction__dbt_tmp" rename to "ods_toll_transaction"
+[0m11:09:15.255920 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:15.256922 [debug] [Thread-1 (]: On model.datacore.ods_toll_transaction: COMMIT
+[0m11:09:15.257920 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ods_toll_transaction"
+[0m11:09:15.257920 [debug] [Thread-1 (]: On model.datacore.ods_toll_transaction: COMMIT
+[0m11:09:15.739804 [debug] [Thread-1 (]: SQL status: OK in 0.481 seconds
+[0m11:09:15.741803 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ods_toll_transaction"
+[0m11:09:15.741803 [debug] [Thread-1 (]: On model.datacore.ods_toll_transaction: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.ods_toll_transaction"} */
+
+      drop table if exists "datacore"."main_ods"."ods_toll_transaction__dbt_backup" cascade
+    
+[0m11:09:15.742803 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:15.743805 [debug] [Thread-1 (]: On model.datacore.ods_toll_transaction: Close
+[0m11:09:15.744805 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266F09F3310>]}
+[0m11:09:15.745894 [info ] [Thread-1 (]: 11 of 20 OK created sql table model main_ods.ods_toll_transaction .............. [[32mOK[0m in 0.75s]
+[0m11:09:15.746138 [debug] [Thread-1 (]: Finished running node model.datacore.ods_toll_transaction
+[0m11:09:15.747145 [debug] [Thread-1 (]: Began running node model.datacore.dwd_toll_transaction_detail
+[0m11:09:15.747145 [info ] [Thread-1 (]: 12 of 20 START sql table model main_dwd.dwd_toll_transaction_detail ............ [RUN]
+[0m11:09:15.748145 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.datacore.ods_toll_transaction, now model.datacore.dwd_toll_transaction_detail)
+[0m11:09:15.749146 [debug] [Thread-1 (]: Began compiling node model.datacore.dwd_toll_transaction_detail
+[0m11:09:15.752146 [debug] [Thread-1 (]: Writing injected SQL for node "model.datacore.dwd_toll_transaction_detail"
+[0m11:09:15.753145 [debug] [Thread-1 (]: Began executing node model.datacore.dwd_toll_transaction_detail
+[0m11:09:15.756255 [debug] [Thread-1 (]: Writing runtime sql for node "model.datacore.dwd_toll_transaction_detail"
+[0m11:09:15.757257 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.dwd_toll_transaction_detail"
+[0m11:09:15.757257 [debug] [Thread-1 (]: On model.datacore.dwd_toll_transaction_detail: BEGIN
+[0m11:09:15.758257 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:09:15.759056 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:15.759056 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.dwd_toll_transaction_detail"
+[0m11:09:15.760061 [debug] [Thread-1 (]: On model.datacore.dwd_toll_transaction_detail: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.dwd_toll_transaction_detail"} */
+
+  
+    
+    
+
+    create  table
+      "datacore"."main_dwd"."dwd_toll_transaction_detail__dbt_tmp"
+  
+    as (
+      -- DWD层：收费交易明细数据
+-- 功能：业务明细数据，便于后续分析
+
+
+
+SELECT 
+    transaction_id,
+    station_id,
+    station_name,
+    city,
+    highway_code,
+    station_type,
+    lane_id,
+    vehicle_plate,
+    vehicle_type_code,
+    vehicle_type_name,
+    vehicle_type_desc,
+    entry_station_id,
+    entry_station_name,
+    entry_time,
+    exit_time,
+    travel_minutes,
+    -- 计算通行距离（估算，基于时间）
+    CASE 
+        WHEN travel_minutes > 0 THEN 
+            ROUND(travel_minutes * 60 / 100.0, 2)  -- 假设平均速度100km/h
+        ELSE 0
+    END AS estimated_distance_km,
+    payment_method_code,
+    payment_method_name,
+    payment_method_desc,
+    toll_amount,
+    actual_amount,
+    discount_amount,
+    transaction_status,
+    data_quality_flag,
+    transaction_date,
+    transaction_hour,
+    day_of_week,
+    is_normal_transaction,
+    -- 业务分类
+    CASE 
+        WHEN transaction_hour BETWEEN 6 AND 9 THEN '早高峰'
+        WHEN transaction_hour BETWEEN 17 AND 20 THEN '晚高峰'
+        WHEN transaction_hour BETWEEN 22 AND 6 THEN '夜间'
+        ELSE '平峰'
+    END AS time_period,
+    CASE 
+        WHEN day_of_week IN (0, 6) THEN '周末'  -- DOW: 0=周日, 6=周六
+        ELSE '工作日'
+    END AS day_type,
+    create_time,
+    update_time,
+    etl_time
+FROM "datacore"."main_ods"."ods_toll_transaction"
+    );
+  
+  
+[0m11:09:16.191617 [debug] [Thread-1 (]: SQL status: OK in 0.431 seconds
+[0m11:09:16.194613 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.dwd_toll_transaction_detail"
+[0m11:09:16.194613 [debug] [Thread-1 (]: On model.datacore.dwd_toll_transaction_detail: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.dwd_toll_transaction_detail"} */
+alter table "datacore"."main_dwd"."dwd_toll_transaction_detail__dbt_tmp" rename to "dwd_toll_transaction_detail"
+[0m11:09:16.195732 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:16.196733 [debug] [Thread-1 (]: On model.datacore.dwd_toll_transaction_detail: COMMIT
+[0m11:09:16.197733 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.dwd_toll_transaction_detail"
+[0m11:09:16.197733 [debug] [Thread-1 (]: On model.datacore.dwd_toll_transaction_detail: COMMIT
+[0m11:09:16.329421 [debug] [Thread-1 (]: SQL status: OK in 0.131 seconds
+[0m11:09:16.333420 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.dwd_toll_transaction_detail"
+[0m11:09:16.334420 [debug] [Thread-1 (]: On model.datacore.dwd_toll_transaction_detail: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.dwd_toll_transaction_detail"} */
+
+      drop table if exists "datacore"."main_dwd"."dwd_toll_transaction_detail__dbt_backup" cascade
+    
+[0m11:09:16.335419 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:16.336517 [debug] [Thread-1 (]: On model.datacore.dwd_toll_transaction_detail: Close
+[0m11:09:16.336517 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266F0A11650>]}
+[0m11:09:16.337562 [info ] [Thread-1 (]: 12 of 20 OK created sql table model main_dwd.dwd_toll_transaction_detail ....... [[32mOK[0m in 0.59s]
+[0m11:09:16.338561 [debug] [Thread-1 (]: Finished running node model.datacore.dwd_toll_transaction_detail
+[0m11:09:16.339559 [debug] [Thread-1 (]: Began running node model.datacore.ads_quality_monitoring_dashboard
+[0m11:09:16.339559 [info ] [Thread-1 (]: 13 of 20 START sql table model main_ads.ads_quality_monitoring_dashboard ....... [RUN]
+[0m11:09:16.340511 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.datacore.dwd_toll_transaction_detail, now model.datacore.ads_quality_monitoring_dashboard)
+[0m11:09:16.340511 [debug] [Thread-1 (]: Began compiling node model.datacore.ads_quality_monitoring_dashboard
+[0m11:09:16.343563 [debug] [Thread-1 (]: Writing injected SQL for node "model.datacore.ads_quality_monitoring_dashboard"
+[0m11:09:16.345516 [debug] [Thread-1 (]: Began executing node model.datacore.ads_quality_monitoring_dashboard
+[0m11:09:16.347714 [debug] [Thread-1 (]: Writing runtime sql for node "model.datacore.ads_quality_monitoring_dashboard"
+[0m11:09:16.348712 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ads_quality_monitoring_dashboard"
+[0m11:09:16.349713 [debug] [Thread-1 (]: On model.datacore.ads_quality_monitoring_dashboard: BEGIN
+[0m11:09:16.349713 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:09:16.350713 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:16.351714 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ads_quality_monitoring_dashboard"
+[0m11:09:16.351714 [debug] [Thread-1 (]: On model.datacore.ads_quality_monitoring_dashboard: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.ads_quality_monitoring_dashboard"} */
+
+  
+    
+    
+
+    create  table
+      "datacore"."main_ads"."ads_quality_monitoring_dashboard__dbt_tmp"
+  
+    as (
+      -- ADS层：数据质量监控看板
+-- 功能：数据质量监控和告警
+
+
+
+SELECT 
+    transaction_date,
+    -- 总体质量指标
+    COUNT(*) AS total_transactions,
+    SUM(CASE WHEN is_normal_transaction = 1 THEN 1 ELSE 0 END) AS normal_transactions,
+    SUM(CASE WHEN is_normal_transaction = 0 THEN 1 ELSE 0 END) AS abnormal_transactions,
+    SUM(CASE WHEN data_quality_flag = '正常' THEN 1 ELSE 0 END) AS quality_normal,
+    SUM(CASE WHEN data_quality_flag != '正常' THEN 1 ELSE 0 END) AS quality_abnormal,
+    -- 质量率
+    SUM(CASE WHEN is_normal_transaction = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS normal_rate,
+    SUM(CASE WHEN data_quality_flag = '正常' THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS data_quality_rate,
+    -- 异常类型分布
+    SUM(CASE WHEN transaction_status = '异常' THEN 1 ELSE 0 END) AS status_abnormal_count,
+    SUM(CASE WHEN transaction_status = '逃费' THEN 1 ELSE 0 END) AS status_evasion_count,
+    SUM(CASE WHEN transaction_status = '设备故障' THEN 1 ELSE 0 END) AS status_equipment_failure_count,
+    SUM(CASE WHEN transaction_status = '数据缺失' THEN 1 ELSE 0 END) AS status_missing_count,
+    SUM(CASE WHEN data_quality_flag = '数据缺失' THEN 1 ELSE 0 END) AS quality_missing_count,
+    SUM(CASE WHEN data_quality_flag = '收费站缺失' THEN 1 ELSE 0 END) AS quality_station_missing_count,
+    SUM(CASE WHEN data_quality_flag = '车牌缺失' THEN 1 ELSE 0 END) AS quality_plate_missing_count,
+    SUM(CASE WHEN data_quality_flag = '时间异常' THEN 1 ELSE 0 END) AS quality_time_abnormal_count,
+    SUM(CASE WHEN data_quality_flag = '金额异常' THEN 1 ELSE 0 END) AS quality_amount_abnormal_count,
+    -- 告警标记
+    CASE 
+        WHEN SUM(CASE WHEN is_normal_transaction = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*) < 90 THEN '告警'
+        WHEN SUM(CASE WHEN data_quality_flag = '正常' THEN 1 ELSE 0 END) * 100.0 / COUNT(*) < 95 THEN '告警'
+        ELSE '正常'
+    END AS alert_status,
+    -- 时间维度
+    MAX(etl_time) AS last_update_time
+FROM "datacore"."main_dwd"."dwd_toll_transaction_detail"
+GROUP BY transaction_date
+    );
+  
+  
+[0m11:09:16.389249 [debug] [Thread-1 (]: SQL status: OK in 0.037 seconds
+[0m11:09:16.392250 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ads_quality_monitoring_dashboard"
+[0m11:09:16.393249 [debug] [Thread-1 (]: On model.datacore.ads_quality_monitoring_dashboard: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.ads_quality_monitoring_dashboard"} */
+alter table "datacore"."main_ads"."ads_quality_monitoring_dashboard__dbt_tmp" rename to "ads_quality_monitoring_dashboard"
+[0m11:09:16.394251 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:16.395314 [debug] [Thread-1 (]: On model.datacore.ads_quality_monitoring_dashboard: COMMIT
+[0m11:09:16.395314 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ads_quality_monitoring_dashboard"
+[0m11:09:16.396316 [debug] [Thread-1 (]: On model.datacore.ads_quality_monitoring_dashboard: COMMIT
+[0m11:09:16.430154 [debug] [Thread-1 (]: SQL status: OK in 0.034 seconds
+[0m11:09:16.432154 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ads_quality_monitoring_dashboard"
+[0m11:09:16.433154 [debug] [Thread-1 (]: On model.datacore.ads_quality_monitoring_dashboard: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.ads_quality_monitoring_dashboard"} */
+
+      drop table if exists "datacore"."main_ads"."ads_quality_monitoring_dashboard__dbt_backup" cascade
+    
+[0m11:09:16.434154 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:16.435210 [debug] [Thread-1 (]: On model.datacore.ads_quality_monitoring_dashboard: Close
+[0m11:09:16.436213 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266F0994450>]}
+[0m11:09:16.436383 [info ] [Thread-1 (]: 13 of 20 OK created sql table model main_ads.ads_quality_monitoring_dashboard .. [[32mOK[0m in 0.09s]
+[0m11:09:16.437385 [debug] [Thread-1 (]: Finished running node model.datacore.ads_quality_monitoring_dashboard
+[0m11:09:16.437385 [debug] [Thread-1 (]: Began running node model.datacore.dws_station_performance_daily
+[0m11:09:16.438385 [info ] [Thread-1 (]: 14 of 20 START sql table model main_dws.dws_station_performance_daily .......... [RUN]
+[0m11:09:16.439385 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.datacore.ads_quality_monitoring_dashboard, now model.datacore.dws_station_performance_daily)
+[0m11:09:16.439385 [debug] [Thread-1 (]: Began compiling node model.datacore.dws_station_performance_daily
+[0m11:09:16.442384 [debug] [Thread-1 (]: Writing injected SQL for node "model.datacore.dws_station_performance_daily"
+[0m11:09:16.443384 [debug] [Thread-1 (]: Began executing node model.datacore.dws_station_performance_daily
+[0m11:09:16.446444 [debug] [Thread-1 (]: Writing runtime sql for node "model.datacore.dws_station_performance_daily"
+[0m11:09:16.447487 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.dws_station_performance_daily"
+[0m11:09:16.448487 [debug] [Thread-1 (]: On model.datacore.dws_station_performance_daily: BEGIN
+[0m11:09:16.448487 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:09:16.449488 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:16.449488 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.dws_station_performance_daily"
+[0m11:09:16.450490 [debug] [Thread-1 (]: On model.datacore.dws_station_performance_daily: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.dws_station_performance_daily"} */
+
+  
+    
+    
+
+    create  table
+      "datacore"."main_dws"."dws_station_performance_daily__dbt_tmp"
+  
+    as (
+      -- DWS层：收费站日绩效汇总
+-- 功能：收费站维度的综合绩效指标
+
+
+
+SELECT 
+    transaction_date,
+    station_id,
+    station_name,
+    city,
+    highway_code,
+    station_type,
+    -- 交易量指标
+    COUNT(*) AS total_transactions,
+    COUNT(DISTINCT vehicle_plate) AS unique_vehicles,
+    COUNT(DISTINCT lane_id) AS active_lanes,
+    -- 收入指标
+    SUM(actual_amount) AS total_revenue,
+    AVG(actual_amount) AS avg_revenue_per_transaction,
+    -- 效率指标
+    AVG(travel_minutes) AS avg_processing_time_minutes,
+    -- 质量指标
+    SUM(CASE WHEN is_normal_transaction = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS normal_rate,
+    SUM(CASE WHEN data_quality_flag = '正常' THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS data_quality_rate,
+    -- 支付方式分布
+    SUM(CASE WHEN payment_method_code = 'P01' THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS etc_rate,
+    -- 高峰时段占比
+    SUM(CASE WHEN time_period IN ('早高峰', '晚高峰') THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS peak_hour_rate,
+    -- 时间维度
+    MAX(etl_time) AS last_update_time
+FROM "datacore"."main_dwd"."dwd_toll_transaction_detail"
+GROUP BY 
+    transaction_date,
+    station_id,
+    station_name,
+    city,
+    highway_code,
+    station_type
+    );
+  
+  
+[0m11:09:16.529432 [debug] [Thread-1 (]: SQL status: OK in 0.079 seconds
+[0m11:09:16.532434 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.dws_station_performance_daily"
+[0m11:09:16.533433 [debug] [Thread-1 (]: On model.datacore.dws_station_performance_daily: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.dws_station_performance_daily"} */
+alter table "datacore"."main_dws"."dws_station_performance_daily__dbt_tmp" rename to "dws_station_performance_daily"
+[0m11:09:16.534433 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:16.535505 [debug] [Thread-1 (]: On model.datacore.dws_station_performance_daily: COMMIT
+[0m11:09:16.535505 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.dws_station_performance_daily"
+[0m11:09:16.536616 [debug] [Thread-1 (]: On model.datacore.dws_station_performance_daily: COMMIT
+[0m11:09:16.566548 [debug] [Thread-1 (]: SQL status: OK in 0.030 seconds
+[0m11:09:16.569550 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.dws_station_performance_daily"
+[0m11:09:16.569550 [debug] [Thread-1 (]: On model.datacore.dws_station_performance_daily: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.dws_station_performance_daily"} */
+
+      drop table if exists "datacore"."main_dws"."dws_station_performance_daily__dbt_backup" cascade
+    
+[0m11:09:16.570550 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:16.571551 [debug] [Thread-1 (]: On model.datacore.dws_station_performance_daily: Close
+[0m11:09:16.572549 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266EEB21C50>]}
+[0m11:09:16.573549 [info ] [Thread-1 (]: 14 of 20 OK created sql table model main_dws.dws_station_performance_daily ..... [[32mOK[0m in 0.13s]
+[0m11:09:16.573549 [debug] [Thread-1 (]: Finished running node model.datacore.dws_station_performance_daily
+[0m11:09:16.574552 [debug] [Thread-1 (]: Began running node model.datacore.dws_toll_revenue_daily
+[0m11:09:16.574552 [info ] [Thread-1 (]: 15 of 20 START sql table model main_dws.dws_toll_revenue_daily ................. [RUN]
+[0m11:09:16.575824 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.datacore.dws_station_performance_daily, now model.datacore.dws_toll_revenue_daily)
+[0m11:09:16.575824 [debug] [Thread-1 (]: Began compiling node model.datacore.dws_toll_revenue_daily
+[0m11:09:16.578831 [debug] [Thread-1 (]: Writing injected SQL for node "model.datacore.dws_toll_revenue_daily"
+[0m11:09:16.579831 [debug] [Thread-1 (]: Began executing node model.datacore.dws_toll_revenue_daily
+[0m11:09:16.583831 [debug] [Thread-1 (]: Writing runtime sql for node "model.datacore.dws_toll_revenue_daily"
+[0m11:09:16.586138 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.dws_toll_revenue_daily"
+[0m11:09:16.586138 [debug] [Thread-1 (]: On model.datacore.dws_toll_revenue_daily: BEGIN
+[0m11:09:16.587146 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:09:16.587146 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:16.588158 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.dws_toll_revenue_daily"
+[0m11:09:16.588158 [debug] [Thread-1 (]: On model.datacore.dws_toll_revenue_daily: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.dws_toll_revenue_daily"} */
+
+  
+    
+    
+
+    create  table
+      "datacore"."main_dws"."dws_toll_revenue_daily__dbt_tmp"
+  
+    as (
+      -- DWS层：日收费收入汇总
+-- 功能：按日期、收费站、车型、支付方式等维度汇总
+
+
+
+SELECT 
+    transaction_date,
+    station_id,
+    station_name,
+    city,
+    highway_code,
+    station_type,
+    vehicle_type_code,
+    vehicle_type_name,
+    payment_method_code,
+    payment_method_name,
+    -- 汇总指标
+    COUNT(*) AS transaction_count,
+    COUNT(DISTINCT vehicle_plate) AS vehicle_count,
+    SUM(toll_amount) AS total_toll_amount,
+    SUM(actual_amount) AS total_actual_amount,
+    SUM(discount_amount) AS total_discount_amount,
+    AVG(actual_amount) AS avg_transaction_amount,
+    MAX(actual_amount) AS max_transaction_amount,
+    MIN(actual_amount) AS min_transaction_amount,
+    -- 正常交易统计
+    SUM(CASE WHEN is_normal_transaction = 1 THEN 1 ELSE 0 END) AS normal_transaction_count,
+    SUM(CASE WHEN is_normal_transaction = 1 THEN actual_amount ELSE 0 END) AS normal_transaction_amount,
+    -- 异常交易统计
+    SUM(CASE WHEN is_normal_transaction = 0 THEN 1 ELSE 0 END) AS abnormal_transaction_count,
+    -- 数据质量指标
+    SUM(CASE WHEN data_quality_flag = '正常' THEN 1 ELSE 0 END) AS quality_normal_count,
+    SUM(CASE WHEN data_quality_flag != '正常' THEN 1 ELSE 0 END) AS quality_abnormal_count,
+    -- 时间维度
+    MAX(etl_time) AS last_update_time
+FROM "datacore"."main_dwd"."dwd_toll_transaction_detail"
+GROUP BY 
+    transaction_date,
+    station_id,
+    station_name,
+    city,
+    highway_code,
+    station_type,
+    vehicle_type_code,
+    vehicle_type_name,
+    payment_method_code,
+    payment_method_name
+    );
+  
+  
+[0m11:09:16.689988 [debug] [Thread-1 (]: SQL status: OK in 0.100 seconds
+[0m11:09:16.691988 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.dws_toll_revenue_daily"
+[0m11:09:16.692988 [debug] [Thread-1 (]: On model.datacore.dws_toll_revenue_daily: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.dws_toll_revenue_daily"} */
+alter table "datacore"."main_dws"."dws_toll_revenue_daily__dbt_tmp" rename to "dws_toll_revenue_daily"
+[0m11:09:16.693989 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:16.695044 [debug] [Thread-1 (]: On model.datacore.dws_toll_revenue_daily: COMMIT
+[0m11:09:16.695044 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.dws_toll_revenue_daily"
+[0m11:09:16.696048 [debug] [Thread-1 (]: On model.datacore.dws_toll_revenue_daily: COMMIT
+[0m11:09:16.904570 [debug] [Thread-1 (]: SQL status: OK in 0.208 seconds
+[0m11:09:16.907661 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.dws_toll_revenue_daily"
+[0m11:09:16.907661 [debug] [Thread-1 (]: On model.datacore.dws_toll_revenue_daily: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.dws_toll_revenue_daily"} */
+
+      drop table if exists "datacore"."main_dws"."dws_toll_revenue_daily__dbt_backup" cascade
+    
+[0m11:09:16.908661 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:16.909662 [debug] [Thread-1 (]: On model.datacore.dws_toll_revenue_daily: Close
+[0m11:09:16.910661 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266F0A2DC90>]}
+[0m11:09:16.910661 [info ] [Thread-1 (]: 15 of 20 OK created sql table model main_dws.dws_toll_revenue_daily ............ [[32mOK[0m in 0.33s]
+[0m11:09:16.911661 [debug] [Thread-1 (]: Finished running node model.datacore.dws_toll_revenue_daily
+[0m11:09:16.912666 [debug] [Thread-1 (]: Began running node model.datacore.dws_traffic_flow_daily
+[0m11:09:16.913663 [info ] [Thread-1 (]: 16 of 20 START sql table model main_dws.dws_traffic_flow_daily ................. [RUN]
+[0m11:09:16.913663 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.datacore.dws_toll_revenue_daily, now model.datacore.dws_traffic_flow_daily)
+[0m11:09:16.914666 [debug] [Thread-1 (]: Began compiling node model.datacore.dws_traffic_flow_daily
+[0m11:09:16.917799 [debug] [Thread-1 (]: Writing injected SQL for node "model.datacore.dws_traffic_flow_daily"
+[0m11:09:16.918799 [debug] [Thread-1 (]: Began executing node model.datacore.dws_traffic_flow_daily
+[0m11:09:16.921799 [debug] [Thread-1 (]: Writing runtime sql for node "model.datacore.dws_traffic_flow_daily"
+[0m11:09:16.922799 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.dws_traffic_flow_daily"
+[0m11:09:16.923799 [debug] [Thread-1 (]: On model.datacore.dws_traffic_flow_daily: BEGIN
+[0m11:09:16.923799 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:09:16.924795 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:16.925797 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.dws_traffic_flow_daily"
+[0m11:09:16.926014 [debug] [Thread-1 (]: On model.datacore.dws_traffic_flow_daily: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.dws_traffic_flow_daily"} */
+
+  
+    
+    
+
+    create  table
+      "datacore"."main_dws"."dws_traffic_flow_daily__dbt_tmp"
+  
+    as (
+      -- DWS层：日车流量汇总
+-- 功能：按日期、收费站、时段等维度汇总车流量
+
+
+
+SELECT 
+    transaction_date,
+    station_id,
+    station_name,
+    city,
+    highway_code,
+    station_type,
+    time_period,
+    day_type,
+    -- 车流量指标
+    COUNT(*) AS total_vehicles,
+    COUNT(DISTINCT vehicle_plate) AS unique_vehicles,
+    -- 车型分布
+    SUM(CASE WHEN vehicle_type_code LIKE 'V0%' THEN 1 ELSE 0 END) AS passenger_vehicle_count,
+    SUM(CASE WHEN vehicle_type_code LIKE 'V0%' AND vehicle_type_code != 'V01' THEN 1 ELSE 0 END) AS bus_count,
+    SUM(CASE WHEN vehicle_type_code LIKE 'V0%' AND vehicle_type_code >= 'V05' THEN 1 ELSE 0 END) AS truck_count,
+    -- 平均通行时长
+    AVG(travel_minutes) AS avg_travel_minutes,
+    -- 支付方式分布
+    SUM(CASE WHEN payment_method_code = 'P01' THEN 1 ELSE 0 END) AS etc_count,
+    SUM(CASE WHEN payment_method_code != 'P01' THEN 1 ELSE 0 END) AS non_etc_count,
+    -- 时间维度
+    MAX(etl_time) AS last_update_time
+FROM "datacore"."main_dwd"."dwd_toll_transaction_detail"
+GROUP BY 
+    transaction_date,
+    station_id,
+    station_name,
+    city,
+    highway_code,
+    station_type,
+    time_period,
+    day_type
+    );
+  
+  
+[0m11:09:17.001576 [debug] [Thread-1 (]: SQL status: OK in 0.075 seconds
+[0m11:09:17.004087 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.dws_traffic_flow_daily"
+[0m11:09:17.005085 [debug] [Thread-1 (]: On model.datacore.dws_traffic_flow_daily: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.dws_traffic_flow_daily"} */
+alter table "datacore"."main_dws"."dws_traffic_flow_daily__dbt_tmp" rename to "dws_traffic_flow_daily"
+[0m11:09:17.005085 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:17.007188 [debug] [Thread-1 (]: On model.datacore.dws_traffic_flow_daily: COMMIT
+[0m11:09:17.007188 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.dws_traffic_flow_daily"
+[0m11:09:17.007188 [debug] [Thread-1 (]: On model.datacore.dws_traffic_flow_daily: COMMIT
+[0m11:09:17.038631 [debug] [Thread-1 (]: SQL status: OK in 0.030 seconds
+[0m11:09:17.040601 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.dws_traffic_flow_daily"
+[0m11:09:17.041606 [debug] [Thread-1 (]: On model.datacore.dws_traffic_flow_daily: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.dws_traffic_flow_daily"} */
+
+      drop table if exists "datacore"."main_dws"."dws_traffic_flow_daily__dbt_backup" cascade
+    
+[0m11:09:17.042614 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:17.043619 [debug] [Thread-1 (]: On model.datacore.dws_traffic_flow_daily: Close
+[0m11:09:17.044123 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266F08AC910>]}
+[0m11:09:17.044627 [info ] [Thread-1 (]: 16 of 20 OK created sql table model main_dws.dws_traffic_flow_daily ............ [[32mOK[0m in 0.13s]
+[0m11:09:17.045809 [debug] [Thread-1 (]: Finished running node model.datacore.dws_traffic_flow_daily
+[0m11:09:17.045809 [debug] [Thread-1 (]: Began running node model.datacore.meta_data_quality_metrics
+[0m11:09:17.046815 [info ] [Thread-1 (]: 17 of 20 START sql table model main_metadata.meta_data_quality_metrics ......... [RUN]
+[0m11:09:17.047344 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.datacore.dws_traffic_flow_daily, now model.datacore.meta_data_quality_metrics)
+[0m11:09:17.047344 [debug] [Thread-1 (]: Began compiling node model.datacore.meta_data_quality_metrics
+[0m11:09:17.050389 [debug] [Thread-1 (]: Writing injected SQL for node "model.datacore.meta_data_quality_metrics"
+[0m11:09:17.052354 [debug] [Thread-1 (]: Began executing node model.datacore.meta_data_quality_metrics
+[0m11:09:17.055351 [debug] [Thread-1 (]: Writing runtime sql for node "model.datacore.meta_data_quality_metrics"
+[0m11:09:17.056452 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_data_quality_metrics"
+[0m11:09:17.056452 [debug] [Thread-1 (]: On model.datacore.meta_data_quality_metrics: BEGIN
+[0m11:09:17.057455 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:09:17.057455 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:17.058454 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_data_quality_metrics"
+[0m11:09:17.058454 [debug] [Thread-1 (]: On model.datacore.meta_data_quality_metrics: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.meta_data_quality_metrics"} */
+
+  
+    
+    
+
+    create  table
+      "datacore"."main_metadata"."meta_data_quality_metrics__dbt_tmp"
+  
+    as (
+      -- 元数据管理：数据质量指标表
+-- 功能：记录数据质量指标和趋势
+
+
+
+SELECT 
+    transaction_date AS metric_date,
+    'dwd_toll_transaction_detail' AS table_name,
+    -- 完整性指标
+    COUNT(*) AS total_records,
+    SUM(CASE WHEN transaction_id IS NOT NULL THEN 1 ELSE 0 END) AS complete_transaction_id,
+    SUM(CASE WHEN station_id IS NOT NULL THEN 1 ELSE 0 END) AS complete_station_id,
+    SUM(CASE WHEN vehicle_plate IS NOT NULL AND vehicle_plate != '' THEN 1 ELSE 0 END) AS complete_vehicle_plate,
+    -- 完整性率
+    SUM(CASE WHEN transaction_id IS NOT NULL THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS transaction_id_completeness_rate,
+    SUM(CASE WHEN station_id IS NOT NULL THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS station_id_completeness_rate,
+    SUM(CASE WHEN vehicle_plate IS NOT NULL AND vehicle_plate != '' THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS vehicle_plate_completeness_rate,
+    -- 准确性指标
+    SUM(CASE WHEN is_normal_transaction = 1 THEN 1 ELSE 0 END) AS normal_transactions,
+    SUM(CASE WHEN is_normal_transaction = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS accuracy_rate,
+    -- 一致性指标
+    SUM(CASE WHEN data_quality_flag = '正常' THEN 1 ELSE 0 END) AS consistent_records,
+    SUM(CASE WHEN data_quality_flag = '正常' THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS consistency_rate,
+    -- 及时性指标
+    MAX(etl_time) AS last_etl_time,
+    CURRENT_TIMESTAMP - MAX(etl_time) AS etl_delay,
+    -- 综合质量得分（0-100）
+    (
+        (SUM(CASE WHEN transaction_id IS NOT NULL THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) * 0.2 +
+        (SUM(CASE WHEN station_id IS NOT NULL THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) * 0.2 +
+        (SUM(CASE WHEN vehicle_plate IS NOT NULL AND vehicle_plate != '' THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) * 0.2 +
+        (SUM(CASE WHEN is_normal_transaction = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) * 0.2 +
+        (SUM(CASE WHEN data_quality_flag = '正常' THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) * 0.2
+    ) AS overall_quality_score,
+    CURRENT_TIMESTAMP AS metric_time
+FROM "datacore"."main_dwd"."dwd_toll_transaction_detail"
+GROUP BY transaction_date
+    );
+  
+  
+[0m11:09:17.070403 [debug] [Thread-1 (]: SQL status: OK in 0.011 seconds
+[0m11:09:17.073404 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_data_quality_metrics"
+[0m11:09:17.074404 [debug] [Thread-1 (]: On model.datacore.meta_data_quality_metrics: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.meta_data_quality_metrics"} */
+alter table "datacore"."main_metadata"."meta_data_quality_metrics__dbt_tmp" rename to "meta_data_quality_metrics"
+[0m11:09:17.075404 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:17.076543 [debug] [Thread-1 (]: On model.datacore.meta_data_quality_metrics: COMMIT
+[0m11:09:17.076543 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_data_quality_metrics"
+[0m11:09:17.077583 [debug] [Thread-1 (]: On model.datacore.meta_data_quality_metrics: COMMIT
+[0m11:09:17.112858 [debug] [Thread-1 (]: SQL status: OK in 0.035 seconds
+[0m11:09:17.116976 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_data_quality_metrics"
+[0m11:09:17.117976 [debug] [Thread-1 (]: On model.datacore.meta_data_quality_metrics: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.meta_data_quality_metrics"} */
+
+      drop table if exists "datacore"."main_metadata"."meta_data_quality_metrics__dbt_backup" cascade
+    
+[0m11:09:17.118979 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:17.119978 [debug] [Thread-1 (]: On model.datacore.meta_data_quality_metrics: Close
+[0m11:09:17.119978 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266F0A207D0>]}
+[0m11:09:17.120976 [info ] [Thread-1 (]: 17 of 20 OK created sql table model main_metadata.meta_data_quality_metrics .... [[32mOK[0m in 0.07s]
+[0m11:09:17.121974 [debug] [Thread-1 (]: Finished running node model.datacore.meta_data_quality_metrics
+[0m11:09:17.121974 [debug] [Thread-1 (]: Began running node model.datacore.ads_toll_revenue_report
+[0m11:09:17.122973 [info ] [Thread-1 (]: 18 of 20 START sql table model main_ads.ads_toll_revenue_report ................ [RUN]
+[0m11:09:17.123639 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.datacore.meta_data_quality_metrics, now model.datacore.ads_toll_revenue_report)
+[0m11:09:17.123639 [debug] [Thread-1 (]: Began compiling node model.datacore.ads_toll_revenue_report
+[0m11:09:17.126834 [debug] [Thread-1 (]: Writing injected SQL for node "model.datacore.ads_toll_revenue_report"
+[0m11:09:17.127829 [debug] [Thread-1 (]: Began executing node model.datacore.ads_toll_revenue_report
+[0m11:09:17.130791 [debug] [Thread-1 (]: Writing runtime sql for node "model.datacore.ads_toll_revenue_report"
+[0m11:09:17.131793 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ads_toll_revenue_report"
+[0m11:09:17.131793 [debug] [Thread-1 (]: On model.datacore.ads_toll_revenue_report: BEGIN
+[0m11:09:17.132795 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:09:17.133790 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:17.133790 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ads_toll_revenue_report"
+[0m11:09:17.134790 [debug] [Thread-1 (]: On model.datacore.ads_toll_revenue_report: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.ads_toll_revenue_report"} */
+
+  
+    
+    
+
+    create  table
+      "datacore"."main_ads"."ads_toll_revenue_report__dbt_tmp"
+  
+    as (
+      -- ADS层：收费收入报表
+-- 功能：面向业务应用的收入报表
+
+
+
+SELECT 
+    transaction_date,
+    city,
+    highway_code,
+    -- 总体指标
+    SUM(total_actual_amount) AS daily_revenue,
+    SUM(transaction_count) AS daily_transactions,
+    SUM(vehicle_count) AS daily_vehicles,
+    AVG(avg_transaction_amount) AS avg_transaction_amount,
+    -- 按支付方式
+    SUM(CASE WHEN payment_method_code = 'P01' THEN total_actual_amount ELSE 0 END) AS etc_revenue,
+    SUM(CASE WHEN payment_method_code != 'P01' THEN total_actual_amount ELSE 0 END) AS non_etc_revenue,
+    -- 按车型
+    SUM(CASE WHEN vehicle_type_code LIKE 'V0%' AND vehicle_type_code < 'V05' THEN total_actual_amount ELSE 0 END) AS passenger_revenue,
+    SUM(CASE WHEN vehicle_type_code >= 'V05' THEN total_actual_amount ELSE 0 END) AS truck_revenue,
+    -- 质量指标
+    SUM(normal_transaction_count) * 100.0 / SUM(transaction_count) AS normal_rate,
+    SUM(quality_normal_count) * 100.0 / SUM(transaction_count) AS data_quality_rate,
+    -- 时间维度
+    MAX(last_update_time) AS last_update_time
+FROM "datacore"."main_dws"."dws_toll_revenue_daily"
+GROUP BY 
+    transaction_date,
+    city,
+    highway_code
+    );
+  
+  
+[0m11:09:17.151602 [debug] [Thread-1 (]: SQL status: OK in 0.017 seconds
+[0m11:09:17.154601 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ads_toll_revenue_report"
+[0m11:09:17.155715 [debug] [Thread-1 (]: On model.datacore.ads_toll_revenue_report: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.ads_toll_revenue_report"} */
+alter table "datacore"."main_ads"."ads_toll_revenue_report__dbt_tmp" rename to "ads_toll_revenue_report"
+[0m11:09:17.155715 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:17.157717 [debug] [Thread-1 (]: On model.datacore.ads_toll_revenue_report: COMMIT
+[0m11:09:17.157717 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ads_toll_revenue_report"
+[0m11:09:17.158717 [debug] [Thread-1 (]: On model.datacore.ads_toll_revenue_report: COMMIT
+[0m11:09:17.180237 [debug] [Thread-1 (]: SQL status: OK in 0.021 seconds
+[0m11:09:17.182236 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ads_toll_revenue_report"
+[0m11:09:17.183235 [debug] [Thread-1 (]: On model.datacore.ads_toll_revenue_report: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.ads_toll_revenue_report"} */
+
+      drop table if exists "datacore"."main_ads"."ads_toll_revenue_report__dbt_backup" cascade
+    
+[0m11:09:17.184236 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:17.185313 [debug] [Thread-1 (]: On model.datacore.ads_toll_revenue_report: Close
+[0m11:09:17.185313 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266F0A21250>]}
+[0m11:09:17.186406 [info ] [Thread-1 (]: 18 of 20 OK created sql table model main_ads.ads_toll_revenue_report ........... [[32mOK[0m in 0.06s]
+[0m11:09:17.187044 [debug] [Thread-1 (]: Finished running node model.datacore.ads_toll_revenue_report
+[0m11:09:17.188092 [debug] [Thread-1 (]: Began running node model.datacore.ads_traffic_trend_analysis
+[0m11:09:17.188565 [info ] [Thread-1 (]: 19 of 20 START sql table model main_ads.ads_traffic_trend_analysis ............. [RUN]
+[0m11:09:17.189098 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.datacore.ads_toll_revenue_report, now model.datacore.ads_traffic_trend_analysis)
+[0m11:09:17.189098 [debug] [Thread-1 (]: Began compiling node model.datacore.ads_traffic_trend_analysis
+[0m11:09:17.192104 [debug] [Thread-1 (]: Writing injected SQL for node "model.datacore.ads_traffic_trend_analysis"
+[0m11:09:17.194108 [debug] [Thread-1 (]: Began executing node model.datacore.ads_traffic_trend_analysis
+[0m11:09:17.196337 [debug] [Thread-1 (]: Writing runtime sql for node "model.datacore.ads_traffic_trend_analysis"
+[0m11:09:17.197377 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ads_traffic_trend_analysis"
+[0m11:09:17.198338 [debug] [Thread-1 (]: On model.datacore.ads_traffic_trend_analysis: BEGIN
+[0m11:09:17.198338 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:09:17.199338 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:17.200338 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ads_traffic_trend_analysis"
+[0m11:09:17.200338 [debug] [Thread-1 (]: On model.datacore.ads_traffic_trend_analysis: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.ads_traffic_trend_analysis"} */
+
+  
+    
+    
+
+    create  table
+      "datacore"."main_ads"."ads_traffic_trend_analysis__dbt_tmp"
+  
+    as (
+      -- ADS层：车流趋势分析
+-- 功能：车流趋势和模式分析
+
+
+
+SELECT 
+    transaction_date,
+    city,
+    highway_code,
+    day_type,
+    -- 车流量趋势
+    SUM(total_vehicles) AS daily_vehicles,
+    SUM(unique_vehicles) AS daily_unique_vehicles,
+    -- 时段分布
+    SUM(CASE WHEN time_period = '早高峰' THEN total_vehicles ELSE 0 END) AS morning_peak_vehicles,
+    SUM(CASE WHEN time_period = '晚高峰' THEN total_vehicles ELSE 0 END) AS evening_peak_vehicles,
+    SUM(CASE WHEN time_period = '平峰' THEN total_vehicles ELSE 0 END) AS normal_vehicles,
+    SUM(CASE WHEN time_period = '夜间' THEN total_vehicles ELSE 0 END) AS night_vehicles,
+    -- 车型分布
+    SUM(passenger_vehicle_count) AS passenger_vehicles,
+    SUM(bus_count) AS bus_vehicles,
+    SUM(truck_count) AS truck_vehicles,
+    -- ETC使用率
+    SUM(etc_count) * 100.0 / SUM(total_vehicles) AS etc_usage_rate,
+    -- 平均通行时长
+    AVG(avg_travel_minutes) AS avg_travel_minutes,
+    -- 时间维度
+    MAX(last_update_time) AS last_update_time
+FROM "datacore"."main_dws"."dws_traffic_flow_daily"
+GROUP BY 
+    transaction_date,
+    city,
+    highway_code,
+    day_type
+    );
+  
+  
+[0m11:09:17.215987 [debug] [Thread-1 (]: SQL status: OK in 0.014 seconds
+[0m11:09:17.219031 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ads_traffic_trend_analysis"
+[0m11:09:17.219031 [debug] [Thread-1 (]: On model.datacore.ads_traffic_trend_analysis: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.ads_traffic_trend_analysis"} */
+alter table "datacore"."main_ads"."ads_traffic_trend_analysis__dbt_tmp" rename to "ads_traffic_trend_analysis"
+[0m11:09:17.220028 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:17.220988 [debug] [Thread-1 (]: On model.datacore.ads_traffic_trend_analysis: COMMIT
+[0m11:09:17.221988 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ads_traffic_trend_analysis"
+[0m11:09:17.222988 [debug] [Thread-1 (]: On model.datacore.ads_traffic_trend_analysis: COMMIT
+[0m11:09:17.364401 [debug] [Thread-1 (]: SQL status: OK in 0.142 seconds
+[0m11:09:17.367525 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.ads_traffic_trend_analysis"
+[0m11:09:17.367525 [debug] [Thread-1 (]: On model.datacore.ads_traffic_trend_analysis: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.ads_traffic_trend_analysis"} */
+
+      drop table if exists "datacore"."main_ads"."ads_traffic_trend_analysis__dbt_backup" cascade
+    
+[0m11:09:17.368525 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:17.370525 [debug] [Thread-1 (]: On model.datacore.ads_traffic_trend_analysis: Close
+[0m11:09:17.370525 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266F0A11910>]}
+[0m11:09:17.371524 [info ] [Thread-1 (]: 19 of 20 OK created sql table model main_ads.ads_traffic_trend_analysis ........ [[32mOK[0m in 0.18s]
+[0m11:09:17.372524 [debug] [Thread-1 (]: Finished running node model.datacore.ads_traffic_trend_analysis
+[0m11:09:17.372524 [debug] [Thread-1 (]: Began running node model.datacore.meta_data_asset_catalog
+[0m11:09:17.373524 [info ] [Thread-1 (]: 20 of 20 START sql table model main_metadata.meta_data_asset_catalog ........... [RUN]
+[0m11:09:17.374048 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.datacore.ads_traffic_trend_analysis, now model.datacore.meta_data_asset_catalog)
+[0m11:09:17.374048 [debug] [Thread-1 (]: Began compiling node model.datacore.meta_data_asset_catalog
+[0m11:09:17.378244 [debug] [Thread-1 (]: Writing injected SQL for node "model.datacore.meta_data_asset_catalog"
+[0m11:09:17.379243 [debug] [Thread-1 (]: Began executing node model.datacore.meta_data_asset_catalog
+[0m11:09:17.384243 [debug] [Thread-1 (]: Writing runtime sql for node "model.datacore.meta_data_asset_catalog"
+[0m11:09:17.385325 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_data_asset_catalog"
+[0m11:09:17.385325 [debug] [Thread-1 (]: On model.datacore.meta_data_asset_catalog: BEGIN
+[0m11:09:17.386406 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:09:17.386406 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:09:17.387433 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_data_asset_catalog"
+[0m11:09:17.387433 [debug] [Thread-1 (]: On model.datacore.meta_data_asset_catalog: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.meta_data_asset_catalog"} */
+
+  
+    
+    
+
+    create  table
+      "datacore"."main_metadata"."meta_data_asset_catalog__dbt_tmp"
+  
+    as (
+      -- 元数据管理：数据资产目录
+-- 功能：数据资产清单和价值评估
+
+
+
+WITH table_stats AS (
+    SELECT 
+        'dwd.dwd_toll_transaction_detail' AS table_name,
+        COUNT(*) AS record_count,
+        MAX(etl_time) AS last_update_time
+    FROM "datacore"."main_dwd"."dwd_toll_transaction_detail"
+    GROUP BY 1
+    UNION ALL
+    SELECT 
+        'dws.dws_toll_revenue_daily',
+        COUNT(*),
+        MAX(last_update_time)
+    FROM "datacore"."main_dws"."dws_toll_revenue_daily"
+    GROUP BY 1
+    UNION ALL
+    SELECT 
+        'dws.dws_traffic_flow_daily',
+        COUNT(*),
+        MAX(last_update_time)
+    FROM "datacore"."main_dws"."dws_traffic_flow_daily"
+    GROUP BY 1
+    UNION ALL
+    SELECT 
+        'ads.ads_toll_revenue_report',
+        COUNT(*),
+        MAX(last_update_time)
+    FROM "datacore"."main_ads"."ads_toll_revenue_report"
+    GROUP BY 1
+)
+
+SELECT 
+    ti.schema_name,
+    ti.table_name,
+    ti.table_description,
+    ti.business_domain,
+    ti.data_layer,
+    ti.owner,
+    COALESCE(ts.record_count, 0) AS record_count,
+    COALESCE(ts.last_update_time, CURRENT_TIMESTAMP) AS last_update_time,
+    -- 资产等级评估
+    CASE 
+        WHEN ti.data_layer IN ('dwd', 'dws') THEN '核心资产'
+        WHEN ti.data_layer = 'ads' THEN '应用资产'
+        ELSE '基础资产'
+    END AS asset_level,
+    -- 使用频率评估（基于更新频率）
+    CASE 
+        WHEN ti.update_frequency = '实时' THEN '高频'
+        WHEN ti.update_frequency = '日' THEN '中频'
+        ELSE '低频'
+    END AS usage_frequency,
+    -- 数据新鲜度
+    CASE 
+        WHEN ts.last_update_time IS NULL THEN '未知'
+        WHEN CURRENT_TIMESTAMP - ts.last_update_time < INTERVAL 1 DAY THEN '新鲜'
+        WHEN CURRENT_TIMESTAMP - ts.last_update_time < INTERVAL 7 DAY THEN '较新'
+        ELSE '陈旧'
+    END AS data_freshness,
+    CURRENT_TIMESTAMP AS catalog_time
+FROM "datacore"."main_metadata"."meta_table_info" ti
+LEFT JOIN table_stats ts ON CONCAT(ti.schema_name, '.', ti.table_name) = ts.table_name
+    );
+  
+  
+[0m11:09:17.410199 [debug] [Thread-1 (]: SQL status: OK in 0.022 seconds
+[0m11:09:17.413200 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_data_asset_catalog"
+[0m11:09:17.414200 [debug] [Thread-1 (]: On model.datacore.meta_data_asset_catalog: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.meta_data_asset_catalog"} */
+alter table "datacore"."main_metadata"."meta_data_asset_catalog__dbt_tmp" rename to "meta_data_asset_catalog"
+[0m11:09:17.415254 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:17.416256 [debug] [Thread-1 (]: On model.datacore.meta_data_asset_catalog: COMMIT
+[0m11:09:17.416256 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_data_asset_catalog"
+[0m11:09:17.417304 [debug] [Thread-1 (]: On model.datacore.meta_data_asset_catalog: COMMIT
+[0m11:09:17.456011 [debug] [Thread-1 (]: SQL status: OK in 0.038 seconds
+[0m11:09:17.458054 [debug] [Thread-1 (]: Using duckdb connection "model.datacore.meta_data_asset_catalog"
+[0m11:09:17.458054 [debug] [Thread-1 (]: On model.datacore.meta_data_asset_catalog: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "datacore", "target_name": "dev", "node_id": "model.datacore.meta_data_asset_catalog"} */
+
+      drop table if exists "datacore"."main_metadata"."meta_data_asset_catalog__dbt_backup" cascade
+    
+[0m11:09:17.459053 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:09:17.460054 [debug] [Thread-1 (]: On model.datacore.meta_data_asset_catalog: Close
+[0m11:09:17.461054 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dff20ea5-64a6-496a-a859-20f3b22f410b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266FF7B0E90>]}
+[0m11:09:17.462054 [info ] [Thread-1 (]: 20 of 20 OK created sql table model main_metadata.meta_data_asset_catalog ...... [[32mOK[0m in 0.09s]
+[0m11:09:17.463054 [debug] [Thread-1 (]: Finished running node model.datacore.meta_data_asset_catalog
+[0m11:09:17.464056 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:09:17.464056 [debug] [MainThread]: On master: BEGIN
+[0m11:09:17.465056 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:09:17.465130 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m11:09:17.466164 [debug] [MainThread]: On master: COMMIT
+[0m11:09:17.466164 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:09:17.466164 [debug] [MainThread]: On master: COMMIT
+[0m11:09:17.467206 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m11:09:17.467206 [debug] [MainThread]: On master: Close
+[0m11:09:17.468203 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:09:17.468203 [debug] [MainThread]: Connection 'create_datacore_main_ods' was properly closed.
+[0m11:09:17.469205 [debug] [MainThread]: Connection 'list_datacore_main' was properly closed.
+[0m11:09:17.469205 [debug] [MainThread]: Connection 'model.datacore.meta_data_asset_catalog' was properly closed.
+[0m11:09:17.470205 [info ] [MainThread]: 
+[0m11:09:17.471205 [info ] [MainThread]: Finished running 16 table models, 4 view models in 0 hours 0 minutes and 4.78 seconds (4.78s).
+[0m11:09:17.474203 [debug] [MainThread]: Command end result
+[0m11:09:17.508306 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\leon\Downloads\datacore\target\manifest.json
+[0m11:09:17.514306 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\leon\Downloads\datacore\target\semantic_manifest.json
+[0m11:09:17.520485 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\leon\Downloads\datacore\target\run_results.json
+[0m11:09:17.521485 [info ] [MainThread]: 
+[0m11:09:17.521485 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m11:09:17.522485 [info ] [MainThread]: 
+[0m11:09:17.523483 [info ] [MainThread]: Done. PASS=20 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=20
+[0m11:09:17.523767 [debug] [MainThread]: Command `dbt run` succeeded at 11:09:17.523767 after 8.18 seconds
+[0m11:09:17.524773 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266E8210E10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266E8210AD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000266E8210B90>]}
+[0m11:09:17.524773 [debug] [MainThread]: Flushing usage events
+[0m11:09:18.723455 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:59:22.940584 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022B6529A0D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022B6528AF50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022B65329490>]}
+
+
+============================== 13:59:23.060665 | 6e105ec7-b3eb-49a6-815f-7ca93ab172f4 ==============================
+[0m13:59:23.060665 [info ] [MainThread]: Running with dbt=1.10.15
+[0m13:59:23.060665 [debug] [MainThread]: running dbt with arguments {'no_print': 'None', 'write_json': 'True', 'printer_width': '80', 'profiles_dir': 'C:\\Users\\leon\\Downloads\\datacore', 'invocation_command': 'dbt main:app --host 0.0.0.0 --port 8090 --reload', 'warn_error': 'None', 'static_parser': 'True', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'log_path': 'C:\\Users\\leon\\Downloads\\datacore\\logs', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'version_check': 'True', 'introspect': 'True', 'quiet': 'True', 'empty': 'None', 'log_cache_events': 'False', 'debug': 'False', 'log_format': 'default', 'use_colors': 'True', 'cache_selected_only': 'False', 'target_path': 'None'}
+[0m13:59:23.251682 [info ] [MainThread]: dbt version: 1.10.15
+[0m13:59:23.256681 [info ] [MainThread]: python version: 3.11.2
+[0m13:59:23.256681 [info ] [MainThread]: python path: C:\Users\leon\Downloads\datacore\myenv\Scripts\python.exe
+[0m13:59:23.256681 [info ] [MainThread]: os info: Windows-10-10.0.22631-SP0
+[0m13:59:23.388185 [info ] [MainThread]: Using profiles dir at C:\Users\leon\Downloads\datacore
+[0m13:59:23.388185 [info ] [MainThread]: Using profiles.yml file at C:\Users\leon\Downloads\datacore\profiles.yml
+[0m13:59:23.388185 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\leon\Downloads\datacore\dbt_project.yml
+[0m13:59:23.423642 [info ] [MainThread]: adapter type: duckdb
+[0m13:59:23.423642 [info ] [MainThread]: adapter version: 1.10.0
+[0m13:59:23.508779 [info ] [MainThread]: Configuration:
+[0m13:59:23.508779 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m13:59:23.508779 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m13:59:23.508779 [info ] [MainThread]: Required dependencies:
+[0m13:59:23.513825 [debug] [MainThread]: Executing "git --help"
+[0m13:59:23.695111 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m13:59:23.695111 [debug] [MainThread]: STDERR: "b''"
+[0m13:59:23.695111 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m13:59:23.695111 [info ] [MainThread]: Connection:
+[0m13:59:23.695111 [info ] [MainThread]:   database: datacore
+[0m13:59:23.695111 [info ] [MainThread]:   schema: main
+[0m13:59:23.700117 [info ] [MainThread]:   path: datacore.duckdb
+[0m13:59:23.700117 [info ] [MainThread]:   config_options: None
+[0m13:59:23.700117 [info ] [MainThread]:   extensions: None
+[0m13:59:23.700117 [info ] [MainThread]:   settings: {}
+[0m13:59:23.700117 [info ] [MainThread]:   external_root: .
+[0m13:59:23.700117 [info ] [MainThread]:   use_credential_provider: None
+[0m13:59:23.700117 [info ] [MainThread]:   attach: None
+[0m13:59:23.700117 [info ] [MainThread]:   filesystems: None
+[0m13:59:23.700117 [info ] [MainThread]:   remote: None
+[0m13:59:23.700117 [info ] [MainThread]:   plugins: None
+[0m13:59:23.700117 [info ] [MainThread]:   disable_transactions: False
+[0m13:59:23.700117 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m13:59:24.680409 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m13:59:24.799708 [debug] [MainThread]: Using duckdb connection "debug"
+[0m13:59:24.799708 [debug] [MainThread]: On debug: select 1 as id
+[0m13:59:24.799708 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:59:24.978914 [debug] [MainThread]: SQL status: OK in 0.175 seconds
+[0m13:59:24.978914 [debug] [MainThread]: On debug: Close
+[0m13:59:24.978914 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m13:59:24.978914 [info ] [MainThread]: [32mAll checks passed![0m
+[0m13:59:24.978914 [debug] [MainThread]: Command `cli debug` succeeded at 13:59:24.978914 after 2.13 seconds
+[0m13:59:24.978914 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m13:59:24.978914 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022B65329B90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022B675D5750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022B653DE150>]}
+[0m13:59:24.983893 [debug] [MainThread]: Flushing usage events
+[0m13:59:26.074375 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:13:17.045992 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BC179E6610>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BC17579950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BC179E6DD0>]}
+
+
+============================== 14:13:17.049491 | e91a3927-ff65-48af-a09c-30867422f9cf ==============================
+[0m14:13:17.049491 [info ] [MainThread]: Running with dbt=1.10.15
+[0m14:13:17.050014 [debug] [MainThread]: running dbt with arguments {'no_print': 'None', 'profiles_dir': 'C:\\Users\\leon\\Downloads\\datacore', 'cache_selected_only': 'False', 'target_path': 'None', 'invocation_command': 'dbt query --metrics abnormal_transaction_rate --group-by station_name,transaction_date --start-time 2025-11-10 --end-time 2025-11-15 --explain', 'warn_error': 'None', 'indirect_selection': 'eager', 'partial_parse': 'True', 'log_path': 'C:\\Users\\leon\\Downloads\\datacore\\logs', 'send_anonymous_usage_stats': 'True', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'fail_fast': 'False', 'use_experimental_parser': 'False', 'version_check': 'True', 'quiet': 'True', 'introspect': 'True', 'empty': 'None', 'log_cache_events': 'False', 'debug': 'False', 'log_format': 'default', 'use_colors': 'True', 'printer_width': '80', 'write_json': 'True'}
+[0m14:13:17.063800 [info ] [MainThread]: dbt version: 1.10.15
+[0m14:13:17.063800 [info ] [MainThread]: python version: 3.11.2
+[0m14:13:17.063800 [info ] [MainThread]: python path: C:\Users\leon\Downloads\datacore\myenv\Scripts\python.exe
+[0m14:13:17.063800 [info ] [MainThread]: os info: Windows-10-10.0.22631-SP0
+[0m14:13:17.394809 [info ] [MainThread]: Using profiles dir at C:\Users\leon\Downloads\datacore
+[0m14:13:17.394809 [info ] [MainThread]: Using profiles.yml file at C:\Users\leon\Downloads\datacore\profiles.yml
+[0m14:13:17.394809 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\leon\Downloads\datacore\dbt_project.yml
+[0m14:13:17.394809 [info ] [MainThread]: adapter type: duckdb
+[0m14:13:17.394809 [info ] [MainThread]: adapter version: 1.10.0
+[0m14:13:17.484806 [info ] [MainThread]: Configuration:
+[0m14:13:17.484806 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m14:13:17.484806 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m14:13:17.484806 [info ] [MainThread]: Required dependencies:
+[0m14:13:17.484806 [debug] [MainThread]: Executing "git --help"
+[0m14:13:17.529869 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m14:13:17.529869 [debug] [MainThread]: STDERR: "b''"
+[0m14:13:17.529869 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m14:13:17.529869 [info ] [MainThread]: Connection:
+[0m14:13:17.529869 [info ] [MainThread]:   database: datacore
+[0m14:13:17.529869 [info ] [MainThread]:   schema: main
+[0m14:13:17.529869 [info ] [MainThread]:   path: datacore.duckdb
+[0m14:13:17.529869 [info ] [MainThread]:   config_options: None
+[0m14:13:17.529869 [info ] [MainThread]:   extensions: None
+[0m14:13:17.529869 [info ] [MainThread]:   settings: {}
+[0m14:13:17.534914 [info ] [MainThread]:   external_root: .
+[0m14:13:17.534914 [info ] [MainThread]:   use_credential_provider: None
+[0m14:13:17.534914 [info ] [MainThread]:   attach: None
+[0m14:13:17.534914 [info ] [MainThread]:   filesystems: None
+[0m14:13:17.534914 [info ] [MainThread]:   remote: None
+[0m14:13:17.534914 [info ] [MainThread]:   plugins: None
+[0m14:13:17.534914 [info ] [MainThread]:   disable_transactions: False
+[0m14:13:17.534914 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m14:13:18.021496 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m14:13:18.156278 [debug] [MainThread]: Using duckdb connection "debug"
+[0m14:13:18.156278 [debug] [MainThread]: On debug: select 1 as id
+[0m14:13:18.156278 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:13:18.382570 [debug] [MainThread]: DuckDB adapter: Error running SQL: select 1 as id
+[0m14:13:18.382570 [debug] [MainThread]: DuckDB adapter: Rolling back transaction.
+[0m14:13:18.387576 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m14:13:18.387576 [info ] [MainThread]: [31m1 check failed:[0m
+[0m14:13:18.387576 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Runtime Error
+  IO Error: Cannot open file "c:\users\leon\downloads\datacore\datacore.duckdb": 另一个程序正在使用此文件，进程无法访问。
+  
+  File is already open in 
+  C:\Python311\python.exe (PID 25332)
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m14:13:18.387576 [debug] [MainThread]: Command `cli debug` failed at 14:13:18.387576 after 1.40 seconds
+[0m14:13:18.387576 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m14:13:18.387576 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BC18ED0710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BC1908A550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BC19088A90>]}
+[0m14:13:18.387576 [debug] [MainThread]: Flushing usage events
+[0m14:13:19.417845 [debug] [MainThread]: An error was encountered while trying to flush usage events
