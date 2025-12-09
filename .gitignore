@@ -1,4 +1,5 @@
 target/
+ana-reports/
 dbt_packages/
 *.duckdb
 *.duckdb.wal
