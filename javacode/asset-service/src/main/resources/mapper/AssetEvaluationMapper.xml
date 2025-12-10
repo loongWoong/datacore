@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dataplatform.asset.mapper.AssetEvaluationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dataplatform.asset.entity.AssetEvaluation">
+        <id column="id" property="id"/>
+        <result column="asset_id" property="assetId"/>
+        <result column="evaluation_date" property="evaluationDate"/>
+        <result column="asset_level" property="assetLevel"/>
+        <result column="usage_frequency" property="usageFrequency"/>
+        <result column="data_freshness" property="dataFreshness"/>
+        <result column="business_value" property="businessValue"/>
+        <result column="technical_quality" property="technicalQuality"/>
+        <result column="security_level" property="securityLevel"/>
+        <result column="overall_score" property="overallScore"/>
+        <result column="evaluator" property="evaluator"/>
+        <result column="evaluation_comment" property="evaluationComment"/>
+        <result column="created_time" property="createdTime"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, asset_id, evaluation_date, asset_level, usage_frequency, data_freshness, business_value, technical_quality,
+        security_level, overall_score, evaluator, evaluation_comment, created_time
+    </sql>
+
+    <!-- 根据资产ID查询最新评估记录 -->
+    <select id="selectLatestByAssetId" parameterType="long" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM asset_evaluation
+        WHERE asset_id = #{assetId}
+        ORDER BY evaluation_date DESC, created_time DESC
+        LIMIT 1
+    </select>
+
+    <!-- 根据资产ID查询评估历史记录 -->
+    <select id="selectByAssetId" parameterType="long" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM asset_evaluation
+        WHERE asset_id = #{assetId}
+        ORDER BY evaluation_date DESC, created_time DESC
+    </select>
+
+    <!-- 根据资产ID和评估日期查询评估记录 -->
+    <select id="selectByAssetIdAndDate" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM asset_evaluation
+        WHERE asset_id = #{assetId} AND evaluation_date = #{evaluationDate}
+    </select>
+
+</mapper>

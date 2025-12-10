@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: monitoring-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+server:
+  port: 9090
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+prometheus:
+  endpoint: /actuator/prometheus

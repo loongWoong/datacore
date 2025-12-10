@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dataplatform.asset.mapper.AssetTagRelationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dataplatform.asset.entity.AssetTagRelation">
+        <id column="id" property="id"/>
+        <result column="asset_id" property="assetId"/>
+        <result column="tag_id" property="tagId"/>
+        <result column="created_time" property="createdTime"/>
+    </resultMap>
+
+    <!-- 资产标签关联详情映射 -->
+    <resultMap id="AssetTagDetailMap" type="com.dataplatform.asset.entity.AssetTag">
+        <id column="id" property="id"/>
+        <result column="tag_code" property="tagCode"/>
+        <result column="tag_name" property="tagName"/>
+        <result column="tag_description" property="tagDescription"/>
+        <result column="tag_category" property="tagCategory"/>
+        <result column="tag_color" property="tagColor"/>
+        <result column="creator" property="creator"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="updated_time" property="updatedTime"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, asset_id, tag_id, created_time
+    </sql>
+
+    <!-- 根据资产ID查询标签列表 -->
+    <select id="selectTagsByAssetId" parameterType="long" resultMap="AssetTagDetailMap">
+        SELECT t.id, t.tag_code, t.tag_name, t.tag_description, t.tag_category, t.tag_color, t.creator, t.created_time, t.updated_time
+        FROM asset_tag_relation atr
+        JOIN asset_tag t ON atr.tag_id = t.id
+        WHERE atr.asset_id = #{assetId}
+    </select>
+
+    <!-- 根据资产ID和标签ID查询关联关系 -->
+    <select id="selectByAssetIdAndTagId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM asset_tag_relation
+        WHERE asset_id = #{assetId} AND tag_id = #{tagId}
+    </select>
+
+    <!-- 根据资产ID删除关联关系 -->
+    <delete id="deleteByAssetId" parameterType="long">
+        DELETE FROM asset_tag_relation
+        WHERE asset_id = #{assetId}
+    </delete>
+
+    <!-- 根据资产ID和标签ID删除关联关系 -->
+    <delete id="deleteByAssetIdAndTagId">
+        DELETE FROM asset_tag_relation
+        WHERE asset_id = #{assetId} AND tag_id = #{tagId}
+    </delete>
+
+</mapper>

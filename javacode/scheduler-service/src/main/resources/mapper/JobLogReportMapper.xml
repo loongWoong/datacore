@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dataplatform.scheduler.mapper.JobLogReportMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dataplatform.scheduler.entity.JobLogReport">
+        <id column="id" property="id"/>
+        <result column="trigger_day" property="triggerDay"/>
+        <result column="running_count" property="runningCount"/>
+        <result column="suc_count" property="sucCount"/>
+        <result column="fail_count" property="failCount"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, trigger_day, running_count, suc_count, fail_count, update_time
+    </sql>
+
+    <!-- 查询最近几天的报告 -->
+    <select id="selectRecentReports" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM xxl_job_log_report
+        WHERE trigger_day >= DATE_SUB(CURDATE(), INTERVAL #{days} DAY)
+        ORDER BY trigger_day DESC
+    </select>
+
+    <!-- 根据调度时间查询报告 -->
+    <select id="selectByTriggerDay" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM xxl_job_log_report
+        WHERE trigger_day = #{triggerDay}
+    </select>
+
+</mapper>

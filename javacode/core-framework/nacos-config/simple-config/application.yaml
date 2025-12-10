@@ -1,0 +1,76 @@
+# 极简公共配置文件 - 所有微服务共享同一份配置
+# 通过Spring Profile区分不同环境配置
+
+spring:
+  # 数据库配置
+  datasource:
+    url: jdbc:mysql://192.168.22.212:3306/datacore?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  
+  # Redis配置
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    timeout: 2000ms
+  
+  # Nacos配置
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.22.212:8848
+      config:
+        server-addr: 192.168.22.212:8848
+
+# MyBatis Plus配置
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 日志配置
+logging:
+  level:
+    com.dataplatform.core: debug
+
+# JWT配置
+jwt:
+  secret: mySecretKey
+  expiration: 86400
+
+# Actuator配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+# 服务配置（通过环境变量或启动参数覆盖）
+server:
+  port: 8080
+
+# 应用名称（通过环境变量或启动参数覆盖）
+spring.application.name: datacore-service
+
+# JPA配置（供使用JPA的服务使用）
+spring.jpa.hibernate.ddl-auto: update
+spring.jpa.show-sql: true
+
+# Gateway路由配置（供网关服务使用）
+spring.cloud.gateway.routes:
+  - id: auth-service
+    uri: lb://auth-service
+    predicates:
+      - Path=/api/auth/**
+  - id: audit-service
+    uri: lb://audit-service
+    predicates:
+      - Path=/api/audit/**
+
+# 监控配置
+management.metrics.export.prometheus.enabled: true
+prometheus.endpoint: /actuator/prometheus

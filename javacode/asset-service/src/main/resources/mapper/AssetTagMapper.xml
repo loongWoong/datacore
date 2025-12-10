@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dataplatform.asset.mapper.AssetTagMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dataplatform.asset.entity.AssetTag">
+        <id column="id" property="id"/>
+        <result column="tag_code" property="tagCode"/>
+        <result column="tag_name" property="tagName"/>
+        <result column="tag_description" property="tagDescription"/>
+        <result column="tag_category" property="tagCategory"/>
+        <result column="tag_color" property="tagColor"/>
+        <result column="creator" property="creator"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="updated_time" property="updatedTime"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, tag_code, tag_name, tag_description, tag_category, tag_color, creator, created_time, updated_time
+    </sql>
+
+    <!-- 根据标签编码查询 -->
+    <select id="selectByTagCode" parameterType="string" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM asset_tag
+        WHERE tag_code = #{tagCode}
+    </select>
+
+    <!-- 根据标签分类查询 -->
+    <select id="selectByTagCategory" parameterType="string" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM asset_tag
+        WHERE tag_category = #{tagCategory}
+    </select>
+
+</mapper>

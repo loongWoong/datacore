@@ -1,0 +1,9 @@
+# 配置中心特定配置
+spring:
+  application:
+    name: config-service
+
+server:
+  port: 8888
+
+spring.cloud.nacos.config.server-addr: localhost:8848

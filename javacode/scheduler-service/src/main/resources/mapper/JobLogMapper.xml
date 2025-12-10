@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dataplatform.scheduler.mapper.JobLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dataplatform.scheduler.entity.JobLog">
+        <id column="id" property="id"/>
+        <result column="job_group" property="jobGroup"/>
+        <result column="job_id" property="jobId"/>
+        <result column="executor_address" property="executorAddress"/>
+        <result column="executor_handler" property="executorHandler"/>
+        <result column="executor_param" property="executorParam"/>
+        <result column="executor_sharding_param" property="executorShardingParam"/>
+        <result column="executor_fail_retry_count" property="executorFailRetryCount"/>
+        <result column="trigger_time" property="triggerTime"/>
+        <result column="trigger_code" property="triggerCode"/>
+        <result column="trigger_msg" property="triggerMsg"/>
+        <result column="handle_time" property="handleTime"/>
+        <result column="handle_code" property="handleCode"/>
+        <result column="handle_msg" property="handleMsg"/>
+        <result column="alarm_status" property="alarmStatus"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, job_group, job_id, executor_address, executor_handler, executor_param, executor_sharding_param,
+        executor_fail_retry_count, trigger_time, trigger_code, trigger_msg, handle_time, handle_code, handle_msg, alarm_status
+    </sql>
+
+    <!-- 根据条件查询日志列表 -->
+    <select id="selectByCondition" parameterType="com.dataplatform.scheduler.dto.JobLogQuery" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM xxl_job_log
+        <where>
+            <if test="jobGroup != null">
+                AND job_group = #{jobGroup}
+            </if>
+            <if test="jobId != null">
+                AND job_id = #{jobId}
+            </if>
+        </where>
+        ORDER BY trigger_time DESC
+    </select>
+
+</mapper>

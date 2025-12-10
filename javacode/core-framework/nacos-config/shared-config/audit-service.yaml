@@ -1,0 +1,16 @@
+# 审计服务特定配置
+spring:
+  application:
+    name: audit-service
+
+server:
+  port: 8002
+
+spring.jpa:
+  hibernate:
+    ddl-auto: update
+  show-sql: true
+
+logging:
+  level:
+    com.dataplatform.core.audit: debug

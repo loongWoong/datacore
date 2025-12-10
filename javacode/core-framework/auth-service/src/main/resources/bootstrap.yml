@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: ${SPRING_APPLICATION_NAME:auth-service}
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+
+# 激活profiles（可选）
+# spring:
+#   profiles:
+#     active: dev

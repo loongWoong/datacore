@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dataplatform.report.mapper.ReportConfigMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dataplatform.report.entity.ReportConfig">
+        <id column="id" property="id"/>
+        <result column="report_code" property="reportCode"/>
+        <result column="report_name" property="reportName"/>
+        <result column="report_description" property="reportDescription"/>
+        <result column="report_type" property="reportType"/>
+        <result column="data_source_type" property="dataSourceType"/>
+        <result column="data_source_config" property="dataSourceConfig"/>
+        <result column="template_file_path" property="templateFilePath"/>
+        <result column="output_format" property="outputFormat"/>
+        <result column="schedule_config" property="scheduleConfig"/>
+        <result column="is_enabled" property="isEnabled"/>
+        <result column="creator" property="creator"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="updated_time" property="updatedTime"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, report_code, report_name, report_description, report_type, data_source_type, data_source_config,
+        template_file_path, output_format, schedule_config, is_enabled, creator, created_time, updated_time
+    </sql>
+
+    <!-- 根据报表编码查询 -->
+    <select id="selectByReportCode" parameterType="string" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM report_config
+        WHERE report_code = #{reportCode}
+    </select>
+
+    <!-- 根据条件查询报表配置列表 -->
+    <select id="selectByCondition" parameterType="com.dataplatform.report.dto.ReportConfigQuery" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM report_config
+        <where>
+            <if test="reportType != null and reportType != ''">
+                AND report_type = #{reportType}
+            </if>
+            <if test="reportName != null and reportName != ''">
+                AND report_name LIKE CONCAT('%', #{reportName}, '%')
+            </if>
+            AND is_enabled = 1
+        </where>
+        ORDER BY created_time DESC
+    </select>
+
+</mapper>

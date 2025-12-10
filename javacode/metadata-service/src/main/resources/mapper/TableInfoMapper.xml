@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dataplatform.metadata.mapper.TableInfoMapper">
+
+    <select id="selectByCondition" resultType="com.dataplatform.metadata.entity.TableInfo">
+        SELECT * FROM metadata_table_info
+        <where>
+            <if test="query.layer != null and query.layer != ''">
+                AND data_layer = #{query.layer}
+            </if>
+            <if test="query.businessDomain != null and query.businessDomain != ''">
+                AND business_domain = #{query.businessDomain}
+            </if>
+            <if test="query.owner != null and query.owner != ''">
+                AND owner = #{query.owner}
+            </if>
+            <if test="query.search != null and query.search != ''">
+                AND (table_name LIKE CONCAT('%', #{query.search}, '%') 
+                     OR table_name_cn LIKE CONCAT('%', #{query.search}, '%')
+                     OR table_description LIKE CONCAT('%', #{query.search}, '%'))
+            </if>
+        </where>
+        ORDER BY created_time DESC
+    </select>
+
+</mapper>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dataplatform.asset.mapper.AssetInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dataplatform.asset.entity.AssetInfo">
+        <id column="id" property="id"/>
+        <result column="asset_code" property="assetCode"/>
+        <result column="asset_name" property="assetName"/>
+        <result column="asset_name_cn" property="assetNameCn"/>
+        <result column="asset_description" property="assetDescription"/>
+        <result column="asset_type" property="assetType"/>
+        <result column="business_domain" property="businessDomain"/>
+        <result column="data_source" property="dataSource"/>
+        <result column="owner" property="owner"/>
+        <result column="department" property="department"/>
+        <result column="schema_name" property="schemaName"/>
+        <result column="table_name" property="tableName"/>
+        <result column="column_name" property="columnName"/>
+        <result column="sensitivity_level" property="sensitivityLevel"/>
+        <result column="asset_status" property="assetStatus"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="updated_time" property="updatedTime"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, asset_code, asset_name, asset_name_cn, asset_description, asset_type, business_domain, data_source,
+        owner, department, schema_name, table_name, column_name, sensitivity_level, asset_status, created_time, updated_time
+    </sql>
+
+    <!-- 根据资产编码查询 -->
+    <select id="selectByAssetCode" parameterType="string" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM asset_info
+        WHERE asset_code = #{assetCode}
+    </select>
+
+    <!-- 根据条件查询资产列表 -->
+    <select id="selectByCondition" parameterType="com.dataplatform.asset.dto.AssetQueryDTO" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM asset_info
+        <where>
+            <if test="assetType != null and assetType != ''">
+                AND asset_type = #{assetType}
+            </if>
+            <if test="businessDomain != null and businessDomain != ''">
+                AND business_domain = #{businessDomain}
+            </if>
+            <if test="owner != null and owner != ''">
+                AND owner = #{owner}
+            </if>
+            <if test="search != null and search != ''">
+                AND (asset_code LIKE CONCAT('%', #{search}, '%') 
+                     OR asset_name LIKE CONCAT('%', #{search}, '%') 
+                     OR asset_name_cn LIKE CONCAT('%', #{search}, '%'))
+            </if>
+        </where>
+        ORDER BY created_time DESC
+    </select>
+
+    <!-- 根据关键词查询资产列表 -->
+    <select id="selectListByKeyword" parameterType="string" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM asset_info
+        WHERE asset_code LIKE CONCAT('%', #{keyword}, '%') 
+           OR asset_name LIKE CONCAT('%', #{keyword}, '%') 
+           OR asset_name_cn LIKE CONCAT('%', #{keyword}, '%')
+           OR asset_description LIKE CONCAT('%', #{keyword}, '%')
+        ORDER BY created_time DESC
+    </select>
+
+    <!-- 根据高级条件查询资产列表 -->
+    <select id="selectByAdvancedCondition" parameterType="com.dataplatform.asset.dto.AdvancedSearchDTO" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM asset_info
+        <where>
+            <if test="assetType != null and assetType != ''">
+                AND asset_type = #{assetType}
+            </if>
+            <if test="businessDomain != null and businessDomain != ''">
+                AND business_domain = #{businessDomain}
+            </if>
+            <if test="owner != null and owner != ''">
+                AND owner = #{owner}
+            </if>
+            <if test="sensitivityLevel != null and sensitivityLevel != ''">
+                AND sensitivity_level = #{sensitivityLevel}
+            </if>
+            <if test="assetStatus != null and assetStatus != ''">
+                AND asset_status = #{assetStatus}
+            </if>
+            <if test="keyword != null and keyword != ''">
+                AND (asset_code LIKE CONCAT('%', #{keyword}, '%') 
+                     OR asset_name LIKE CONCAT('%', #{keyword}, '%') 
+                     OR asset_name_cn LIKE CONCAT('%', #{keyword}, '%')
+                     OR asset_description LIKE CONCAT('%', #{keyword}, '%'))
+            </if>
+        </where>
+        ORDER BY created_time DESC
+    </select>
+
+    <!-- 根据资产ID和标签ID查询关联关系 -->
+    <select id="selectByAssetIdAndTagId" resultMap="com.dataplatform.asset.mapper.AssetTagRelationMapper.BaseResultMap">
+        SELECT id, asset_id, tag_id, created_time
+        FROM asset_tag_relation
+        WHERE asset_id = #{assetId} AND tag_id = #{tagId}
+    </select>
+
+</mapper>

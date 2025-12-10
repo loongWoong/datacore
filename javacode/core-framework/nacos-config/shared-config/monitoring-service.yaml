@@ -1,0 +1,11 @@
+# 监控服务特定配置
+spring:
+  application:
+    name: monitoring-service
+
+server:
+  port: 9090
+
+management.metrics.export.prometheus.enabled: true
+
+prometheus.endpoint: /actuator/prometheus

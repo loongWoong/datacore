@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dataplatform.report.mapper.ReportGenerationRecordMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dataplatform.report.entity.ReportGenerationRecord">
+        <id column="id" property="id"/>
+        <result column="report_id" property="reportId"/>
+        <result column="report_code" property="reportCode"/>
+        <result column="report_name" property="reportName"/>
+        <result column="generation_status" property="generationStatus"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="execution_time" property="executionTime"/>
+        <result column="file_path" property="filePath"/>
+        <result column="file_size" property="fileSize"/>
+        <result column="error_message" property="errorMessage"/>
+        <result column="generated_by" property="generatedBy"/>
+        <result column="generated_params" property="generatedParams"/>
+        <result column="created_time" property="createdTime"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, report_id, report_code, report_name, generation_status, start_time, end_time, execution_time,
+        file_path, file_size, error_message, generated_by, generated_params, created_time
+    </sql>
+
+    <!-- 根据条件查询生成记录列表 -->
+    <select id="selectByCondition" parameterType="com.dataplatform.report.dto.GenerationRecordQuery" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM report_generation_record
+        <where>
+            <if test="reportId != null">
+                AND report_id = #{reportId}
+            </if>
+            <if test="generationStatus != null and generationStatus != ''">
+                AND generation_status = #{generationStatus}
+            </if>
+        </where>
+        ORDER BY created_time DESC
+    </select>
+
+</mapper>

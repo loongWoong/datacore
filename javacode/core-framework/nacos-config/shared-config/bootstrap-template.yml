@@ -1,0 +1,22 @@
+# 微服务Bootstrap配置模板
+# 每个服务需要在src/main/resources目录下创建bootstrap.yml文件
+
+spring:
+  application:
+    name: auth-service  # 修改为对应的服务名称
+  
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        # 引用共享配置
+        shared-configs:
+          - data-id: application-common.yaml
+            group: DEFAULT_GROUP
+          
+# 激活profiles（可选）
+# spring:
+#   profiles:
+#     active: dev
