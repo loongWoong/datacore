@@ -1,9 +1,0 @@
-spring:
-  application:
-    name: ${SPRING_APPLICATION_NAME:gateway-service}
-  cloud:
-    nacos:
-      config:
-        server-addr: 192.168.22.212:8848
-  config:
-    import: optional:nacos:
