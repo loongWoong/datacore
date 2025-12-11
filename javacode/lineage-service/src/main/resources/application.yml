@@ -6,19 +6,19 @@ spring:
     name: lineage-service
   
   datasource:
-    url: jdbc:mysql://localhost:3306/lineage_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://192.168.22.212:3306/lineage_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
   
   neo4j:
-    uri: bolt://localhost:7687
+    uri: bolt://192.168.22.212:7687
     authentication:
       username: neo4j
       password: neo4j
   
   redis:
-    host: localhost
+    host: 127.0.0.1
     port: 6379
     database: 0
     timeout: 2000ms

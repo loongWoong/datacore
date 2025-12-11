@@ -6,7 +6,7 @@ import com.dataplatform.core.auth.service.AuthService;
 import com.dataplatform.core.common.model.ResponseResult;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,7 +30,7 @@ public class AuthController {
     public ResponseResult<Void> logout(@RequestHeader("Authorization") String token) {
         String actualToken = token.replace("Bearer ", "");
         authService.logout(actualToken);
-        return ResponseResult.success("登出成功");
+        return ResponseResult.success();
     }
     
     @GetMapping("/validate")

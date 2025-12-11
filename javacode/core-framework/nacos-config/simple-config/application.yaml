@@ -8,7 +8,15 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
-  
+  # 应用名称（通过环境变量或启动参数覆盖）
+  application:
+    name: datacore-service
+
+# JPA配置（供使用JPA的服务使用）
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
   # Redis配置
   redis:
     host: localhost
@@ -23,6 +31,18 @@ spring:
         server-addr: 192.168.22.212:8848
       config:
         server-addr: 192.168.22.212:8848
+  
+  # Quartz配置（供使用Quartz的服务使用）
+  quartz:
+    job-store-type: memory
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanceName: DataCoreScheduler
+            instanceId: AUTO
+          threadPool:
+            threadCount: 10
 
 # MyBatis Plus配置
 mybatis-plus:
@@ -53,24 +73,91 @@ management:
 server:
   port: 8080
 
-# 应用名称（通过环境变量或启动参数覆盖）
-spring.application.name: datacore-service
 
-# JPA配置（供使用JPA的服务使用）
-spring.jpa.hibernate.ddl-auto: update
-spring.jpa.show-sql: true
 
 # Gateway路由配置（供网关服务使用）
-spring.cloud.gateway.routes:
-  - id: auth-service
-    uri: lb://auth-service
-    predicates:
-      - Path=/api/auth/**
-  - id: audit-service
-    uri: lb://audit-service
-    predicates:
-      - Path=/api/audit/**
+cloud:
+  gateway:
+    routes:
+      - id: auth-service
+        uri: lb://auth-service
+        predicates:
+          - Path=/api/auth/**
+      - id: audit-service
+        uri: lb://audit-service
+        predicates:
+          - Path=/api/audit/**
+      - id: metadata-service
+        uri: lb://metadata-service
+        predicates:
+          - Path=/api/metadata/**
+      - id: lineage-service
+        uri: lb://lineage-service
+        predicates:
+          - Path=/api/lineage/**
+      - id: quality-service
+        uri: lb://quality-service
+        predicates:
+          - Path=/api/quality/**
+      - id: asset-service
+        uri: lb://asset-service
+        predicates:
+          - Path=/api/asset/**
+      - id: scheduler-service
+        uri: lb://scheduler-service
+        predicates:
+          - Path=/api/scheduler/**
+      - id: report-service
+        uri: lb://report-service
+        predicates:
+          - Path=/api/report/**
 
 # 监控配置
-management.metrics.export.prometheus.enabled: true
-prometheus.endpoint: /actuator/prometheus
+management:
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  prometheus:
+    endpoint: /actuator/prometheus
+
+# 业务模块特殊配置
+# 数据血缘服务 - Neo4j配置
+neo4j:
+  uri: bolt://192.168.22.212:7687
+  authentication:
+    username: neo4j
+    password: neo4j
+
+# 数据资产服务 - Elasticsearch配置
+elasticsearch:
+  uris: http://192.168.22.212:9200
+
+# 报表服务 - JasperReports配置
+jasperreports:
+  compiler:
+    xml:
+      validator:
+        disabled: true
+
+# 调度服务 - XXL-JOB配置
+xxl:
+  job:
+    admin:
+      addresses: http://192.168.22.212:8088/xxl-job-admin
+    executor:
+      appname: xxl-job-executor
+      address: 
+      ip: 
+      port: 9999
+      logpath: /data/applogs/xxl-job/jobhandler
+      logretentiondays: 30
+      accessToken: 
+    accessToken: 
+
+# 分页插件配置
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

@@ -24,7 +24,7 @@
         <spring-cloud.version>2021.0.8</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.0.4.0</spring-cloud-alibaba.version>
         <spring-security-oauth2.version>2.3.12.RELEASE</spring-security-oauth2.version>
-        <jwt.version>0.9.1</jwt.version>
+        <jwt.version>0.11.5</jwt.version>
         <sentinel.version>1.8.6</sentinel.version>
         <skywalking.version>8.18.0</skywalking.version>
     </properties>

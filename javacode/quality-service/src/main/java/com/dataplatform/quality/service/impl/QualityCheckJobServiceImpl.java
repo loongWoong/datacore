@@ -2,6 +2,7 @@ package com.dataplatform.quality.service.impl;
 
 import com.dataplatform.quality.dto.*;
 import com.dataplatform.quality.entity.QualityCheckJob;
+import com.dataplatform.quality.job.QualityCheckQuartzJob;
 import com.dataplatform.quality.entity.QualityCheckResult;
 import com.dataplatform.quality.entity.QualityRule;
 import com.dataplatform.quality.mapper.QualityCheckJobMapper;
@@ -104,7 +105,7 @@ public class QualityCheckJobServiceImpl implements QualityCheckJobService {
     private void registerQuartzJob(QualityCheckJob job) {
         try {
             // 创建JobDetail
-            JobDetail jobDetail = JobBuilder.newJob(QualityCheckJob.class)
+            JobDetail jobDetail = JobBuilder.newJob(QualityCheckQuartzJob.class)
                     .withIdentity("job_" + job.getId(), "quality_group")
                     .usingJobData("jobId", job.getId())
                     .build();

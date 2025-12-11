@@ -63,28 +63,14 @@ mvn clean install
 
 ### 2. 构建核心框架服务
 ```bash
-# 构建认证服务
-cd ../auth-service
+# 返回上级目录
+cd ..
+
+# 构建整个核心框架（包括认证、网关、配置中心、服务注册与发现、监控服务）
 mvn clean install
 
-# 构建审计服务
-cd ../audit-service
-mvn clean install
-
-# 构建服务注册与发现
-cd ../discovery-service
-mvn clean install
-
-# 构建配置中心
-cd ../config-service
-mvn clean install
-
-# 构建网关服务
-cd ../gateway-service
-mvn clean install
-
-# 构建监控服务
-cd ../monitoring-service
+# 或者单独构建某个服务
+cd auth-service
 mvn clean install
 ```
 
@@ -138,6 +124,9 @@ mvn clean install
    - 配置内容: 使用之前创建的共享配置文件内容
 5. 点击"发布"
 
+### 3. 配置说明
+所有业务服务现在都通过bootstrap.yml配置文件从Nacos获取共享配置，不再使用本地的application.yml文件。这样可以实现配置的统一管理和动态更新。
+
 ## 服务启动顺序
 
 ### 1. 启动基础设施服务
@@ -176,33 +165,80 @@ cd ../monitoring-service
 java -jar target/monitoring-service.jar --spring.application.name=monitoring-service --server.port=9090
 ```
 
-### 3. 启动业务服务
+### 3. 构建业务服务
 ```bash
-# 业务服务启动顺序相对灵活，可根据需要调整:
+# 返回到javacode目录
+cd ..
+
+# 构建所有业务服务
+mvn clean install
+
+# 或者单独构建某个服务:
 
 # 元数据服务 (端口: 8010)
-cd ../../metadata-service
-java -jar target/metadata-service.jar --spring.application.name=metadata-service --server.port=8010
+cd metadata-service
+mvn clean install
 
 # 数据血缘服务 (端口: 8020)
 cd ../lineage-service
-java -jar target/lineage-service.jar --spring.application.name=lineage-service --server.port=8020
+mvn clean install
 
 # 数据质量服务 (端口: 8030)
 cd ../quality-service
-java -jar target/quality-service.jar --spring.application.name=quality-service --server.port=8030
+mvn clean install
 
 # 数据资产服务 (端口: 8040)
 cd ../asset-service
-java -jar target/asset-service.jar --spring.application.name=asset-service --server.port=8040
+mvn clean install
 
 # 调度服务 (端口: 8050)
 cd ../scheduler-service
-java -jar target/scheduler-service.jar --spring.application.name=scheduler-service --server.port=8050
+mvn clean install
 
 # 报表服务 (端口: 8060)
 cd ../report-service
-java -jar target/report-service.jar --spring.application.name=report-service --server.port=8060
+mvn clean install
+```
+
+## 启动服务
+
+### 启动顺序
+为确保服务正常运行，请按照以下顺序启动服务:
+
+1. 基础设施服务 (Nacos, MySQL, Redis)
+2. 核心框架服务 (按依赖顺序)
+3. 业务服务 (可按任意顺序)
+
+### 启动命令示例
+```bash
+# 启动核心框架服务 (在core-framework目录下)
+mvn spring-boot:run
+
+# 启动业务服务 (在各服务目录下)
+mvn spring-boot:run
+
+# 或者使用jar包启动
+java -jar target/service-name.jar
+```
+
+### 使用启动脚本 (推荐)
+为了方便启动和停止服务，项目提供了专门的启动脚本:
+
+#### Windows系统:
+- 启动核心框架服务: `start-core-framework.bat`
+- 停止核心框架服务: `stop-core-framework.bat`
+- 启动业务服务: `start-business-services.bat`
+- 停止业务服务: `stop-business-services.bat`
+
+#### Linux/macOS系统:
+- 启动核心框架服务: `start-core-framework.sh`
+- 停止核心框架服务: `stop-core-framework.sh`
+- 启动业务服务: `start-business-services.sh`
+- 停止业务服务: `stop-business-services.sh`
+
+使用前请确保脚本具有执行权限:
+```bash
+chmod +x *.sh
 ```
 
 ## 验证服务

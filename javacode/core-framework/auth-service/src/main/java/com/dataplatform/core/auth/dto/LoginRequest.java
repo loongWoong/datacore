@@ -3,7 +3,7 @@ package com.dataplatform.core.auth.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-import jakarta.validation.constraints.NotBlank;
+import javax.validation.constraints.NotBlank;
 
 @Data
 @Schema(description = "登录请求DTO")

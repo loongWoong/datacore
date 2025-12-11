@@ -15,6 +15,8 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
 
 server:
   port: 8001

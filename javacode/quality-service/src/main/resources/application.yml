@@ -6,13 +6,13 @@ spring:
     name: quality-service
   
   datasource:
-    url: jdbc:mysql://localhost:3306/quality_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://192.168.22.212:3306/quality_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
-    password: root
+    password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
   
   redis:
-    host: localhost
+    host: 127.0.0.1
     port: 6379
     database: 0
     timeout: 2000ms

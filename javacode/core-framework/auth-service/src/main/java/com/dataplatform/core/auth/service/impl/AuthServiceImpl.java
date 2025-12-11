@@ -71,9 +71,9 @@ public class AuthServiceImpl implements AuthService {
         userInfo.setPermissions(permissions.stream().map(Permission::getPermissionCode).collect(Collectors.toList()));
         
         // 7. 将令牌存储到Redis中
-        redisTemplate.opsForValue().set("token:" + token, user.getId(), jwtUtil.getExpiration(), TimeUnit.SECONDS);
+        redisTemplate.opsForValue().set("token:" + token, user.getId(), jwtUtil.getExpirationDateFromToken(token).getTime(), TimeUnit.MILLISECONDS);
         
-        return new JwtResponse(token, jwtUtil.getExpiration(), userInfo);
+        return new JwtResponse(token, jwtUtil.getExpirationDateFromToken(token).getTime(), userInfo);
     }
     
     @Override

@@ -1,7 +1,12 @@
 spring:
   application:
-    name: ${SPRING_APPLICATION_NAME:audit-service}
+    name: audit-service
   cloud:
     nacos:
       config:
-        server-addr: localhost:8848
+        server-addr: 192.168.22.212:8848
+        import-check:
+          enabled: false
+        file-extension: yaml
+  config:
+    import: optional:nacos:application.yaml

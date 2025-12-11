@@ -10,6 +10,11 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        shared-configs:
+          - data-id: application-common.yaml
+            group: DEFAULT_GROUP
 
 server:
   port: 8002

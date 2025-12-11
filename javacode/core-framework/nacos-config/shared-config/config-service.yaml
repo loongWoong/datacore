@@ -2,8 +2,10 @@
 spring:
   application:
     name: config-service
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
 
 server:
   port: 8888
-
-spring.cloud.nacos.config.server-addr: localhost:8848
