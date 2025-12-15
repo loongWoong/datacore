@@ -1,4 +1,4 @@
-package com.dataplatform.scheduler.config;
+package com.dataplatform.datasource.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,15 +11,15 @@ import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSeriali
 public class RedisConfig {
     
     @Bean
-    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory connectionFactory) {
+    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
         RedisTemplate<String, Object> template = new RedisTemplate<>();
-        template.setConnectionFactory(connectionFactory);
+        template.setConnectionFactory(factory);
         
-        // 使用StringRedisSerializer来序列化和反序列化redis的key值
+        // 设置key的序列化方式
         template.setKeySerializer(new StringRedisSerializer());
         template.setHashKeySerializer(new StringRedisSerializer());
         
-        // 使用GenericJackson2JsonRedisSerializer来序列化和反序列化redis的value值
+        // 设置value的序列化方式
         template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
         template.setHashValueSerializer(new GenericJackson2JsonRedisSerializer());
         

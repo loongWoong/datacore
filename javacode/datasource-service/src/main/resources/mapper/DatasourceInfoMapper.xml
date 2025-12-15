@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dataplatform.datasource.mapper.DatasourceInfoMapper">
+
+    <resultMap id="DatasourceInfoMap" type="com.dataplatform.datasource.entity.DatasourceInfo">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="type" property="type"/>
+        <result column="host" property="host"/>
+        <result column="port" property="port"/>
+        <result column="database_name" property="databaseName"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="connection_url" property="connectionUrl"/>
+        <result column="driver_class" property="driverClass"/>
+        <result column="status" property="status"/>
+        <result column="description" property="description"/>
+        <result column="owner" property="owner"/>
+        <result column="environment" property="environment"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="updated_time" property="updatedTime"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, name, type, host, port, database_name, username, password, connection_url, 
+        driver_class, status, description, owner, environment, created_time, updated_time
+    </sql>
+
+    <select id="selectDatasourcePage" resultMap="DatasourceInfoMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM datasource_info
+        <where>
+            <if test="query.name != null and query.name != ''">
+                AND name LIKE CONCAT('%', #{query.name}, '%')
+            </if>
+            <if test="query.type != null and query.type != ''">
+                AND type = #{query.type}
+            </if>
+            <if test="query.owner != null and query.owner != ''">
+                AND owner = #{query.owner}
+            </if>
+            <if test="query.environment != null and query.environment != ''">
+                AND environment = #{query.environment}
+            </if>
+            <if test="query.status != null and query.status != ''">
+                AND status = #{query.status}
+            </if>
+            <if test="query.search != null and query.search != ''">
+                AND (
+                    name LIKE CONCAT('%', #{query.search}, '%')
+                    OR description LIKE CONCAT('%', #{query.search}, '%')
+                    OR owner LIKE CONCAT('%', #{query.search}, '%')
+                )
+            </if>
+        </where>
+        ORDER BY created_time DESC
+    </select>
+
+</mapper>

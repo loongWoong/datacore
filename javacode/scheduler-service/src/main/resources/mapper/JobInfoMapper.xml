@@ -43,11 +43,11 @@
         SELECT <include refid="Base_Column_List"/>
         FROM xxl_job_info
         <where>
-            <if test="jobDesc != null and jobDesc != ''">
-                AND job_desc LIKE CONCAT('%', #{jobDesc}, '%')
+            <if test="query.jobDesc != null and query.jobDesc != ''">
+                AND job_desc LIKE CONCAT('%', #{query.jobDesc}, '%')
             </if>
-            <if test="jobGroup != null">
-                AND job_group = #{jobGroup}
+            <if test="query.jobGroup != null">
+                AND job_group = #{query.jobGroup}
             </if>
         </where>
         ORDER BY update_time DESC

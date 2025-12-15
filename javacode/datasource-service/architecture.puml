@@ -1,0 +1,51 @@
+@startuml
+title 数据源管理服务架构图
+
+package "数据源管理服务" {
+  [Controller\n控制器层] as datasource_controller
+  [Service\n服务层] as datasource_service
+  [Mapper\n数据访问层] as datasource_mapper
+  [Entity\n实体类] as datasource_entity
+  [DTO\n数据传输对象] as datasource_dto
+}
+
+database "MySQL\n(datasource_db)" as datasource_db
+
+datasource_controller --> datasource_service
+datasource_service --> datasource_mapper
+datasource_mapper --> datasource_db
+datasource_service --> datasource_entity
+datasource_service --> datasource_dto
+datasource_controller --> datasource_dto
+datasource_mapper --> datasource_entity
+
+note right of datasource_controller
+  主要控制器:
+  - DatasourceController
+end note
+
+note right of datasource_service
+  主要服务:
+  - DatasourceService
+  - DatasourceServiceImpl
+end note
+
+note right of datasource_mapper
+  主要Mapper:
+  - DatasourceInfoMapper
+end note
+
+note right of datasource_db
+  主要数据表:
+  - datasource_info
+end note
+
+note top of datasource_dto
+  数据传输对象:
+  - DatasourceInfoDTO
+  - CreateDatasourceDTO
+  - UpdateDatasourceDTO
+  - DatasourceQueryDTO
+end note
+
+@enduml

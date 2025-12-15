@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: datasource-service
+
+# 以下Nacos配置已注释，改为单体启动模式

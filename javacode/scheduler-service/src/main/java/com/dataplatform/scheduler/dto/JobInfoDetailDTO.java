@@ -73,4 +73,5 @@ public class JobInfoDetailDTO {
     
     @Schema(description = "下次调度时间")
     private Long triggerNextTime;
+
 }

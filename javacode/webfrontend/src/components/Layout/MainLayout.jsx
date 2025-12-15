@@ -11,7 +11,8 @@ import {
   LineChartOutlined,
   ClockCircleOutlined,
   TagOutlined,
-  FileProtectOutlined
+  FileProtectOutlined,
+  CloudServerOutlined
 } from '@ant-design/icons'
 
 const { Header, Sider, Content } = Layout
@@ -66,6 +67,11 @@ const menuItems = [
     key: '/quality-rules',
     icon: <FileProtectOutlined />,
     label: '质量规则'
+  },
+  {
+    key: '/datasources',
+    icon: <CloudServerOutlined />,
+    label: '数据源管理'
   }
 ]
 

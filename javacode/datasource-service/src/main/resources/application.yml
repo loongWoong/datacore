@@ -1,0 +1,45 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: datasource-service
+  
+  # 完全禁用Nacos相关功能，改为单体启动
+  cloud:
+    nacos:
+      discovery:
+        enabled: false
+      config:
+        enabled: false
+        import-check:
+          enabled: false
+  
+  datasource:
+    url: jdbc:mysql://192.168.22.212:3306/datacore?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  
+  redis:
+    host: localhost
+    port: 6379
+    password: 123456
+    database: 0
+    timeout: 2000ms
+  
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.dataplatform.datasource.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    com.dataplatform.datasource: debug

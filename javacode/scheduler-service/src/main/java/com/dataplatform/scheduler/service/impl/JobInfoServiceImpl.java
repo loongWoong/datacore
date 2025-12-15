@@ -1,9 +1,12 @@
 package com.dataplatform.scheduler.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.dataplatform.scheduler.dto.*;
 import com.dataplatform.scheduler.entity.JobInfo;
 import com.dataplatform.scheduler.mapper.JobInfoMapper;
 import com.dataplatform.scheduler.service.JobInfoService;
+import com.dataplatform.scheduler.service.MysqlMetadataScanService;
+import com.dataplatform.scheduler.service.DatasourceService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.BeanUtils;
@@ -25,6 +28,12 @@ public class JobInfoServiceImpl implements JobInfoService {
     
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
+    
+    @Autowired
+    private MysqlMetadataScanService mysqlMetadataScanService;
+    
+    @Autowired
+    private DatasourceService datasourceService;
     
     @Override
     @Transactional
@@ -51,7 +60,7 @@ public class JobInfoServiceImpl implements JobInfoService {
     @Override
     public PageResult<JobInfoDTO> getJobs(JobInfoQuery query) {
         // 1. 尝试从缓存获取
-        String cacheKey = "scheduler:jobs:" + com.alibaba.fastjson.JSON.toJSONString(query);
+        String cacheKey = "scheduler:jobs:" + JSON.toJSONString(query);
         PageResult<JobInfoDTO> cachedResult = (PageResult<JobInfoDTO>) redisTemplate.opsForValue().get(cacheKey);
         if (cachedResult != null) {
             return cachedResult;
@@ -145,6 +154,15 @@ public class JobInfoServiceImpl implements JobInfoService {
         // 清除缓存
         redisTemplate.delete("scheduler:jobs");
         redisTemplate.delete("scheduler:job:" + id);
+        
+        // 根据任务类型执行相应的任务
+        if ("mysql_metadata_scanner".equals(existingJob.getExecutorHandler())) {
+            executeMysqlScanTask(existingJob);
+        } else if ("dbt_model_generator".equals(existingJob.getExecutorHandler())) {
+            executeDbtModelGenerateTask(existingJob);
+        } else if ("metadata_uploader".equals(existingJob.getExecutorHandler())) {
+            executeMetadataUploadTask(existingJob);
+        }
     }
     
     @Override
@@ -162,5 +180,142 @@ public class JobInfoServiceImpl implements JobInfoService {
         // 清除缓存
         redisTemplate.delete("scheduler:jobs");
         redisTemplate.delete("scheduler:job:" + id);
+    }
+    
+    /**
+     * 执行MySQL元数据扫描任务
+     * 
+     * @param job 任务信息
+     */
+    private void executeMysqlScanTask(JobInfo job) {
+        try {
+            // 解析参数
+            MysqlMetadataScanService.MysqlScanTaskDTO taskDTO = new MysqlMetadataScanService.MysqlScanTaskDTO();
+            if (job.getExecutorParam() != null && !job.getExecutorParam().isEmpty()) {
+                taskDTO = JSON.parseObject(job.getExecutorParam(), MysqlMetadataScanService.MysqlScanTaskDTO.class);
+            }
+            
+            // 执行扫描任务
+            String result = mysqlMetadataScanService.executeScan(taskDTO);
+            System.out.println("MySQL扫描任务执行结果: " + result);
+        } catch (Exception e) {
+            System.err.println("执行MySQL扫描任务时发生错误: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * 执行DBT模型生成任务
+     * 
+     * @param job 任务信息
+     */
+    private void executeDbtModelGenerateTask(JobInfo job) {
+        try {
+            // 解析参数
+            DbtModelGenerateTaskDTO taskDTO = new DbtModelGenerateTaskDTO();
+            if (job.getExecutorParam() != null && !job.getExecutorParam().isEmpty()) {
+                taskDTO = JSON.parseObject(job.getExecutorParam(), DbtModelGenerateTaskDTO.class);
+            }
+            
+            // 执行模型生成任务
+            String result = executePythonScript("meta-dbt/generate_dbt_models.py", taskDTO);
+            System.out.println("DBT模型生成任务执行结果: " + result);
+        } catch (Exception e) {
+            System.err.println("执行DBT模型生成任务时发生错误: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * 执行元数据上传任务
+     * 
+     * @param job 任务信息
+     */
+    private void executeMetadataUploadTask(JobInfo job) {
+        try {
+            // 解析参数
+            MetadataUploadTaskDTO taskDTO = new MetadataUploadTaskDTO();
+            if (job.getExecutorParam() != null && !job.getExecutorParam().isEmpty()) {
+                taskDTO = JSON.parseObject(job.getExecutorParam(), MetadataUploadTaskDTO.class);
+            }
+            
+            // 执行元数据上传任务
+            String result = executePythonScript("meta-dbt/collect_and_upload.py", taskDTO);
+            System.out.println("元数据上传任务执行结果: " + result);
+        } catch (Exception e) {
+            System.err.println("执行元数据上传任务时发生错误: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * 执行Python脚本
+     * 
+     * @param scriptPath 脚本路径
+     * @param taskDTO 任务参数
+     * @return 执行结果
+     */
+    private String executePythonScript(String scriptPath, Object taskDTO) {
+        try {
+            // 构建命令
+            ProcessBuilder processBuilder = new ProcessBuilder();
+            processBuilder.command("python", scriptPath);
+            
+            // 设置工作目录
+            java.nio.file.Path workingDir = java.nio.file.Paths.get(System.getProperty("user.dir")).getParent();
+            processBuilder.directory(workingDir.toFile());
+            
+            // 启动进程
+            Process process = processBuilder.start();
+            
+            // 等待进程完成
+            int exitCode = process.waitFor();
+            
+            if (exitCode == 0) {
+                return scriptPath + " 脚本执行成功";
+            } else {
+                return scriptPath + " 脚本执行失败，退出码: " + exitCode;
+            }
+        } catch (Exception e) {
+            return "执行 " + scriptPath + " 脚本时发生错误: " + e.getMessage();
+        }
+    }
+    
+    // DBT模型生成任务DTO
+    public static class DbtModelGenerateTaskDTO {
+        private String inputPath = "metadata_scan_result.yaml";
+        private String modelsDir = "models";
+        private Integer executorTimeout = 300;
+        private Integer executorFailRetryCount = 0;
+        
+        // Getters and setters
+        public String getInputPath() { return inputPath; }
+        public void setInputPath(String inputPath) { this.inputPath = inputPath; }
+        
+        public String getModelsDir() { return modelsDir; }
+        public void setModelsDir(String modelsDir) { this.modelsDir = modelsDir; }
+        
+        public Integer getExecutorTimeout() { return executorTimeout; }
+        public void setExecutorTimeout(Integer executorTimeout) { this.executorTimeout = executorTimeout; }
+        
+        public Integer getExecutorFailRetryCount() { return executorFailRetryCount; }
+        public void setExecutorFailRetryCount(Integer executorFailRetryCount) { this.executorFailRetryCount = executorFailRetryCount; }
+    }
+    
+    // 元数据上传任务DTO
+    public static class MetadataUploadTaskDTO {
+        private String metadataFile = "metadata_scan_result.yaml";
+        private Integer executorTimeout = 300;
+        private Integer executorFailRetryCount = 0;
+        
+        // Getters and setters
+        public String getMetadataFile() { return metadataFile; }
+        public void setMetadataFile(String metadataFile) { this.metadataFile = metadataFile; }
+        
+        public Integer getExecutorTimeout() { return executorTimeout; }
+        public void setExecutorTimeout(Integer executorTimeout) { this.executorTimeout = executorTimeout; }
+        
+        public Integer getExecutorFailRetryCount() { return executorFailRetryCount; }
+        public void setExecutorFailRetryCount(Integer executorFailRetryCount) { this.executorFailRetryCount = executorFailRetryCount; }
     }
 }

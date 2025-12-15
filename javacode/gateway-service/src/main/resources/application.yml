@@ -38,8 +38,12 @@ spring:
           predicates:
             - Path=/api/scheduler/**
             
-        # 移除这个路由规则，因为它会干扰前端请求
-        # - id: frontend
+        - id: datasource-service
+          uri: http://localhost:8086
+          predicates:
+            - Path=/api/datasources/**
+            
+        # 移除这个路由规则，因为它会干扰前端请求        # - id: frontend
         #   uri: http://localhost:3000
         #   predicates:
         #     - Path=/**

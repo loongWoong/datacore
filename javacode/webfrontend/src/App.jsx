@@ -12,6 +12,7 @@ import Metrics from './pages/Metrics'
 import SchedulerManagement from './pages/SchedulerManagement'
 import AssetTags from './pages/AssetTags'
 import QualityRules from './pages/QualityRules'
+import DatasourceManagement from './pages/DatasourceManagement'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/scheduler" element={<SchedulerManagement />} />
           <Route path="/asset-tags" element={<AssetTags />} />
           <Route path="/quality-rules" element={<QualityRules />} />
+          <Route path="/datasources" element={<DatasourceManagement />} />
         </Routes>
       </MainLayout>
     </BrowserRouter>
