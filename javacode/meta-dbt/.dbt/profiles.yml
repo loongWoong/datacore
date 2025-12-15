@@ -1,0 +1,12 @@
+myproject:
+  target: dev
+  outputs:
+    dev:
+      type: mysql      # 若用 dbt-mysql 就写 mysql
+      host: 192.168.22.212
+      port: 3306
+      user: root
+      password: 123456
+      database: dataplatform        # 默认库
+      schema: dataplatform          # MySQL 里 schema 同 database
+      charset: utf8mb4

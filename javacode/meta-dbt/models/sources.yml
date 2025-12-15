@@ -1,0 +1,654 @@
+sources:
+- database: dataplatform
+  name: dataplatform
+  schema: dataplatform
+  tables:
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: asset_id字段
+      name: asset_id
+    - description: evaluation_date字段
+      name: evaluation_date
+    - description: asset_level字段
+      name: asset_level
+    - description: usage_frequency字段
+      name: usage_frequency
+    - description: data_freshness字段
+      name: data_freshness
+    - description: business_value字段
+      name: business_value
+    - description: technical_quality字段
+      name: technical_quality
+    - description: security_level字段
+      name: security_level
+    - description: overall_score字段
+      name: overall_score
+    - description: evaluator字段
+      name: evaluator
+    - description: evaluation_comment字段
+      name: evaluation_comment
+    - description: created_time字段
+      name: created_time
+    description: asset_evaluation表
+    name: asset_evaluation
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: asset_code字段
+      name: asset_code
+    - description: asset_name字段
+      name: asset_name
+    - description: asset_name_cn字段
+      name: asset_name_cn
+    - description: asset_description字段
+      name: asset_description
+    - description: asset_type字段
+      name: asset_type
+    - description: business_domain字段
+      name: business_domain
+    - description: data_source字段
+      name: data_source
+    - description: owner字段
+      name: owner
+    - description: department字段
+      name: department
+    - description: schema_name字段
+      name: schema_name
+    - description: table_name字段
+      name: table_name
+    - description: column_name字段
+      name: column_name
+    - description: sensitivity_level字段
+      name: sensitivity_level
+    - description: asset_status字段
+      name: asset_status
+    - description: created_time字段
+      name: created_time
+    - description: updated_time字段
+      name: updated_time
+    description: asset_info表
+    name: asset_info
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: asset_id字段
+      name: asset_id
+    - description: lifecycle_event字段
+      name: lifecycle_event
+    - description: event_description字段
+      name: event_description
+    - description: operator字段
+      name: operator
+    - description: operated_time字段
+      name: operated_time
+    description: asset_lifecycle表
+    name: asset_lifecycle
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: tag_code字段
+      name: tag_code
+    - description: tag_name字段
+      name: tag_name
+    - description: tag_description字段
+      name: tag_description
+    - description: tag_category字段
+      name: tag_category
+    - description: tag_color字段
+      name: tag_color
+    - description: creator字段
+      name: creator
+    - description: created_time字段
+      name: created_time
+    - description: updated_time字段
+      name: updated_time
+    description: asset_tag表
+    name: asset_tag
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: asset_id字段
+      name: asset_id
+    - description: tag_id字段
+      name: tag_id
+    - description: created_time字段
+      name: created_time
+    description: asset_tag_relation表
+    name: asset_tag_relation
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: config_key字段
+      name: config_key
+    - description: config_value字段
+      name: config_value
+    - description: config_type字段
+      name: config_type
+    - description: description字段
+      name: description
+    - description: created_time字段
+      name: created_time
+    - description: updated_time字段
+      name: updated_time
+    description: lineage_config表
+    name: lineage_config
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: rule_name字段
+      name: rule_name
+    - description: rule_type字段
+      name: rule_type
+    - description: source_pattern字段
+      name: source_pattern
+    - description: target_pattern字段
+      name: target_pattern
+    - description: transform_type字段
+      name: transform_type
+    - description: description字段
+      name: description
+    - description: is_enabled字段
+      name: is_enabled
+    - description: created_time字段
+      name: created_time
+    - description: updated_time字段
+      name: updated_time
+    description: lineage_parse_rule表
+    name: lineage_parse_rule
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: table_id字段
+      name: table_id
+    - description: column_name字段
+      name: column_name
+    - description: column_name_cn字段
+      name: column_name_cn
+    - description: column_description字段
+      name: column_description
+    - description: data_type字段
+      name: data_type
+    - description: is_primary_key字段
+      name: is_primary_key
+    - description: is_nullable字段
+      name: is_nullable
+    - description: column_order字段
+      name: column_order
+    - description: created_time字段
+      name: created_time
+    - description: updated_time字段
+      name: updated_time
+    description: metadata_column_info表
+    name: metadata_column_info
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: schema_name字段
+      name: schema_name
+    - description: table_name字段
+      name: table_name
+    - description: table_name_cn字段
+      name: table_name_cn
+    - description: table_description字段
+      name: table_description
+    - description: business_domain字段
+      name: business_domain
+    - description: data_source字段
+      name: data_source
+    - description: update_frequency字段
+      name: update_frequency
+    - description: owner字段
+      name: owner
+    - description: data_layer字段
+      name: data_layer
+    - description: record_count字段
+      name: record_count
+    - description: last_update_time字段
+      name: last_update_time
+    - description: created_time字段
+      name: created_time
+    - description: updated_time字段
+      name: updated_time
+    description: metadata_table_info表
+    name: metadata_table_info
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: table_id字段
+      name: table_id
+    - description: version_number字段
+      name: version_number
+    - description: version_description字段
+      name: version_description
+    - description: metadata_content字段
+      name: metadata_content
+    - description: created_by字段
+      name: created_by
+    - description: created_time字段
+      name: created_time
+    description: metadata_version_info表
+    name: metadata_version_info
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: job_name字段
+      name: job_name
+    - description: job_description字段
+      name: job_description
+    - description: rule_ids字段
+      name: rule_ids
+    - description: cron_expression字段
+      name: cron_expression
+    - description: is_enabled字段
+      name: is_enabled
+    - description: last_execute_time字段
+      name: last_execute_time
+    - description: next_execute_time字段
+      name: next_execute_time
+    - description: creator字段
+      name: creator
+    - description: created_time字段
+      name: created_time
+    - description: updated_time字段
+      name: updated_time
+    description: quality_check_job表
+    name: quality_check_job
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: job_id字段
+      name: job_id
+    - description: rule_id字段
+      name: rule_id
+    - description: table_name字段
+      name: table_name
+    - description: column_name字段
+      name: column_name
+    - description: check_date字段
+      name: check_date
+    - description: check_status字段
+      name: check_status
+    - description: actual_value字段
+      name: actual_value
+    - description: expected_value字段
+      name: expected_value
+    - description: deviation字段
+      name: deviation
+    - description: failed_records字段
+      name: failed_records
+    - description: execution_time字段
+      name: execution_time
+    - description: error_message字段
+      name: error_message
+    - description: created_time字段
+      name: created_time
+    description: quality_check_result表
+    name: quality_check_result
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: report_date字段
+      name: report_date
+    - description: table_name字段
+      name: table_name
+    - description: overall_score字段
+      name: overall_score
+    - description: completeness_rate字段
+      name: completeness_rate
+    - description: accuracy_rate字段
+      name: accuracy_rate
+    - description: consistency_rate字段
+      name: consistency_rate
+    - description: uniqueness_rate字段
+      name: uniqueness_rate
+    - description: timeliness_rate字段
+      name: timeliness_rate
+    - description: total_records字段
+      name: total_records
+    - description: failed_rules字段
+      name: failed_rules
+    - description: warning_rules字段
+      name: warning_rules
+    - description: passed_rules字段
+      name: passed_rules
+    - description: created_time字段
+      name: created_time
+    description: quality_report表
+    name: quality_report
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: rule_code字段
+      name: rule_code
+    - description: rule_name字段
+      name: rule_name
+    - description: rule_description字段
+      name: rule_description
+    - description: rule_type字段
+      name: rule_type
+    - description: table_name字段
+      name: table_name
+    - description: column_name字段
+      name: column_name
+    - description: check_expression字段
+      name: check_expression
+    - description: expected_value字段
+      name: expected_value
+    - description: threshold字段
+      name: threshold
+    - description: severity_level字段
+      name: severity_level
+    - description: is_enabled字段
+      name: is_enabled
+    - description: creator字段
+      name: creator
+    - description: created_time字段
+      name: created_time
+    - description: updated_time字段
+      name: updated_time
+    description: quality_rule表
+    name: quality_rule
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: report_code字段
+      name: report_code
+    - description: report_name字段
+      name: report_name
+    - description: report_description字段
+      name: report_description
+    - description: report_type字段
+      name: report_type
+    - description: data_source_type字段
+      name: data_source_type
+    - description: data_source_config字段
+      name: data_source_config
+    - description: template_file_path字段
+      name: template_file_path
+    - description: output_format字段
+      name: output_format
+    - description: schedule_config字段
+      name: schedule_config
+    - description: is_enabled字段
+      name: is_enabled
+    - description: creator字段
+      name: creator
+    - description: created_time字段
+      name: created_time
+    - description: updated_time字段
+      name: updated_time
+    description: report_config表
+    name: report_config
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: report_id字段
+      name: report_id
+    - description: report_code字段
+      name: report_code
+    - description: report_name字段
+      name: report_name
+    - description: generation_status字段
+      name: generation_status
+    - description: start_time字段
+      name: start_time
+    - description: end_time字段
+      name: end_time
+    - description: execution_time字段
+      name: execution_time
+    - description: file_path字段
+      name: file_path
+    - description: file_size字段
+      name: file_size
+    - description: error_message字段
+      name: error_message
+    - description: generated_by字段
+      name: generated_by
+    - description: generated_params字段
+      name: generated_params
+    - description: created_time字段
+      name: created_time
+    description: report_generation_record表
+    name: report_generation_record
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: report_id字段
+      name: report_id
+    - description: param_name字段
+      name: param_name
+    - description: param_label字段
+      name: param_label
+    - description: param_type字段
+      name: param_type
+    - description: is_required字段
+      name: is_required
+    - description: default_value字段
+      name: default_value
+    - description: param_options字段
+      name: param_options
+    - description: param_order字段
+      name: param_order
+    - description: created_time字段
+      name: created_time
+    description: report_parameter表
+    name: report_parameter
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: report_id字段
+      name: report_id
+    - description: subscriber字段
+      name: subscriber
+    - description: subscription_type字段
+      name: subscription_type
+    - description: subscription_config字段
+      name: subscription_config
+    - description: is_active字段
+      name: is_active
+    - description: created_time字段
+      name: created_time
+    - description: updated_time字段
+      name: updated_time
+    description: report_subscription表
+    name: report_subscription
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: job_group字段
+      name: job_group
+    - description: job_desc字段
+      name: job_desc
+    - description: add_time字段
+      name: add_time
+    - description: update_time字段
+      name: update_time
+    - description: author字段
+      name: author
+    - description: alarm_email字段
+      name: alarm_email
+    - description: schedule_type字段
+      name: schedule_type
+    - description: schedule_conf字段
+      name: schedule_conf
+    - description: misfire_strategy字段
+      name: misfire_strategy
+    - description: executor_route_strategy字段
+      name: executor_route_strategy
+    - description: executor_handler字段
+      name: executor_handler
+    - description: executor_param字段
+      name: executor_param
+    - description: executor_block_strategy字段
+      name: executor_block_strategy
+    - description: executor_timeout字段
+      name: executor_timeout
+    - description: executor_fail_retry_count字段
+      name: executor_fail_retry_count
+    - description: glue_type字段
+      name: glue_type
+    - description: glue_source字段
+      name: glue_source
+    - description: glue_remark字段
+      name: glue_remark
+    - description: glue_updatetime字段
+      name: glue_updatetime
+    - description: child_jobid字段
+      name: child_jobid
+    - description: trigger_status字段
+      name: trigger_status
+    - description: trigger_last_time字段
+      name: trigger_last_time
+    - description: trigger_next_time字段
+      name: trigger_next_time
+    description: xxl_job_info表
+    name: xxl_job_info
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: job_group字段
+      name: job_group
+    - description: job_id字段
+      name: job_id
+    - description: executor_address字段
+      name: executor_address
+    - description: executor_handler字段
+      name: executor_handler
+    - description: executor_param字段
+      name: executor_param
+    - description: executor_sharding_param字段
+      name: executor_sharding_param
+    - description: executor_fail_retry_count字段
+      name: executor_fail_retry_count
+    - description: trigger_time字段
+      name: trigger_time
+    - description: trigger_code字段
+      name: trigger_code
+    - description: trigger_msg字段
+      name: trigger_msg
+    - description: handle_time字段
+      name: handle_time
+    - description: handle_code字段
+      name: handle_code
+    - description: handle_msg字段
+      name: handle_msg
+    - description: alarm_status字段
+      name: alarm_status
+    description: xxl_job_log表
+    name: xxl_job_log
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: trigger_day字段
+      name: trigger_day
+    - description: running_count字段
+      name: running_count
+    - description: suc_count字段
+      name: suc_count
+    - description: fail_count字段
+      name: fail_count
+    - description: update_time字段
+      name: update_time
+    description: xxl_job_log_report表
+    name: xxl_job_log_report
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: job_id字段
+      name: job_id
+    - description: glue_type字段
+      name: glue_type
+    - description: glue_source字段
+      name: glue_source
+    - description: glue_remark字段
+      name: glue_remark
+    - description: add_time字段
+      name: add_time
+    - description: update_time字段
+      name: update_time
+    description: xxl_job_logglue表
+    name: xxl_job_logglue
+  - columns:
+    - description: id字段
+      name: id
+      tests:
+      - unique
+      - not_null
+    - description: registry_group字段
+      name: registry_group
+    - description: registry_key字段
+      name: registry_key
+    - description: registry_value字段
+      name: registry_value
+    - description: update_time字段
+      name: update_time
+    description: xxl_job_registry表
+    name: xxl_job_registry
+version: 2
