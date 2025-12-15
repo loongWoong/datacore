@@ -5,8 +5,18 @@ spring:
   application:
     name: quality-service
   
+  # 完全禁用Nacos相关功能，改为单体启动
+  cloud:
+    nacos:
+      discovery:
+        enabled: false
+      config:
+        enabled: false
+        import-check:
+          enabled: false
+  
   datasource:
-    url: jdbc:mysql://192.168.22.212:3306/quality_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://192.168.22.212:3306/datacore?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -14,6 +24,7 @@ spring:
   redis:
     host: 127.0.0.1
     port: 6379
+    password: 123456
     database: 0
     timeout: 2000ms
   

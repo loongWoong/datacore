@@ -255,7 +255,23 @@ dbt run --select metadata.*
 dbt run --select dwd_toll_transaction_detail
 ```
 
-### 4. 启动 Web UI
+### 4. 导入元数据到Java后端
+
+为了使Java后端能够访问元数据，需要将dbt生成的元数据导入到Java服务中：
+
+```bash
+# 方法1: 使用一键导入脚本（推荐）
+python scripts/check_and_import_metadata.py
+
+# 方法2: 分步执行
+# 2.1 运行元数据模型
+dbt run --select metadata.*
+
+# 2.2 运行元数据导入脚本
+python scripts/import_metadata_to_java.py
+```
+
+### 5. 启动 Web UI
 
 #### 方式一：生产模式（推荐）
 
@@ -290,7 +306,7 @@ cd web_ui
 - 后端 API：http://localhost:8090
 - API 文档：http://localhost:8090/docs
 
-### 5. 验证系统
+### 6. 验证系统
 
 1. **检查数据库**：确认 `datacore.duckdb` 文件已生成
 2. **检查数据模型**：运行 `dbt run` 后检查各层数据表
@@ -425,7 +441,7 @@ dbt test --select data_quality.*
 
 ## 📁 项目结构
 
-```
+``` 
 datacore/
 ├── models/                    # dbt 数据模型
 │   ├── staging/              # 清洗层模型
@@ -471,7 +487,9 @@ datacore/
 ├── seeds/                     # 种子数据
 │   └── data_dictionary/
 ├── scripts/                   # 脚本
-│   └── generate_test_data.py # 测试数据生成脚本
+│   ├── generate_test_data.py # 测试数据生成脚本
+│   ├── import_metadata_to_java.py # 元数据导入脚本
+│   └── check_and_import_metadata.py # 一键导入脚本
 ├── web_ui/                    # Web UI
 │   ├── backend/              # 后端服务
 │   │   ├── main.py          # FastAPI 应用
@@ -514,6 +532,22 @@ dbt docs serve
 
 # 清理编译产物
 dbt clean
+```
+
+### 元数据导入命令
+
+```bash
+# 一键导入元数据到Java后端（推荐）
+python scripts/check_and_import_metadata.py
+
+# 只查看将要导入的数据（不实际导入）
+python scripts/import_metadata_to_java.py --dry-run
+
+# 导入元数据到指定的Java后端
+python scripts/import_metadata_to_java.py --api-url http://localhost:8080/api/metadata
+
+# 指定数据库路径
+python scripts/import_metadata_to_java.py --db-path ./datacore.duckdb
 ```
 
 ### Web UI 命令
@@ -580,6 +614,12 @@ npm run dev
    - 检查 Node.js 版本（需要 16+）
    - 删除 `node_modules` 重新安装
    - 检查 `package.json` 依赖
+
+5. **元数据导入失败**
+   - 确保已运行 `dbt run --select metadata.*`
+   - 检查Java后端服务是否启动
+   - 检查网络连接和API地址
+   - 使用 `--dry-run` 参数查看将要导入的数据
 
 ## 📄 许可证
 

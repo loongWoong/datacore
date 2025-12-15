@@ -1,10 +1,12 @@
 spring:
   application:
     name: scheduler-service
-  cloud:
-    nacos:
-      config:
-        server-addr: 192.168.22.212:8848
-        file-extension: yaml
-      discovery:
-        server-addr: 192.168.22.212:8848
+
+# 以下Nacos配置已注释，改为单体启动模式
+#  cloud:
+#    nacos:
+#      config:
+#        server-addr: 192.168.22.212:8848
+#        file-extension: yaml
+#      discovery:
+#        server-addr: 192.168.22.212:8848

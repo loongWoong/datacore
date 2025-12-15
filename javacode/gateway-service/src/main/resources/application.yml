@@ -1,0 +1,55 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: gateway-service
+  
+  cloud:
+    gateway:
+      routes:
+        - id: metadata-service
+          uri: http://localhost:8080
+          predicates:
+            - Path=/api/metadata/**
+        
+        - id: lineage-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/lineage/**
+            
+        - id: quality-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/quality/**
+            
+        - id: asset-service
+          uri: http://localhost:8083
+          predicates:
+            - Path=/api/assets/**
+            
+        - id: report-service
+          uri: http://localhost:8084
+          predicates:
+            - Path=/api/reports/**
+            
+        - id: scheduler-service
+          uri: http://localhost:8085
+          predicates:
+            - Path=/api/scheduler/**
+            
+        # 移除这个路由规则，因为它会干扰前端请求
+        # - id: frontend
+        #   uri: http://localhost:3000
+        #   predicates:
+        #     - Path=/**
+        #   filters:
+        #     - StripPrefix=0
+
+logging:
+  level:
+    org.springframework.cloud.gateway: trace
+    org.springframework.web.reactive.DispatcherHandler: debug
+    reactor.netty.http.client: debug
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

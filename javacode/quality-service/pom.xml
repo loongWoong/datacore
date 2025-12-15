@@ -101,6 +101,12 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>3.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-models</artifactId>
+            <version>2.2.9</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
